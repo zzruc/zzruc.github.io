@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="之前一直在博客园上写博客，写了一个SAS系列，但是使用中发现博客园对Markdown的支持不太友好；另外，一直想有一个用自己名字命名的博客网站的想法。说做就做，用了两个多小时搭建起了这个博客，搭建过程不是很难，但是有很多小细节，为了避免自己遗忘，遂写此文记之。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于GitHub Page在Mac上搭建Hexo博客">
+<meta property="og:url" content="http://yoursite.com/2017/08/10/基于GitHub-Page在Mac上搭建Hexo博客/index.html">
+<meta property="og:site_name" content="张长写字的地方">
+<meta property="og:description" content="之前一直在博客园上写博客，写了一个SAS系列，但是使用中发现博客园对Markdown的支持不太友好；另外，一直想有一个用自己名字命名的博客网站的想法。说做就做，用了两个多小时搭建起了这个博客，搭建过程不是很难，但是有很多小细节，为了避免自己遗忘，遂写此文记之。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2017/08/10/基于GitHub-Page在Mac上搭建Hexo博客/nodejs.png">
+<meta property="og:image" content="http://yoursite.com/2017/08/10/基于GitHub-Page在Mac上搭建Hexo博客/hexo.png">
+<meta property="og:image" content="http://yoursite.com/2017/08/10/基于GitHub-Page在Mac上搭建Hexo博客/new_repository0.png">
+<meta property="og:image" content="http://yoursite.com/2017/08/10/基于GitHub-Page在Mac上搭建Hexo博客/new_repository.png">
+<meta property="og:updated_time" content="2017-09-02T12:07:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于GitHub Page在Mac上搭建Hexo博客">
+<meta name="twitter:description" content="之前一直在博客园上写博客，写了一个SAS系列，但是使用中发现博客园对Markdown的支持不太友好；另外，一直想有一个用自己名字命名的博客网站的想法。说做就做，用了两个多小时搭建起了这个博客，搭建过程不是很难，但是有很多小细节，为了避免自己遗忘，遂写此文记之。">
+<meta name="twitter:image" content="http://yoursite.com/2017/08/10/基于GitHub-Page在Mac上搭建Hexo博客/nodejs.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/10/基于GitHub-Page在Mac上搭建Hexo博客/"/>
+
+
+
+
+
+  <title>基于GitHub Page在Mac上搭建Hexo博客 | 张长写字的地方</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">张长写字的地方</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/10/基于GitHub-Page在Mac上搭建Hexo博客/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zzruc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张长写字的地方">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">基于GitHub Page在Mac上搭建Hexo博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-10T09:48:27+08:00">
+                2017-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>之前一直在博客园上写博客，写了一个SAS系列，但是使用中发现博客园对Markdown的支持不太友好；另外，一直想有一个用自己名字命名的博客网站的想法。说做就做，用了两个多小时搭建起了这个博客，搭建过程不是很难，但是有很多小细节，为了避免自己遗忘，遂写此文记之。<br><a id="more"></a></p>
+<h1 id="博客搭建方案的选择"><a href="#博客搭建方案的选择" class="headerlink" title="博客搭建方案的选择"></a>博客搭建方案的选择</h1><p>博客搭建方案有很多，我选择的是基于GitHub Page使用Hexo搭建博客。</p>
+<h2 id="GitHub-Page"><a href="#GitHub-Page" class="headerlink" title="GitHub Page"></a>GitHub Page</h2><p>要搭建自己的博客，肯定要有自己的虚拟主机，有以下两个选择:</p>
+<ul>
+<li>购买自己的服务器空间</li>
+<li>使用免费的GitHub Page</li>
+</ul>
+<p>第一种方法很Geek,但是除去每个月的服务器租借费用，还需要自己构建后台数据库等等，我仅仅就是写一个博客，记录一下自己的学习笔记，况且最近手上很多项目要做，可不想这么费时费力。所以我选用了GitHub Page,好处在于，只要你拥有GitHub账户，就可以使用GitHub Page,享受300M免费空间。</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>搭建博客的工具有很多，我听到的最多的是WordPress，网上也有推荐jekyll的。三种工具的使用方法如下：</p>
+<ol>
+<li>Git+Github+Markdown+hexo （免费）</li>
+<li>Git+Github+Markdown+jekyll （免费）</li>
+<li>虚拟主机＋插件＋Wordpress    （付费）</li>
+</ol>
+<p>三者的优缺点也很明显</p>
+<p>Hexo:<br>可以部署到GitHub上，操作比Jekyll简单，命令少，支持markdown,其生成的是静态博客。缺点是每次在新电脑上使用时，都要重新安装和配置编译环境。这个的确很麻烦，想想你如果换了电脑，又得重新配置一遍博客环境。</p>
+<p>Jekyll：可以部署到GitHub上，支持markdown，hexo而言，可以直接在GitHub网页上编辑和发布博客，这个的确很方便，因为它不会把你写博客的环境局限到你当前正在使用的本机上。缺点就是jekyll用的liquid语法对程序员不是很友好，但是功能的确比hexo强大很多，时间充裕的可以选择jekyll。</p>
+<p>WordPress：安装方便，功能强大，可扩展性高，插件丰富；缺点就是需要自己购买虚拟主机，且迁移成本高。</p>
+<h1 id="Hexo的安装和配置"><a href="#Hexo的安装和配置" class="headerlink" title="Hexo的安装和配置"></a>Hexo的安装和配置</h1><p><a href="https://hexo.io/docs/" target="_blank" rel="external">Hexo</a>官网给了详细的安装教程，这里结合我的安装过程介绍一下。</p>
+<h2 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h2><p>去node.js<a href="https://nodejs.org/en/" target="_blank" rel="external">官网</a>现在稳定版的node.js，按照默认方式安装即可。</p>
+<img src="/2017/08/10/基于GitHub-Page在Mac上搭建Hexo博客/nodejs.png" alt="nodejs.png" title="">
+<h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><p>先看看自己的Mac上有没有git<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git --verison</div><div class="line">git version 2.11.0 (Apple Git-81)</div></pre></td></tr></table></figure></p>
+<p>如果出现版本号，就表明Mac上有git。如果没有出现版本号，安装也很简单，提供以下两种方法。</p>
+<ol>
+<li>通过xcode安装。因为xcode7以后都是默认安装git的，所以直接App Store里下载安装xcode即可。</li>
+<li>使用homebrew安装。<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ homebrew install git</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure>
+<p>如果因为权限不足，可以加上sudo运行。</p>
+<h2 id="本地初始化博客"><a href="#本地初始化博客" class="headerlink" title="本地初始化博客"></a>本地初始化博客</h2><p>前面安装了必备的工具，现在开始在本地初始化博客。</p>
+<h3 id="创建本地博客目录"><a href="#创建本地博客目录" class="headerlink" title="创建本地博客目录"></a>创建本地博客目录</h3><p>建议在自己的用户目录下建立blog目录，这样的好处在于以后进入该目录很方便，不然要经过很多层。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> </div><div class="line">$ hexo init blog</div></pre></td></tr></table></figure></p>
+<p>在自己的用户目录下创建了blog目录，名字可以随便取。</p>
+<h3 id="安装npm"><a href="#安装npm" class="headerlink" title="安装npm"></a>安装npm</h3><p>在blog目录下安装npm,并开启hexo服务<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> blog</div><div class="line">$ npm install</div><div class="line">$ hexo s</div></pre></td></tr></table></figure></p>
+<h3 id="验证本地安装是否成功"><a href="#验证本地安装是否成功" class="headerlink" title="验证本地安装是否成功"></a>验证本地安装是否成功</h3><p>浏览器输入<code>http://localhost:4000</code>，如果出现以下页面，表示本地hexo已安装好。<br><img src="/2017/08/10/基于GitHub-Page在Mac上搭建Hexo博客/hexo.png" alt="hexo.png" title=""></p>
+<h2 id="关联GitHub"><a href="#关联GitHub" class="headerlink" title="关联GitHub"></a>关联GitHub</h2><p>首先要有GitHub账号，没有的要先<a href="https://github.com/" target="_blank" rel="external">注册</a>。</p>
+<h3 id="本地生成ssh-key"><a href="#本地生成ssh-key" class="headerlink" title="本地生成ssh key"></a>本地生成ssh key</h3><p>首先看一下自己Mac上是否有id_rsa和id_rsa.pub文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ls -al ~/.ssh</div></pre></td></tr></table></figure></p>
+<p>如果没有则需要生成<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span></div></pre></td></tr></table></figure></p>
+<p>注意：<code>your_email@example.com</code>是你自己的GitHub注册邮箱。</p>
+<h3 id="添加ssh-key到GitHub"><a href="#添加ssh-key到GitHub" class="headerlink" title="添加ssh key到GitHub"></a>添加ssh key到GitHub</h3><p>打开刚刚生成的id_rsa.pub文件(<code>$ vi ~/.ssh/id_rsa.pub</code>)，并复制里面的内容到GitHub:</p>
+<blockquote>
+<p>进入GitHub -&gt;settings -&gt;SSH and GPG keys -&gt;New SSH key</p>
+<h3 id="创建repository"><a href="#创建repository" class="headerlink" title="创建repository"></a>创建repository</h3><img src="/2017/08/10/基于GitHub-Page在Mac上搭建Hexo博客/new_repository0.png" alt="new_repository0.png" title="">
+<p>repository名为<code>用户名.github.io</code>为固定写法，不可更改。比如我的就是<code>zzruc.github.io</code>，因为我这个仓库已经创建了，所以这里展示会提示我已经存在了同名的仓库，大家创建时不会出现这个提示。<br><img src="/2017/08/10/基于GitHub-Page在Mac上搭建Hexo博客/new_repository.png" alt="new_repository.png" title=""></p>
+</blockquote>
+<h2 id="设置本地hexo"><a href="#设置本地hexo" class="headerlink" title="设置本地hexo"></a>设置本地hexo</h2><p>我们的blog目录下以下文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">_config.yml	</div><div class="line">node_modules		</div><div class="line">source</div><div class="line">db.json		</div><div class="line">package.json	</div><div class="line">scaffolds	</div><div class="line">themes</div></pre></td></tr></table></figure></p>
+<p>注意<strong>_config.yml</strong>这个文件，在blog下的这个文件称作<font color="Darkorange">站点配置文件</font>,后面我们还会我们的主题下见到另一个<strong>_config.yml</strong>，称为<font color="Darkorange">主题配置文件</font>。<br>用vi打开<font color="Darkorange">站点配置文件</font>：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi _config.yml</div></pre></td></tr></table></figure></p>
+<p>修改里面的内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">    type: git</div><div class="line">    repository: https://github.com/zzruc/zzruc.github.io.git</div><div class="line">    branch: master</div></pre></td></tr></table></figure></p>
+<p><code>repository</code>中的zzruc改为自己的GitHub名，<code>branch</code>中的master表示是git中的master分支。</p>
+<table><tr><td bgcolor="Lightcoral">注意：冒号后面必须要有一个空格。</td></tr></table>
+
+<p>在blog目录下生成静态页面<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div></pre></td></tr></table></figure></p>
+<p>如果报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ERROR Local hexo not found in ~/blog</div><div class="line">ERROR Try runing: &apos;npm install hexo --save&apos;</div></pre></td></tr></table></figure></p>
+<p>根据提示执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo --save</div></pre></td></tr></table></figure></p>
+<p>然后执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
+<p>如果仍然报错，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
+<p>然后在执行<code>hexo g</code>和<code>hexo d</code>，总之就是缺什么装什么。<code>hexo g</code> 和<code>hexo d</code>这两个命令后面会经常使用（g 表示 generate，d 表示 deploy）。</p>
+<p>如果以上步骤都顺利进行，那么在浏览器输入<code>http://zzruc.github.io</code>,会出现上面我们见过的一个页面。</p>
+<h2 id="创建和发布博客"><a href="#创建和发布博客" class="headerlink" title="创建和发布博客"></a>创建和发布博客</h2><p>和使用客户端（windows下的live writer，Mac下的Marsedit)创建和发布博客不同，hexo创建和发布博客需要使用命令行。</p>
+<h3 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h3><p>终端切换到blog目录下执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"postName"</span></div></pre></td></tr></table></figure></p>
+<p>注意必须是在blog目录下执行，博客名必须要加双引号，这样就会在<code>blog/source/_posts/</code>目录下<br>创建<font color="Darkorange">postName.md</font>文件，我们的就可以在这个文件里愉快地写markdown了。</p>
+<h3 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h3><p>blog目录下执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
+<h1 id="个性化设置"><a href="#个性化设置" class="headerlink" title="个性化设置"></a>个性化设置</h1><p>hexo官方提供了很多<a href="https://hexo.io/themes/" target="_blank" rel="external">主题</a>，可以根据自己的喜好自行选择,因为我喜欢简约的风格，所以选用了<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Next主题</a>。</p>
+<h2 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h2><p>选好了自己的喜欢的主题，直接git该主题即可，在blog目录下执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
+<p>这段代码将<code>next</code>主题文件加载到了<code>blog/themes/</code>目录，其实<code>blog/themes/</code>目录下还有一个<code>landscape</code>文件夹，这是hexo默认的主题。所以，变更主题的思路的就有了，只需要更改<font color="Darkorange">站点配置文件</font>的某个参数即可：</p>
+<blockquote>
+<p>将<font color="Darkorange">站点配置文件</font>里<strong>theme</strong>的名称<code>landscape</code>修改为<code>next</code></p>
+</blockquote>
+<p>本地更改后，还需要重新部署，blog目录下执行以下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div><div class="line">$ hexo g</div><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
+<p>在浏览器输入<code>http://zzruc.github.io</code>,看看我们的博客页面是不是变化了。</p>
+<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>其实上面的过程完成后，已经可以愉快地写博客了，但是因为我一直想拥有一个以自己名字作为域名的博客，所以就继续绑定域名了。</p>
+<h3 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h3><p>可以在<a href="https://sg.godaddy.com/zh/" target="_blank" rel="external">GoDaddy</a>或者<a href="https://wanwang.aliyun.com/" target="_blank" rel="external">阿里万网</a>购买。Godaddy是国外的公司，但是支持支付宝付款<br>价格方面，阿里万网比godaddy稍微便宜一点，但是购买阿里万网的域名需要备案，备案不复杂，直接按照网站上的要求上传.jpg格式的身份证正面扫描件即可。</p>
+<h3 id="绑定GitHub："><a href="#绑定GitHub：" class="headerlink" title="绑定GitHub："></a>绑定GitHub：</h3><p>在<code>/blog/themes/next/source</code>目录下新建文件名为：<code>CNAME</code>文件。直接将自己的域名如：zzwhu.com写入。<br>终端切换到blog目录下执行如下命令重新部署：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div><div class="line">$ hexo g</div><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
+<table><tr><td bgcolor="Lightcoral">注意：1.<strong>CNAME</strong>文件没有后缀名。2.因为我们使用的是<strong>next</strong>主题，所以是在<strong>/blog/themes/next/source</strong>创建<strong>CNAME</strong>文件，如果你使用的是默认的<strong>landscape</strong>主题，则应在<strong>/blog/themes/landscape/source</strong>文件下创建<strong>CNAE</strong>文件。以后若更改主题了，也应该在相应的目录下创建<strong>CNAME</strong>文件。</td></tr></table>
+
+<h3 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h3><p>进入阿里万网解析。</p>
+<p>记录类型的含义</p>
+<blockquote>
+<p>要将域名指向主机服务商提供的IP地址，请选择「A记录」；<br>要将域名指向主机服务商提供的另一个域名，请选择「CNAME记录」。<br>建立邮箱：需要设置「MX记录」，根据邮箱服务商提供的MX记录填写。</p>
+</blockquote>
+<p>主机记录的含义</p>
+<blockquote>
+<p>www ：<br>将域名解析为www.example.com，填写www；<br>@ ：<br>将域名解析为example.com（不带www），填写@或者不填写；<br>mail ：<br>将域名解析为mail.example.com，通常用于解析邮箱服务器；<br>* ：<br>泛解析，所有子域名均被解析到统一地址（除单独设置的子域名解析）；</p>
+</blockquote>
+<ul>
+<li><strong>记录类型</strong> : CNAME</li>
+<li><strong>主机记录</strong> : 不填</li>
+<li><strong>记录值</strong>   : zzruc.github.io. (不要忘记最后的.，zzruc改为你自己的用户名)，点击保存即可。</li>
+</ul>
+<p>在浏览器输入<code>zzwhu.com</code>,就可以看到自己的博客了。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.jianshu.com/p/c4f145fdd637" target="_blank" rel="external">博客搭建可行性方案( jekyll , hexo , Wordpress )</a></p>
+<p><a href="https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/" target="_blank" rel="external">Hexo博客搭建之在文章中插入图片</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/05/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="zzruc" />
+          <p class="site-author-name" itemprop="name">zzruc</p>
+           
+              <p class="site-description motion-element" itemprop="description">世之奇伟、瑰怪，非常之观，常在于险远</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#博客搭建方案的选择"><span class="nav-number">1.</span> <span class="nav-text">博客搭建方案的选择</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-Page"><span class="nav-number">1.1.</span> <span class="nav-text">GitHub Page</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo"><span class="nav-number">1.2.</span> <span class="nav-text">Hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo的安装和配置"><span class="nav-number">2.</span> <span class="nav-text">Hexo的安装和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装node-js"><span class="nav-number">2.1.</span> <span class="nav-text">安装node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装git"><span class="nav-number">2.2.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.3.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地初始化博客"><span class="nav-number">2.4.</span> <span class="nav-text">本地初始化博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建本地博客目录"><span class="nav-number">2.4.1.</span> <span class="nav-text">创建本地博客目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装npm"><span class="nav-number">2.4.2.</span> <span class="nav-text">安装npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证本地安装是否成功"><span class="nav-number">2.4.3.</span> <span class="nav-text">验证本地安装是否成功</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联GitHub"><span class="nav-number">2.5.</span> <span class="nav-text">关联GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地生成ssh-key"><span class="nav-number">2.5.1.</span> <span class="nav-text">本地生成ssh key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加ssh-key到GitHub"><span class="nav-number">2.5.2.</span> <span class="nav-text">添加ssh key到GitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建repository"><span class="nav-number">2.5.3.</span> <span class="nav-text">创建repository</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置本地hexo"><span class="nav-number">2.6.</span> <span class="nav-text">设置本地hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建和发布博客"><span class="nav-number">2.7.</span> <span class="nav-text">创建和发布博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建博客"><span class="nav-number">2.7.1.</span> <span class="nav-text">创建博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布博客"><span class="nav-number">2.7.2.</span> <span class="nav-text">发布博客</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#个性化设置"><span class="nav-number">3.</span> <span class="nav-text">个性化设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择主题"><span class="nav-number">3.1.</span> <span class="nav-text">选择主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定域名"><span class="nav-number">3.2.</span> <span class="nav-text">绑定域名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#购买域名"><span class="nav-number">3.2.1.</span> <span class="nav-text">购买域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定GitHub："><span class="nav-number">3.2.2.</span> <span class="nav-text">绑定GitHub：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名解析"><span class="nav-number">3.2.3.</span> <span class="nav-text">域名解析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">3.3.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zzruc</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
