@@ -106,7 +106,7 @@
 <meta property="og:image" content="http://yoursite.com/2017/09/06/机器学习基石-1-The-Learning-Problem/02.png">
 <meta property="og:image" content="http://yoursite.com/2017/09/06/机器学习基石-1-The-Learning-Problem/04.png">
 <meta property="og:image" content="http://yoursite.com/2017/09/06/机器学习基石-1-The-Learning-Problem/05.png">
-<meta property="og:updated_time" content="2017-09-06T06:47:20.000Z">
+<meta property="og:updated_time" content="2017-09-06T07:08:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习基石 (1) The Learning Problem">
 <meta name="twitter:description" content="台大林轩田老师的《机器学习基石》和《机器学习技法》课和Courease上Andrew Ng的机器学习课相比，更加注重理论讲解，所以难度较后者大。在观看了前七讲视频后，深深觉得不总结，不做题，这门课是学不好的，遂写下此系列博文。">
@@ -397,7 +397,19 @@
 <li>行(Stallkamp et al., 2012)。自动驾驶中很重要的一点就是能识别交通信号灯。</li>
 <li>娱。Netflix电影推荐。</li>
 </ul>
-<h1 id="机器学习组成"><a href="#机器学习组成" class="headerlink" title="机器学习组成"></a>机器学习组成</h1><p>机器学习就是利用现有的数据去计算hypothesis $g$,并且让 $g$尽可能接近目标函数 $f$。<br><img src="04.png" alt=""><br>我们已有的数据称为$\mathcal{D}$,它是我们的目标函数 $f$ 产生的,存在，但是我们不知道长什么样。我们的算法$\mathcal{A}$从我们的假设空间(hypothesis set) $\mathcal{H}$ 中选一个合适的 $g$，其中$g\in \mathcal{H}={h_k}$<br><img src="05.png" alt=""></p>
+<h1 id="机器学习组成"><a href="#机器学习组成" class="headerlink" title="机器学习组成"></a>机器学习组成</h1><p><img src="04.png" alt=""></p>
+<p>$\mathcal{D}$是我们已有的数据,它是通过某种潜在的模式产生的，记作目标函数 $f$ ，我们不知道$f$长什么样。$\mathcal{H}$是我们的假设空间，由于$\mathcal{H}$ 中可能包含好的假设，也可能包含不好的假设，所以就取决于我们的算法根据已有的数据从$\mathcal{A}$从$\mathcal{H}$ 中选一个合适的 $g$，其中$g\in \mathcal{H}={h_k}$，使得 $g$和目标函数$f$尽量一样。所以我们通常说的<strong>模型</strong>是指</p>
+<blockquote>
+<p>learning model=$\mathcal{A}$ and $\mathcal{H}$<br><img src="05.png" alt=""></p>
+</blockquote>
+<ul>
+<li>根据上面的叙述，很明显2是正确的。</li>
+</ul>
+<h1 id="机器学习相关领域"><a href="#机器学习相关领域" class="headerlink" title="机器学习相关领域"></a>机器学习相关领域</h1><ul>
+<li>机器学习和数据挖掘：两者大量交叉。</li>
+<li>机器学习和人工智能：机器学习是人工智能的一种路径。</li>
+<li>机器学习和统计：统计是机器学习很重要的一种工具。</li>
+</ul>
 
       
     </div>
@@ -570,7 +582,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程大纲："><span class="nav-number">1.</span> <span class="nav-text">课程大纲：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习是什么"><span class="nav-number">2.</span> <span class="nav-text">机器学习是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习应用"><span class="nav-number">3.</span> <span class="nav-text">机器学习应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习组成"><span class="nav-number">4.</span> <span class="nav-text">机器学习组成</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程大纲："><span class="nav-number">1.</span> <span class="nav-text">课程大纲：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习是什么"><span class="nav-number">2.</span> <span class="nav-text">机器学习是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习应用"><span class="nav-number">3.</span> <span class="nav-text">机器学习应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习组成"><span class="nav-number">4.</span> <span class="nav-text">机器学习组成</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习相关领域"><span class="nav-number">5.</span> <span class="nav-text">机器学习相关领域</span></a></li></ol></div>
             
 
           </div>
