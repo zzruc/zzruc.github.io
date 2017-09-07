@@ -104,7 +104,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/2017/09/05/Standford-NLP-01-Basic-Text-Processing/01_language_technology.png">
 <meta property="og:image" content="http://yoursite.com/2017/09/05/Standford-NLP-01-Basic-Text-Processing/02.png">
-<meta property="og:updated_time" content="2017-09-07T11:14:51.000Z">
+<meta property="og:updated_time" content="2017-09-07T11:37:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Standford NLP (01) Basic Text Processing">
 <meta name="twitter:description" content="最近开始学习自然语言处理，斯坦福Jurafsky教授在coursera的这门课程很适合入门，遂将学习笔记整理成一个系列，便于以后复习查看。">
@@ -425,7 +425,82 @@
 <li>InformaIon retrieval</li>
 <li>SenIment analysis</li>
 </ul>
-<h1 id="Basic-Text-Processing"><a href="#Basic-Text-Processing" class="headerlink" title="Basic Text Processing"></a>Basic Text Processing</h1><h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2>
+<h1 id="Basic-Text-Processing"><a href="#Basic-Text-Processing" class="headerlink" title="Basic Text Processing"></a>Basic Text Processing</h1><h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><ul>
+<li>[  ] 匹配”[ ]”中任意一个字符</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Pattern</th>
+<th style="text-align:left">Mathes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">[wW]oodchuck</td>
+<td style="text-align:left">Woodchuck, woodchuck</td>
+</tr>
+<tr>
+<td style="text-align:left">[1234567890]</td>
+<td style="text-align:left">any digit</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Ranges [A-Z]</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Pattern</th>
+<th style="text-align:left">Mathes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">[A-Z]</td>
+<td style="text-align:left">任何一个大写字母</td>
+</tr>
+<tr>
+<td style="text-align:left">[a-z]</td>
+<td style="text-align:left">任何一个小写字母</td>
+</tr>
+<tr>
+<td style="text-align:left">[0-9]</td>
+<td style="text-align:left">任何一个数字</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>^ 表示否定，即不含哪些字符，当且仅当<code>&quot;^&quot;</code>位于<code>[ ]</code>里其处于第一个字符处。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Pattern</th>
+<th style="text-align:left">Mathes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">[^A-Z]</td>
+<td style="text-align:left">任何一个非大写字母字符</td>
+</tr>
+<tr>
+<td style="text-align:left">[^Ss]</td>
+<td style="text-align:left">任何一个非”S”或”s”字符</td>
+</tr>
+<tr>
+<td style="text-align:left">[^e^]</td>
+<td style="text-align:left">任何一个非”e”或非”^”字符</td>
+</tr>
+<tr>
+<td style="text-align:left">a^b</td>
+<td style="text-align:left">a^b</td>
+</tr>
+</tbody>
+</table>
+
       
     </div>
     
