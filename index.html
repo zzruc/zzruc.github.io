@@ -273,6 +273,183 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/07/Git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zzruc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张长写字的地方">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/07/Git/" itemprop="url">Git</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-07T09:07:00+08:00">
+                2017-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;zzruc&quot;</div><div class="line">git config --global user.email &quot;zzruc@foxmail.com&quot;</div><div class="line">git config user.name</div><div class="line">git config user.email</div><div class="line">cd ~</div><div class="line">ls -la</div><div class="line">cat .gitconfig</div><div class="line">git config --global core.editor &quot;mate -wl1&quot;</div><div class="line">git config --global color.ui true</div><div class="line">cat .gitconfig</div><div class="line">cd ~</div><div class="line">curl -OL https://github.com/git/git/raw/master/contrib/completion/git-completion.bash</div><div class="line">mv ~/git-completion.bash ~/.git-completion.bash</div><div class="line">edit ~./bash_profile</div><div class="line">if [ -f ~/.git-compeletion.bash ];then</div><div class="line">  source ~/.git-completion.bash</div><div class="line">fi</div><div class="line"></div><div class="line">git help</div><div class="line">git help log</div></pre></td></tr></table></figure>
+<p>initailize git<br>git init 初始化一个仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
+<p>.git文件夹里的文件不要动，除了config文件</p>
+<ul>
+<li>make changes</li>
+<li>add the changes</li>
+<li>commit changes to the repository with a message</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd ~/Document/first_git_project</div><div class="line">vim first_file.txt</div><div class="line">git add .//将first_git_project目录下的所有改变加入git</div><div class="line">git commit -m &quot;Initial commit&quot;</div></pre></td></tr></table></figure>
+<p>writing commit messages</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git log</div><div class="line">git log -n //限定log的最近n条</div><div class="line">git log --since=2012-06-15</div><div class="line">git log --until=2012-06-15</div><div class="line">git log --author=&apos;joe&apos;</div><div class="line">git log --grep-&apos;Init&apos;</div></pre></td></tr></table></figure>
+<h2 id="Git-concepts-and-architecture"><a href="#Git-concepts-and-architecture" class="headerlink" title="Git concepts and architecture"></a>Git concepts and architecture</h2><p>two-tree architecture</p>
+
+<p>当多人编辑同一文件时，会有问题<br>three-tree architecure</p>
+
+<p>git add 只是加入到staging index,git commit才是永久的存入repository里,并且会有commit message。</p>
+<h2 id="git-workflow"><a href="#git-workflow" class="headerlink" title="git workflow"></a>git workflow</h2><p>1.Git generate a checksum for each change set</p>
+<ul>
+<li>checksum algorthms convert data into a simple number</li>
+<li>same data always equals same checksum</li>
+</ul>
+<p>2.data integrity is fundamental</p>
+<ul>
+<li>changing data would change checksum</li>
+</ul>
+<p>3.Git uses SHA-1 hash algorithm to create checksums</p>
+<ul>
+<li>40-character hexadecimal string(0-9,a-f)</li>
+</ul>
+<p>using the SHA-1 value to referr to commits</p>
+<h2 id="The-head-pointer"><a href="#The-head-pointer" class="headerlink" title="The head pointer"></a>The head pointer</h2><p>HEAD always points to “tips” of current branch in repository.</p>
+<p>HEAD在哪里呢？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~/Document/fist_git_project</div><div class="line">$ <span class="built_in">cd</span> .git</div><div class="line">$ cat HEAD</div><div class="line">ref: refs/heads/master</div><div class="line">$ <span class="built_in">cd</span> refs/heads</div><div class="line">$ cat master</div><div class="line">790fce9688aa6a1a9cea7af24dc5008f09758a07</div><div class="line">$ git <span class="built_in">log</span></div><div class="line">commit 790fce9688aa6a1a9cea7af24dc5008f09758a07</div><div class="line">$ git <span class="built_in">log</span> HEAD <span class="comment">#和git log作用一样</span></div><div class="line">commit 790fce9688aa6a1a9cea7af24dc5008f09758a07</div></pre></td></tr></table></figure>
+<h2 id="Add-Files-to-Repository"><a href="#Add-Files-to-Repository" class="headerlink" title="Add Files to Repository"></a>Add Files to Repository</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git status</div></pre></td></tr></table></figure>
+<p>git status会告诉working directory ,stagging index 和 repository的区别</p>
+<h2 id="Edit-files"><a href="#Edit-files" class="headerlink" title="Edit files"></a>Edit files</h2><h2 id="view-change-wich-diff"><a href="#view-change-wich-diff" class="headerlink" title="view change wich diff"></a>view change wich diff</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git diff </div><div class="line">$ git diff first_file.txt</div></pre></td></tr></table></figure>
+<h2 id="view"><a href="#view" class="headerlink" title="view"></a>view</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git diff --staged <span class="comment">#比较stage和repository</span></div><div class="line">$ git diff <span class="comment">#比较working directory和repository</span></div></pre></td></tr></table></figure>
+<h2 id="deleting-files"><a href="#deleting-files" class="headerlink" title="deleting files"></a>deleting files</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rm file_to_delete.txt</div></pre></td></tr></table></figure>
+<h2 id="moving-and-renaming-files"><a href="#moving-and-renaming-files" class="headerlink" title="moving and renaming files"></a>moving and renaming files</h2><p>手动改名git status时不会显示rename,会提示原文件被删除，而改名的文件未add。当我们git add后再进行git status，git会根据改名前后文件的内容来判断是否为rename,如果改名前后文件内容超多50%是一样的，则判定为rename,否则为新文件。如果需要改名或则删除的文件较多，建议先操作好后再用git；如果血药改名活删除的文件少，可以直接用git操作。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git mv second_file.txt seconary_file.txt</div></pre></td></tr></table></figure></p>
+<p>在git看来，mv和改名是一个操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~/Document/first_git_project</div><div class="line">$ mkdir first_directory</div><div class="line">$ git mv third_file.txt first_directory/third_file.txt</div><div class="line">$ git status <span class="comment">#会显示third_file.txt被改名了</span></div></pre></td></tr></table></figure></p>
+<p>less page<br>“f” forward<br>“b” backward<br>toggle fold long lines<br>minus sign(-)+shift+s+return<br>git diff –color-word contact.html</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -am <span class="string">"changed file"</span></div></pre></td></tr></table></figure>
+<p>高效但也有风险：</p>
+<ol>
+<li>该命令会把working directory下的<strong>所有</strong>文件都commit,包括那些我们可能不想commit的文件。</li>
+<li>对于那些untracked和deleted的文件该命令不会包含。</li>
+</ol>
+<h2 id="renaming"><a href="#renaming" class="headerlink" title="renaming"></a>renaming</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git mv tours/tour_detail_backpack.html tours/tour_detail_backpack_cal.html</div></pre></td></tr></table></figure>
+<h2 id="undo-changes"><a href="#undo-changes" class="headerlink" title="undo changes"></a>undo changes</h2><p>撤销working directory里的更改，这里以index.html文件为例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -- index.html</div></pre></td></tr></table></figure>
+<p>checkout 后面不要加入加入目录名，以免和后面branch名冲突。最好的做法是用“–” 表示在当前分恢复working directory里面的index.html文件。</p>
+<p>撤销stagging里的更改</p>
+<p>当我们修改了文件，<code>add</code>但是没有<code>commit</code>，这时我们的文件处于stage</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset HEAD resources.html</div></pre></td></tr></table></figure>
+<blockquote>
+<p>The HEAD pointer always points to the last commit of the tip of the current branch.  </p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/06/机器学习基石-1-The-Learning-Problem/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -994,7 +1171,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="1234567891011121314151617181920git config --global user.name &amp;quot;zzruc&amp;quot;git config --global user.email &amp;quot;zzruc@foxmail.com&amp;quot;git config user.namegit config user.emailcd ~ls -lacat .gitcon">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="http://yoursite.com/2017/09/07/Git/index.html">
+<meta property="og:site_name" content="张长写字的地方">
+<meta property="og:description" content="1234567891011121314151617181920git config --global user.name &amp;quot;zzruc&amp;quot;git config --global user.email &amp;quot;zzruc@foxmail.com&amp;quot;git config user.namegit config user.emailcd ~ls -lacat .gitcon">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-09-07T01:08:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git">
+<meta name="twitter:description" content="1234567891011121314151617181920git config --global user.name &amp;quot;zzruc&amp;quot;git config --global user.email &amp;quot;zzruc@foxmail.com&amp;quot;git config user.namegit config user.emailcd ~ls -lacat .gitcon">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/07/Git/"/>
+
+
+
+
+
+  <title>Git | 张长写字的地方</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">张长写字的地方</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/07/Git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zzruc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张长写字的地方">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Git</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-07T09:07:00+08:00">
+                2017-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;zzruc&quot;</div><div class="line">git config --global user.email &quot;zzruc@foxmail.com&quot;</div><div class="line">git config user.name</div><div class="line">git config user.email</div><div class="line">cd ~</div><div class="line">ls -la</div><div class="line">cat .gitconfig</div><div class="line">git config --global core.editor &quot;mate -wl1&quot;</div><div class="line">git config --global color.ui true</div><div class="line">cat .gitconfig</div><div class="line">cd ~</div><div class="line">curl -OL https://github.com/git/git/raw/master/contrib/completion/git-completion.bash</div><div class="line">mv ~/git-completion.bash ~/.git-completion.bash</div><div class="line">edit ~./bash_profile</div><div class="line">if [ -f ~/.git-compeletion.bash ];then</div><div class="line">  source ~/.git-completion.bash</div><div class="line">fi</div><div class="line"></div><div class="line">git help</div><div class="line">git help log</div></pre></td></tr></table></figure>
+<p>initailize git<br>git init 初始化一个仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
+<p>.git文件夹里的文件不要动，除了config文件</p>
+<ul>
+<li>make changes</li>
+<li>add the changes</li>
+<li>commit changes to the repository with a message</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd ~/Document/first_git_project</div><div class="line">vim first_file.txt</div><div class="line">git add .//将first_git_project目录下的所有改变加入git</div><div class="line">git commit -m &quot;Initial commit&quot;</div></pre></td></tr></table></figure>
+<p>writing commit messages</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git log</div><div class="line">git log -n //限定log的最近n条</div><div class="line">git log --since=2012-06-15</div><div class="line">git log --until=2012-06-15</div><div class="line">git log --author=&apos;joe&apos;</div><div class="line">git log --grep-&apos;Init&apos;</div></pre></td></tr></table></figure>
+<h2 id="Git-concepts-and-architecture"><a href="#Git-concepts-and-architecture" class="headerlink" title="Git concepts and architecture"></a>Git concepts and architecture</h2><p>two-tree architecture</p>
+
+<p>当多人编辑同一文件时，会有问题<br>three-tree architecure</p>
+
+<p>git add 只是加入到staging index,git commit才是永久的存入repository里,并且会有commit message。</p>
+<h2 id="git-workflow"><a href="#git-workflow" class="headerlink" title="git workflow"></a>git workflow</h2><p>1.Git generate a checksum for each change set</p>
+<ul>
+<li>checksum algorthms convert data into a simple number</li>
+<li>same data always equals same checksum</li>
+</ul>
+<p>2.data integrity is fundamental</p>
+<ul>
+<li>changing data would change checksum</li>
+</ul>
+<p>3.Git uses SHA-1 hash algorithm to create checksums</p>
+<ul>
+<li>40-character hexadecimal string(0-9,a-f)</li>
+</ul>
+<p>using the SHA-1 value to referr to commits</p>
+<h2 id="The-head-pointer"><a href="#The-head-pointer" class="headerlink" title="The head pointer"></a>The head pointer</h2><p>HEAD always points to “tips” of current branch in repository.</p>
+<p>HEAD在哪里呢？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~/Document/fist_git_project</div><div class="line">$ <span class="built_in">cd</span> .git</div><div class="line">$ cat HEAD</div><div class="line">ref: refs/heads/master</div><div class="line">$ <span class="built_in">cd</span> refs/heads</div><div class="line">$ cat master</div><div class="line">790fce9688aa6a1a9cea7af24dc5008f09758a07</div><div class="line">$ git <span class="built_in">log</span></div><div class="line">commit 790fce9688aa6a1a9cea7af24dc5008f09758a07</div><div class="line">$ git <span class="built_in">log</span> HEAD <span class="comment">#和git log作用一样</span></div><div class="line">commit 790fce9688aa6a1a9cea7af24dc5008f09758a07</div></pre></td></tr></table></figure>
+<h2 id="Add-Files-to-Repository"><a href="#Add-Files-to-Repository" class="headerlink" title="Add Files to Repository"></a>Add Files to Repository</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git status</div></pre></td></tr></table></figure>
+<p>git status会告诉working directory ,stagging index 和 repository的区别</p>
+<h2 id="Edit-files"><a href="#Edit-files" class="headerlink" title="Edit files"></a>Edit files</h2><h2 id="view-change-wich-diff"><a href="#view-change-wich-diff" class="headerlink" title="view change wich diff"></a>view change wich diff</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git diff </div><div class="line">$ git diff first_file.txt</div></pre></td></tr></table></figure>
+<h2 id="view"><a href="#view" class="headerlink" title="view"></a>view</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git diff --staged <span class="comment">#比较stage和repository</span></div><div class="line">$ git diff <span class="comment">#比较working directory和repository</span></div></pre></td></tr></table></figure>
+<h2 id="deleting-files"><a href="#deleting-files" class="headerlink" title="deleting files"></a>deleting files</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rm file_to_delete.txt</div></pre></td></tr></table></figure>
+<h2 id="moving-and-renaming-files"><a href="#moving-and-renaming-files" class="headerlink" title="moving and renaming files"></a>moving and renaming files</h2><p>手动改名git status时不会显示rename,会提示原文件被删除，而改名的文件未add。当我们git add后再进行git status，git会根据改名前后文件的内容来判断是否为rename,如果改名前后文件内容超多50%是一样的，则判定为rename,否则为新文件。如果需要改名或则删除的文件较多，建议先操作好后再用git；如果血药改名活删除的文件少，可以直接用git操作。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git mv second_file.txt seconary_file.txt</div></pre></td></tr></table></figure></p>
+<p>在git看来，mv和改名是一个操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~/Document/first_git_project</div><div class="line">$ mkdir first_directory</div><div class="line">$ git mv third_file.txt first_directory/third_file.txt</div><div class="line">$ git status <span class="comment">#会显示third_file.txt被改名了</span></div></pre></td></tr></table></figure></p>
+<p>less page<br>“f” forward<br>“b” backward<br>toggle fold long lines<br>minus sign(-)+shift+s+return<br>git diff –color-word contact.html</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -am <span class="string">"changed file"</span></div></pre></td></tr></table></figure>
+<p>高效但也有风险：</p>
+<ol>
+<li>该命令会把working directory下的<strong>所有</strong>文件都commit,包括那些我们可能不想commit的文件。</li>
+<li>对于那些untracked和deleted的文件该命令不会包含。</li>
+</ol>
+<h2 id="renaming"><a href="#renaming" class="headerlink" title="renaming"></a>renaming</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git mv tours/tour_detail_backpack.html tours/tour_detail_backpack_cal.html</div></pre></td></tr></table></figure>
+<h2 id="undo-changes"><a href="#undo-changes" class="headerlink" title="undo changes"></a>undo changes</h2><p>撤销working directory里的更改，这里以index.html文件为例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -- index.html</div></pre></td></tr></table></figure>
+<p>checkout 后面不要加入加入目录名，以免和后面branch名冲突。最好的做法是用“–” 表示在当前分恢复working directory里面的index.html文件。</p>
+<p>撤销stagging里的更改</p>
+<p>当我们修改了文件，<code>add</code>但是没有<code>commit</code>，这时我们的文件处于stage</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset HEAD resources.html</div></pre></td></tr></table></figure>
+<blockquote>
+<p>The HEAD pointer always points to the last commit of the tip of the current branch.  </p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/06/机器学习基石-1-The-Learning-Problem/" rel="next" title="机器学习基石 (1) The Learning Problem">
+                <i class="fa fa-chevron-left"></i> 机器学习基石 (1) The Learning Problem
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="zzruc" />
+          <p class="site-author-name" itemprop="name">zzruc</p>
+           
+              <p class="site-description motion-element" itemprop="description">世之奇伟、瑰怪，非常之观，常在于险远</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-concepts-and-architecture"><span class="nav-number">1.</span> <span class="nav-text">Git concepts and architecture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-workflow"><span class="nav-number">2.</span> <span class="nav-text">git workflow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-head-pointer"><span class="nav-number">3.</span> <span class="nav-text">The head pointer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Add-Files-to-Repository"><span class="nav-number">4.</span> <span class="nav-text">Add Files to Repository</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Edit-files"><span class="nav-number">5.</span> <span class="nav-text">Edit files</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#view-change-wich-diff"><span class="nav-number">6.</span> <span class="nav-text">view change wich diff</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#view"><span class="nav-number">7.</span> <span class="nav-text">view</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deleting-files"><span class="nav-number">8.</span> <span class="nav-text">deleting files</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#moving-and-renaming-files"><span class="nav-number">9.</span> <span class="nav-text">moving and renaming files</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#renaming"><span class="nav-number">10.</span> <span class="nav-text">renaming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undo-changes"><span class="nav-number">11.</span> <span class="nav-text">undo changes</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zzruc</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
