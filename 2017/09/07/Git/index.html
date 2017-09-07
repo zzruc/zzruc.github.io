@@ -101,10 +101,13 @@
 <meta property="og:site_name" content="张长写字的地方">
 <meta property="og:description" content="1234567891011121314151617181920git config --global user.name &amp;quot;user&amp;quot;git config --global user.email &amp;quot;user@email.com&amp;quot;git config user.namegit config user.emailcd ~ls -lacat .gitconfigg">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-07T01:09:47.000Z">
+<meta property="og:image" content="http://yoursite.com/2017/09/07/Git/01_two_tree_architecture.png">
+<meta property="og:image" content="http://yoursite.com/2017/09/07/Git/02_three_tree_architecture.png">
+<meta property="og:updated_time" content="2017-09-07T01:15:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git">
 <meta name="twitter:description" content="1234567891011121314151617181920git config --global user.name &amp;quot;user&amp;quot;git config --global user.email &amp;quot;user@email.com&amp;quot;git config user.namegit config user.emailcd ~ls -lacat .gitconfigg">
+<meta name="twitter:image" content="http://yoursite.com/2017/09/07/Git/01_two_tree_architecture.png">
 
 
 
@@ -352,9 +355,8 @@
 <p>writing commit messages</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git log</div><div class="line">git log -n //限定log的最近n条</div><div class="line">git log --since=2012-06-15</div><div class="line">git log --until=2012-06-15</div><div class="line">git log --author=&apos;joe&apos;</div><div class="line">git log --grep-&apos;Init&apos;</div></pre></td></tr></table></figure>
 <h2 id="Git-concepts-and-architecture"><a href="#Git-concepts-and-architecture" class="headerlink" title="Git concepts and architecture"></a>Git concepts and architecture</h2><p>two-tree architecture</p>
-
-<p>当多人编辑同一文件时，会有问题<br>three-tree architecure</p>
-
+<p><img src="01_two_tree_architecture.png" alt=""><br>当多人编辑同一文件时，会有问题<br>three-tree architecure</p>
+<p><img src="02_three_tree_architecture.png" alt=""></p>
 <p>git add 只是加入到staging index,git commit才是永久的存入repository里,并且会有commit message。</p>
 <h2 id="git-workflow"><a href="#git-workflow" class="headerlink" title="git workflow"></a>git workflow</h2><p>1.Git generate a checksum for each change set</p>
 <ul>
@@ -392,7 +394,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -- index.html</div></pre></td></tr></table></figure>
 <p>checkout 后面不要加入加入目录名，以免和后面branch名冲突。最好的做法是用“–” 表示在当前分恢复working directory里面的index.html文件。</p>
 <p>撤销stagging里的更改</p>
-<p>当我们修改了文件，<code>add</code>但是没有<code>commit</code>，这时我们的文件处于stage</p>
+<p>当我们修改了文件，<code>add</code>但是没有<code>commit</code>，这时我们的文件处于stage，我们可以使用以下命令撤销掉它刚刚的修改，但是保留working directory里的内容。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset HEAD resources.html</div></pre></td></tr></table></figure>
 <blockquote>
 <p>The HEAD pointer always points to the last commit of the tip of the current branch.  </p>
