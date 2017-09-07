@@ -357,9 +357,9 @@
 <p>writing commit messages</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git log</div><div class="line">git log -n //限定log的最近n条</div><div class="line">git log --since=2012-06-15</div><div class="line">git log --until=2012-06-15</div><div class="line">git log --author=&apos;joe&apos;</div><div class="line">git log --grep-&apos;Init&apos;</div></pre></td></tr></table></figure>
 <h2 id="Git-concepts-and-architecture"><a href="#Git-concepts-and-architecture" class="headerlink" title="Git concepts and architecture"></a>Git concepts and architecture</h2><p>two-tree architecture</p>
-<p><img src="01_two_tree_architecture.png" alt=""><br>当多人编辑同一文件时，会有问题<br>three-tree architecure</p>
-<p><img src="02_three_tree_architecture.png" alt=""></p>
-<p>git add 只是加入到staging index,git commit才是永久的存入repository里,并且会有commit message。</p>
+<p><img src="01.png" alt=""><br>当多人编辑同一文件时，会有问题<br>three-tree architecure</p>
+<p><img src="02.png" alt=""></p>
+<p><code>git add</code>只是加入到staging index,<code>git commit</code>才是永久的存入repository里,并且会有commit message。</p>
 <h2 id="git-workflow"><a href="#git-workflow" class="headerlink" title="git workflow"></a>git workflow</h2><p>1.Git generate a checksum for each change set</p>
 <ul>
 <li>checksum algorthms convert data into a simple number</li>
@@ -401,6 +401,10 @@
 <blockquote>
 <p>The HEAD pointer always points to the last commit of the tip of the current branch.  </p>
 </blockquote>
+<p>amending commit message</p>
+<p>我们不能改变repository里的其他commit,但是可以改变最后一条commit,这就好比链表里，我们如果只改变最有一个数据，那么对前面的数据是没有影响的。<br><img src="03.png" alt=""></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -- amend -m <span class="string">"change the commit message"</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$</div></pre></td></tr></table></figure>
 
           
         
