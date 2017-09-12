@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="张长写字的地方">
 <meta property="og:description" content="Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入graffe这个单词，下面四个单词那个与之最接近：graf graft grail giraffe 。在生物领域的用处更大，比如判断两段碱基序列有多相似： AGGCTATCACCTGACCTCCAGGCCGATGCCC TAGCTATCACGACCGCGGTCGATTTGCCCGAC 另外，在Machine Transla">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-12T07:41:23.000Z">
+<meta property="og:updated_time" content="2017-09-12T07:43:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Standford NLP (02) Edit Distance">
 <meta name="twitter:description" content="Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入graffe这个单词，下面四个单词那个与之最接近：graf graft grail giraffe 。在生物领域的用处更大，比如判断两段碱基序列有多相似： AGGCTATCACCTGACCTCCAGGCCGATGCCC TAGCTATCACGACCGCGGTCGATTTGCCCGAC 另外，在Machine Transla">
@@ -362,12 +362,12 @@
       
 
       
-        <p>Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入<code>graffe</code>这个单词，下面四个单词那个与之最接近：<br><span style="color:orange"><strong>graf</strong></span> <span style="color:orange"><strong>graft</strong></span> <span style="color:orange"><strong>grail</strong></span> <span style="color:orange"><strong>giraffe</strong></span> 。在生物领域的用处更大，比如判断两段碱基序列有多相似：</p>
+        <p>Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入<code>graffe</code>这个单词，下面四个单词那个与之最接近：<span style="color:orange"><strong>graf</strong></span> <span style="color:orange"><strong>graft</strong></span> <span style="color:orange"><strong>grail</strong></span> <span style="color:orange"><strong>giraffe</strong></span> 。在生物领域的用处更大，比如判断两段碱基序列有多相似：</p>
 <p><span style="color:blue"><strong>AGGCTATCACCTGACCTCCAGGCCGATGCCC</strong></span></p>
 <p><span style="color:blue"><strong>TAGCTATCACGACCGCGGTCGATTTGCCCGAC</strong></span></p>
 <p>另外，在Machine Translation, Information Extraction, Speech Recognition领域也有很多应用，下面进行深入了解。</p>
 <a id="more"></a>
-<h1 id="Defining-Minimum-Edit-Distance"><a href="#Defining-Minimum-Edit-Distance" class="headerlink" title="Defining Minimum Edit Distance"></a>Defining Minimum Edit Distance</h1><h1 id="Computing-Minimum-Edit-Distance"><a href="#Computing-Minimum-Edit-Distance" class="headerlink" title="Computing Minimum Edit Distance"></a>Computing Minimum Edit Distance</h1><h1 id="Backtrace-for-Computing-Alignments"><a href="#Backtrace-for-Computing-Alignments" class="headerlink" title="Backtrace_for_Computing_Alignments"></a>Backtrace_for_Computing_Alignments</h1><h1 id="Weighted-Minimum-Edit-Distance"><a href="#Weighted-Minimum-Edit-Distance" class="headerlink" title="Weighted_Minimum_Edit_Distance"></a>Weighted_Minimum_Edit_Distance</h1><h1 id="Minimum-Edit-Distance-in-Computational-Biology"><a href="#Minimum-Edit-Distance-in-Computational-Biology" class="headerlink" title="Minimum_Edit_Distance_in_Computational_Biology"></a>Minimum_Edit_Distance_in_Computational_Biology</h1>
+<h1 id="Defining-Minimum-Edit-Distance"><a href="#Defining-Minimum-Edit-Distance" class="headerlink" title="Defining Minimum Edit Distance"></a>Defining Minimum Edit Distance</h1><h1 id="Computing-Minimum-Edit-Distance"><a href="#Computing-Minimum-Edit-Distance" class="headerlink" title="Computing Minimum Edit Distance"></a>Computing Minimum Edit Distance</h1><h1 id="Backtrace-for-Computing-Alignments"><a href="#Backtrace-for-Computing-Alignments" class="headerlink" title="Backtrace for Computing Alignments"></a>Backtrace for Computing Alignments</h1><h1 id="Weighted-Minimum-Edit-Distance"><a href="#Weighted-Minimum-Edit-Distance" class="headerlink" title="Weighted Minimum Edit Distance"></a>Weighted Minimum Edit Distance</h1><h1 id="Minimum-Edit-Distance-in-Computational-Biology"><a href="#Minimum-Edit-Distance-in-Computational-Biology" class="headerlink" title="Minimum Edit Distance in Computational Biology"></a>Minimum Edit Distance in Computational Biology</h1>
       
     </div>
     
@@ -406,6 +406,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/12/Standford-NLP-03-Language-Modeling/" rel="prev" title="Standford NLP (03) Language Modeling">
+                Standford NLP (03) Language Modeling <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -482,7 +486,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -493,7 +497,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -539,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Defining-Minimum-Edit-Distance"><span class="nav-number">1.</span> <span class="nav-text">Defining Minimum Edit Distance</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Computing-Minimum-Edit-Distance"><span class="nav-number">2.</span> <span class="nav-text">Computing Minimum Edit Distance</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Backtrace-for-Computing-Alignments"><span class="nav-number">3.</span> <span class="nav-text">Backtrace_for_Computing_Alignments</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Weighted-Minimum-Edit-Distance"><span class="nav-number">4.</span> <span class="nav-text">Weighted_Minimum_Edit_Distance</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Minimum-Edit-Distance-in-Computational-Biology"><span class="nav-number">5.</span> <span class="nav-text">Minimum_Edit_Distance_in_Computational_Biology</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Defining-Minimum-Edit-Distance"><span class="nav-number">1.</span> <span class="nav-text">Defining Minimum Edit Distance</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Computing-Minimum-Edit-Distance"><span class="nav-number">2.</span> <span class="nav-text">Computing Minimum Edit Distance</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Backtrace-for-Computing-Alignments"><span class="nav-number">3.</span> <span class="nav-text">Backtrace for Computing Alignments</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Weighted-Minimum-Edit-Distance"><span class="nav-number">4.</span> <span class="nav-text">Weighted Minimum Edit Distance</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Minimum-Edit-Distance-in-Computational-Biology"><span class="nav-number">5.</span> <span class="nav-text">Minimum Edit Distance in Computational Biology</span></a></li></ol></div>
             
 
           </div>

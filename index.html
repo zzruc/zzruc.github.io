@@ -273,6 +273,148 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/Standford-NLP-03-Language-Modeling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zzruc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张长写字的地方">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/12/Standford-NLP-03-Language-Modeling/" itemprop="url">Standford NLP (03) Language Modeling</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-12T18:57:35+08:00">
+                2017-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Stanford-NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">Stanford NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h1 id="Introduction-to-N-grams"><a href="#Introduction-to-N-grams" class="headerlink" title="Introduction to N-grams"></a>Introduction to N-grams</h1><h2 id="Probabilistic-Language-Models"><a href="#Probabilistic-Language-Models" class="headerlink" title="Probabilistic Language Models"></a>Probabilistic Language Models</h2><h1 id="Estimating-N-gram-Probabilities"><a href="#Estimating-N-gram-Probabilities" class="headerlink" title="Estimating N-gram Probabilities"></a>Estimating N-gram Probabilities</h1><h1 id="Evaluation-and-Perplexity"><a href="#Evaluation-and-Perplexity" class="headerlink" title="Evaluation and Perplexity"></a>Evaluation and Perplexity</h1><h1 id="Generalization-and-Zeros"><a href="#Generalization-and-Zeros" class="headerlink" title="Generalization and Zeros"></a>Generalization and Zeros</h1><h1 id="Smoothing-Add-One"><a href="#Smoothing-Add-One" class="headerlink" title="Smoothing-Add-One"></a>Smoothing-Add-One</h1><h1 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h1><h1 id="Good-Turing-Smoothing"><a href="#Good-Turing-Smoothing" class="headerlink" title="Good-Turing Smoothing"></a>Good-Turing Smoothing</h1><h1 id="Kneser-Ney-Smoothing"><a href="#Kneser-Ney-Smoothing" class="headerlink" title="Kneser-Ney Smoothing"></a>Kneser-Ney Smoothing</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/Standford-NLP-02-Edit-Distance/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -365,7 +507,7 @@
 
       
         
-          <p>Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入<code>graffe</code>这个单词，下面四个单词那个与之最接近：<br><span style="color:orange"><strong>graf</strong></span> <span style="color:orange"><strong>graft</strong></span> <span style="color:orange"><strong>grail</strong></span> <span style="color:orange"><strong>giraffe</strong></span> 。在生物领域的用处更大，比如判断两段碱基序列有多相似：</p>
+          <p>Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入<code>graffe</code>这个单词，下面四个单词那个与之最接近：<span style="color:orange"><strong>graf</strong></span> <span style="color:orange"><strong>graft</strong></span> <span style="color:orange"><strong>grail</strong></span> <span style="color:orange"><strong>giraffe</strong></span> 。在生物领域的用处更大，比如判断两段碱基序列有多相似：</p>
 <p><span style="color:blue"><strong>AGGCTATCACCTGACCTCCAGGCCGATGCCC</strong></span></p>
 <p><span style="color:blue"><strong>TAGCTATCACGACCGCGGTCGATTTGCCCGAC</strong></span></p>
 <p>另外，在Machine Translation, Information Extraction, Speech Recognition领域也有很多应用，下面进行深入了解。</p>
@@ -1289,7 +1431,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1300,7 +1442,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>

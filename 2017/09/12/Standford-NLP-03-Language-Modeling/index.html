@@ -94,21 +94,18 @@
 
 
 
-<meta name="description" content="最近开始学习自然语言处理，斯坦福Jurafsky教授在coursera的这门课程很适合入门，遂将学习笔记整理成一个系列，便于以后复习查看。">
+<meta name="description" content="Introduction to N-gramsProbabilistic Language ModelsEstimating N-gram ProbabilitiesEvaluation and PerplexityGeneralization and ZerosSmoothing-Add-OneInterpolationGood-Turing SmoothingKneser-Ney Smoot">
 <meta name="keywords" content="NLP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Standford NLP (01) Basic Text Processing">
-<meta property="og:url" content="http://yoursite.com/2017/09/05/Standford-NLP-01-Basic-Text-Processing/index.html">
+<meta property="og:title" content="Standford NLP (03) Language Modeling">
+<meta property="og:url" content="http://yoursite.com/2017/09/12/Standford-NLP-03-Language-Modeling/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="最近开始学习自然语言处理，斯坦福Jurafsky教授在coursera的这门课程很适合入门，遂将学习笔记整理成一个系列，便于以后复习查看。">
+<meta property="og:description" content="Introduction to N-gramsProbabilistic Language ModelsEstimating N-gram ProbabilitiesEvaluation and PerplexityGeneralization and ZerosSmoothing-Add-OneInterpolationGood-Turing SmoothingKneser-Ney Smoot">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/2017/09/05/Standford-NLP-01-Basic-Text-Processing/01_language_technology.png">
-<meta property="og:image" content="http://yoursite.com/2017/09/05/Standford-NLP-01-Basic-Text-Processing/02.png">
-<meta property="og:updated_time" content="2017-09-07T13:08:02.000Z">
+<meta property="og:updated_time" content="2017-09-12T11:47:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Standford NLP (01) Basic Text Processing">
-<meta name="twitter:description" content="最近开始学习自然语言处理，斯坦福Jurafsky教授在coursera的这门课程很适合入门，遂将学习笔记整理成一个系列，便于以后复习查看。">
-<meta name="twitter:image" content="http://yoursite.com/2017/09/05/Standford-NLP-01-Basic-Text-Processing/01_language_technology.png">
+<meta name="twitter:title" content="Standford NLP (03) Language Modeling">
+<meta name="twitter:description" content="Introduction to N-gramsProbabilistic Language ModelsEstimating N-gram ProbabilitiesEvaluation and PerplexityGeneralization and ZerosSmoothing-Add-OneInterpolationGood-Turing SmoothingKneser-Ney Smoot">
 
 
 
@@ -137,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/05/Standford-NLP-01-Basic-Text-Processing/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/12/Standford-NLP-03-Language-Modeling/"/>
 
 
 
 
 
-  <title>Standford NLP (01) Basic Text Processing | 张长写字的地方</title>
+  <title>Standford NLP (03) Language Modeling | 张长写字的地方</title>
   
 
 
@@ -276,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/05/Standford-NLP-01-Basic-Text-Processing/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/Standford-NLP-03-Language-Modeling/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzruc">
@@ -293,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Standford NLP (01) Basic Text Processing</h1>
+          <h1 class="post-title" itemprop="name headline">Standford NLP (03) Language Modeling</h1>
         
 
         <div class="post-meta">
@@ -305,8 +302,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-05T21:40:53+08:00">
-                2017-09-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-12T18:57:35+08:00">
+                2017-09-12
               </time>
             
 
@@ -328,8 +325,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Standford-NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">Standford NLP</span>
+                  <a href="/categories/Stanford-NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">Stanford NLP</span>
                   </a>
                 </span>
 
@@ -365,240 +362,8 @@
       
 
       
-        <p>最近开始学习自然语言处理，斯坦福Jurafsky教授在coursera的这门课程很适合入门，遂将学习笔记整理成一个系列，便于以后复习查看。</p>
-<a id="more"></a>
-<h1 id="Course-Introduciton"><a href="#Course-Introduciton" class="headerlink" title="Course Introduciton"></a>Course Introduciton</h1><h2 id="NLP可以做什么"><a href="#NLP可以做什么" class="headerlink" title="NLP可以做什么"></a>NLP可以做什么</h2><ol>
-<li>Question Answering:比如IBM Waton问答系统。</li>
-<li>Information Extraction:提取一封邮件里面的时间、地点、事项。</li>
-<li>Sentiment Analysis:比如对购物网站上一款相机的评论进行分析，发现消费者对这款相机的评论好坏。</li>
-<li>Machine Translation：比如Google翻译，输入中文，翻译成英文。</li>
-</ol>
-<h2 id="NLP的发展如何"><a href="#NLP的发展如何" class="headerlink" title="NLP的发展如何"></a>NLP的发展如何</h2><img src="/2017/09/05/Standford-NLP-01-Basic-Text-Processing/01_language_technology.png" alt="01_language_technology.png" title="">
-<p>1.基本已解决的问题</p>
-<ul>
-<li>Spam detection</li>
-<li>Part-of-speech(POS) tagging</li>
-<li>Named entity recognition(NER)</li>
-</ul>
-<p>2.研究有进展的问题</p>
-<ul>
-<li>Sentiment analysis</li>
-<li>Coreference resolution</li>
-<li>Word sence disambiugation</li>
-<li>Parsing</li>
-<li>Machine translation(MT)</li>
-<li>Information extraction(IE)</li>
-</ul>
-<p>3.仍然很难的问题</p>
-<ul>
-<li>Question answering</li>
-<li>Paraphase</li>
-<li>Summarization</li>
-<li>Dialog</li>
-</ul>
-<h2 id="语言的模糊性（Ambiguity"><a href="#语言的模糊性（Ambiguity" class="headerlink" title="语言的模糊性（Ambiguity)"></a>语言的模糊性（Ambiguity)</h2><p>比如下面这句话</p>
-<blockquote>
-<p>Violinist Linked to JAL Crash Blossoms</p>
-</blockquote>
-<p>可以这样理解<code>【Violinist Linked to】JAL Crash Blossoms</code>,或者这样理解<code>【Violinist Linked to JAL Crash】 Blossoms</code></p>
-<h2 id="NLP为什么困难"><a href="#NLP为什么困难" class="headerlink" title="NLP为什么困难"></a>NLP为什么困难</h2><p><img src="02.png" alt=""></p>
-<ol>
-<li>非标准用语。比如很多网络用语，简写等。</li>
-<li>分割问题。</li>
-<li>谚语。</li>
-<li>旧词新意。</li>
-<li>现实世界的知识。</li>
-<li>专有名词。</li>
-</ol>
-<h2 id="课程主要内容"><a href="#课程主要内容" class="headerlink" title="课程主要内容"></a>课程主要内容</h2><p>1.NLP的理论和方法</p>
-<ul>
-<li>Viterbi</li>
-<li>Naïve Bayes, Maxent classifiers</li>
-<li>N-gram language modeling</li>
-<li>StaIsIcal Parsing</li>
-<li>Inverted index, y-idf, vector models of meaning</li>
-</ul>
-<p>2.现实应用</p>
-<ul>
-<li>InformaIon extracIon</li>
-<li>Spelling correcIon</li>
-<li>InformaIon retrieval</li>
-<li>SenIment analysis</li>
-</ul>
-<h1 id="Basic-Text-Processing"><a href="#Basic-Text-Processing" class="headerlink" title="Basic Text Processing"></a>Basic Text Processing</h1><h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p><a href="regexpal.com">在线练习</a></p>
-<ul>
-<li>[  ] 匹配”[ ]”中任意一个字符</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Pattern</th>
-<th style="text-align:left">Matches</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">[wW]oodchuck</td>
-<td style="text-align:left">Woodchuck, woodchuck</td>
-</tr>
-<tr>
-<td style="text-align:left">[1234567890]</td>
-<td style="text-align:left">any digit</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Ranges [A-Z]</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Pattern</th>
-<th style="text-align:left">Matches</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">[A-Z]</td>
-<td style="text-align:left">任何一个大写字母</td>
-</tr>
-<tr>
-<td style="text-align:left">[a-z]</td>
-<td style="text-align:left">任何一个小写字母</td>
-</tr>
-<tr>
-<td style="text-align:left">[0-9]</td>
-<td style="text-align:left">任何一个数字</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>^ 表示否定，即不含哪些字符，当且仅当<code>&quot;^&quot;</code>位于<code>[ ]</code>里其处于第一个字符处。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Pattern</th>
-<th style="text-align:left">Matches</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">[^A-Z]</td>
-<td style="text-align:left">任何一个非大写字母字符</td>
-</tr>
-<tr>
-<td style="text-align:left">[^Ss]</td>
-<td style="text-align:left">任何一个非”S”或”s”字符</td>
-</tr>
-<tr>
-<td style="text-align:left">[^e^]</td>
-<td style="text-align:left">任何一个非”e”或非”^”字符</td>
-</tr>
-<tr>
-<td style="text-align:left">a^b</td>
-<td style="text-align:left">a^b</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>|  管道符号，表示“或”</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Pattern</th>
-<th style="text-align:left">Matches</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">yours \</td>
-<td style="text-align:left">mine</td>
-<td>yours mine</td>
-</tr>
-<tr>
-<td style="text-align:left">a \</td>
-<td style="text-align:left">b \</td>
-<td>c</td>
-<td>=[abc]</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>?  *  +  .</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Pattern</th>
-<th style="text-align:left">Matches</th>
-<th style="text-align:left"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">color?r</td>
-<td style="text-align:left">有或者没有前面字符</td>
-<td style="text-align:left">color colour</td>
-</tr>
-<tr>
-<td style="text-align:left">oo*h!</td>
-<td style="text-align:left">有0个或0个以上前面的字符</td>
-<td style="text-align:left">oh! ooh! oooh! …</td>
-</tr>
-<tr>
-<td style="text-align:left">o+h!</td>
-<td style="text-align:left">有1个或1个以上前面的字符</td>
-<td style="text-align:left">color clour</td>
-</tr>
-<tr>
-<td style="text-align:left">beg.n</td>
-<td style="text-align:left">任一字符</td>
-<td style="text-align:left">begin begun beg2n …</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>^ 以什么开头， $ 以什么结尾</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Pattern</th>
-<th style="text-align:left">Matches</th>
-<th style="text-align:left"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">^[A-Z]</td>
-<td style="text-align:left">大写字母开头的字符</td>
-<td style="text-align:left"><span style="color:blue">P</span>alo Alto </td>
-</tr>
-<tr>
-<td style="text-align:left">.$</td>
-<td style="text-align:left">以.结尾的字符</td>
-<td style="text-align:left">The end<span style="color:blue">.</span></td>
-</tr>
-<tr>
-<td style="text-align:left">.$</td>
-<td style="text-align:left">任一结尾的字符</td>
-<td style="text-align:left">The end<span style="color:blue">?</span>  The end<span style="color:blue">!</span></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>例子：找到一段文本中的所有单词<code>the</code><br>因为是单词“the”,所以要剔除诸如”there”或者”blithe”这样的情况,还要注意”The”的情况。</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[^A-Za-z][T]he[^A-Za-z]</div></pre></td></tr></table></figure>
-<h2 id="Word-tokenization"><a href="#Word-tokenization" class="headerlink" title="Word tokenization"></a>Word tokenization</h2><ul>
-<li><strong>Type</strong> : an element of the vocabulary.</li>
-<li><strong>Token</strong> : an instance of what type in running text.</li>
-</ul>
-<p>简而言之，Type就是去重后的单词数；Token是没有去重的字数。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ tr  <span class="string">'A-Z'</span> <span class="string">'a-z'</span> &lt;oldman.txt | tr -sc <span class="string">'A-Za-z'</span> <span class="string">'\n'</span>  | sort |uniq -c |sort -n -r</div></pre></td></tr></table></figure>
-
+        <a id="more"></a>
+<h1 id="Introduction-to-N-grams"><a href="#Introduction-to-N-grams" class="headerlink" title="Introduction to N-grams"></a>Introduction to N-grams</h1><h2 id="Probabilistic-Language-Models"><a href="#Probabilistic-Language-Models" class="headerlink" title="Probabilistic Language Models"></a>Probabilistic Language Models</h2><h1 id="Estimating-N-gram-Probabilities"><a href="#Estimating-N-gram-Probabilities" class="headerlink" title="Estimating N-gram Probabilities"></a>Estimating N-gram Probabilities</h1><h1 id="Evaluation-and-Perplexity"><a href="#Evaluation-and-Perplexity" class="headerlink" title="Evaluation and Perplexity"></a>Evaluation and Perplexity</h1><h1 id="Generalization-and-Zeros"><a href="#Generalization-and-Zeros" class="headerlink" title="Generalization and Zeros"></a>Generalization and Zeros</h1><h1 id="Smoothing-Add-One"><a href="#Smoothing-Add-One" class="headerlink" title="Smoothing-Add-One"></a>Smoothing-Add-One</h1><h1 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h1><h1 id="Good-Turing-Smoothing"><a href="#Good-Turing-Smoothing" class="headerlink" title="Good-Turing Smoothing"></a>Good-Turing Smoothing</h1><h1 id="Kneser-Ney-Smoothing"><a href="#Kneser-Ney-Smoothing" class="headerlink" title="Kneser-Ney Smoothing"></a>Kneser-Ney Smoothing</h1>
       
     </div>
     
@@ -628,8 +393,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/31/equation-test/" rel="next" title="equation test">
-                <i class="fa fa-chevron-left"></i> equation test
+              <a href="/2017/09/12/Standford-NLP-02-Edit-Distance/" rel="next" title="Standford NLP (02) Edit Distance">
+                <i class="fa fa-chevron-left"></i> Standford NLP (02) Edit Distance
               </a>
             
           </div>
@@ -637,10 +402,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/06/机器学习基石-1-The-Learning-Problem/" rel="prev" title="机器学习基石 (1) The Learning Problem">
-                机器学习基石 (1) The Learning Problem <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -774,7 +535,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Course-Introduciton"><span class="nav-number">1.</span> <span class="nav-text">Course Introduciton</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NLP可以做什么"><span class="nav-number">1.1.</span> <span class="nav-text">NLP可以做什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NLP的发展如何"><span class="nav-number">1.2.</span> <span class="nav-text">NLP的发展如何</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言的模糊性（Ambiguity"><span class="nav-number">1.3.</span> <span class="nav-text">语言的模糊性（Ambiguity)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NLP为什么困难"><span class="nav-number">1.4.</span> <span class="nav-text">NLP为什么困难</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课程主要内容"><span class="nav-number">1.5.</span> <span class="nav-text">课程主要内容</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Text-Processing"><span class="nav-number">2.</span> <span class="nav-text">Basic Text Processing</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">2.1.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word-tokenization"><span class="nav-number">2.2.</span> <span class="nav-text">Word tokenization</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-to-N-grams"><span class="nav-number">1.</span> <span class="nav-text">Introduction to N-grams</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Probabilistic-Language-Models"><span class="nav-number">1.1.</span> <span class="nav-text">Probabilistic Language Models</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Estimating-N-gram-Probabilities"><span class="nav-number">2.</span> <span class="nav-text">Estimating N-gram Probabilities</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Evaluation-and-Perplexity"><span class="nav-number">3.</span> <span class="nav-text">Evaluation and Perplexity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Generalization-and-Zeros"><span class="nav-number">4.</span> <span class="nav-text">Generalization and Zeros</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Smoothing-Add-One"><span class="nav-number">5.</span> <span class="nav-text">Smoothing-Add-One</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Interpolation"><span class="nav-number">6.</span> <span class="nav-text">Interpolation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Good-Turing-Smoothing"><span class="nav-number">7.</span> <span class="nav-text">Good-Turing Smoothing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Kneser-Ney-Smoothing"><span class="nav-number">8.</span> <span class="nav-text">Kneser-Ney Smoothing</span></a></li></ol></div>
             
 
           </div>
