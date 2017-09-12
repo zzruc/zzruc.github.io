@@ -387,7 +387,7 @@
 <p>在语言识别中如果<code>I saw a van</code>这个句子的概率如果远大于<code>eyes awe of an</code>,我们有理由后面这个句子是不正确的。</p>
 <p>language model(LM) 实际上是计算一连串单词出现的概率:$P(W)=P(w_1,w_2,w_3,\cdots,w_n)$<br>也可以计算，在当前连续的单词下，下一个单词会是什么的概率：<br>$$ P(w_5|w_1,w_2,w_3,w_4)$$</p>
 <h2 id="How-to-compute-P-W"><a href="#How-to-compute-P-W" class="headerlink" title="How to compute $P(W)$"></a>How to compute $P(W)$</h2><p>例如我们有一个句子<code>its, water, is, so, transparent, that</code>,如何计算其出现的概率？<br>因为这是一个联合概率，所以我们直接考虑链式法则来计算</p>
-<p>$$ P(its water is so transparent that)=P(its) \cdot P(water|its) $$</p>
+<p>$$ P(its \quad water \qquad is so transparent that)=P(its) \cdot P(water|its) \cdot P(is|water) \cdot P(so|is) \cdot P(transparent|so) \codt P(that|transparent) $$</p>
 <h1 id="Estimating-N-gram-Probabilities"><a href="#Estimating-N-gram-Probabilities" class="headerlink" title="Estimating N-gram Probabilities"></a>Estimating N-gram Probabilities</h1><h1 id="Evaluation-and-Perplexity"><a href="#Evaluation-and-Perplexity" class="headerlink" title="Evaluation and Perplexity"></a>Evaluation and Perplexity</h1><h1 id="Generalization-and-Zeros"><a href="#Generalization-and-Zeros" class="headerlink" title="Generalization and Zeros"></a>Generalization and Zeros</h1><h1 id="Smoothing-Add-One"><a href="#Smoothing-Add-One" class="headerlink" title="Smoothing-Add-One"></a>Smoothing-Add-One</h1><h1 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h1><h1 id="Good-Turing-Smoothing"><a href="#Good-Turing-Smoothing" class="headerlink" title="Good-Turing Smoothing"></a>Good-Turing Smoothing</h1><h1 id="Kneser-Ney-Smoothing"><a href="#Kneser-Ney-Smoothing" class="headerlink" title="Kneser-Ney Smoothing"></a>Kneser-Ney Smoothing</h1>
           
         
