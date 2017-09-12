@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入graffe这个单词，下面四个单词那个与之最接近：grafgraftgrailgiraffe 。在生物领域的用处更大，比如判断两段碱基序列有多相似： AGGCTATCACCTGACCTCCAGGCCGATGCCCTAGCTATCACGACCGCGGTCGATTTGCCCGAC 另外，在Machine Translation">
+<meta name="description" content="Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入graffe这个单词，下面四个单词那个与之最接近：graf graft grail giraffe 。在生物领域的用处更大，比如判断两段碱基序列有多相似： AGGCTATCACCTGACCTCCAGGCCGATGCCC TAGCTATCACGACCGCGGTCGATTTGCCCGAC 另外，在Machine Transla">
 <meta name="keywords" content="NLP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Standford NLP (02) Edit Distance">
 <meta property="og:url" content="http://yoursite.com/2017/09/12/Standford-NLP-02-Edit-Distance/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入graffe这个单词，下面四个单词那个与之最接近：grafgraftgrailgiraffe 。在生物领域的用处更大，比如判断两段碱基序列有多相似： AGGCTATCACCTGACCTCCAGGCCGATGCCCTAGCTATCACGACCGCGGTCGATTTGCCCGAC 另外，在Machine Translation">
+<meta property="og:description" content="Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入graffe这个单词，下面四个单词那个与之最接近：graf graft grail giraffe 。在生物领域的用处更大，比如判断两段碱基序列有多相似： AGGCTATCACCTGACCTCCAGGCCGATGCCC TAGCTATCACGACCGCGGTCGATTTGCCCGAC 另外，在Machine Transla">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-12T07:37:29.000Z">
+<meta property="og:updated_time" content="2017-09-12T07:41:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Standford NLP (02) Edit Distance">
-<meta name="twitter:description" content="Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入graffe这个单词，下面四个单词那个与之最接近：grafgraftgrailgiraffe 。在生物领域的用处更大，比如判断两段碱基序列有多相似： AGGCTATCACCTGACCTCCAGGCCGATGCCCTAGCTATCACGACCGCGGTCGATTTGCCCGAC 另外，在Machine Translation">
+<meta name="twitter:description" content="Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入graffe这个单词，下面四个单词那个与之最接近：graf graft grail giraffe 。在生物领域的用处更大，比如判断两段碱基序列有多相似： AGGCTATCACCTGACCTCCAGGCCGATGCCC TAGCTATCACGACCGCGGTCGATTTGCCCGAC 另外，在Machine Transla">
 
 
 
@@ -362,8 +362,9 @@
       
 
       
-        <p>Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入<code>graffe</code>这个单词，下面四个单词那个与之最接近：<br><span style="color:orange"><strong>graf</strong></span><br><span style="color:orange"><strong>graft</strong></span><br><span style="color:orange"><strong>grail</strong></span><br><span style="color:orange"><strong>giraffe</strong></span> 。在生物领域的用处更大，比如判断两段碱基序列有多相似：</p>
-<p><span style="color:blue"><strong>AGGCTATCACCTGACCTCCAGGCCGATGCCC</strong></span><br><span style="color:blue"><strong>TAGCTATCACGACCGCGGTCGATTTGCCCGAC</strong></span></p>
+        <p>Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入<code>graffe</code>这个单词，下面四个单词那个与之最接近：<br><span style="color:orange"><strong>graf</strong></span> <span style="color:orange"><strong>graft</strong></span> <span style="color:orange"><strong>grail</strong></span> <span style="color:orange"><strong>giraffe</strong></span> 。在生物领域的用处更大，比如判断两段碱基序列有多相似：</p>
+<p><span style="color:blue"><strong>AGGCTATCACCTGACCTCCAGGCCGATGCCC</strong></span></p>
+<p><span style="color:blue"><strong>TAGCTATCACGACCGCGGTCGATTTGCCCGAC</strong></span></p>
 <p>另外，在Machine Translation, Information Extraction, Speech Recognition领域也有很多应用，下面进行深入了解。</p>
 <a id="more"></a>
 <h1 id="Defining-Minimum-Edit-Distance"><a href="#Defining-Minimum-Edit-Distance" class="headerlink" title="Defining Minimum Edit Distance"></a>Defining Minimum Edit Distance</h1><h1 id="Computing-Minimum-Edit-Distance"><a href="#Computing-Minimum-Edit-Distance" class="headerlink" title="Computing Minimum Edit Distance"></a>Computing Minimum Edit Distance</h1><h1 id="Backtrace-for-Computing-Alignments"><a href="#Backtrace-for-Computing-Alignments" class="headerlink" title="Backtrace_for_Computing_Alignments"></a>Backtrace_for_Computing_Alignments</h1><h1 id="Weighted-Minimum-Edit-Distance"><a href="#Weighted-Minimum-Edit-Distance" class="headerlink" title="Weighted_Minimum_Edit_Distance"></a>Weighted_Minimum_Edit_Distance</h1><h1 id="Minimum-Edit-Distance-in-Computational-Biology"><a href="#Minimum-Edit-Distance-in-Computational-Biology" class="headerlink" title="Minimum_Edit_Distance_in_Computational_Biology"></a>Minimum_Edit_Distance_in_Computational_Biology</h1>
