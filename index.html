@@ -367,7 +367,29 @@
         
           
             <a id="more"></a>
-<h1 id="Introduction-to-N-grams"><a href="#Introduction-to-N-grams" class="headerlink" title="Introduction to N-grams"></a>Introduction to N-grams</h1><h2 id="Probabilistic-Language-Models"><a href="#Probabilistic-Language-Models" class="headerlink" title="Probabilistic Language Models"></a>Probabilistic Language Models</h2><p>Probabilistic Language Models </p>
+<h1 id="Introduction-to-N-grams"><a href="#Introduction-to-N-grams" class="headerlink" title="Introduction to N-grams"></a>Introduction to N-grams</h1><h2 id="Probabilistic-Language-Models"><a href="#Probabilistic-Language-Models" class="headerlink" title="Probabilistic Language Models"></a>Probabilistic Language Models</h2><p>Probabilistic Language Models是用于计算句子在文档中出现的概率，这里的句子可以当做一串连续的单词。知道句子在文档中出现的概率有非常大的用处：</p>
+<ul>
+<li>Machine Translation</li>
+</ul>
+<blockquote>
+<p>P(<strong>high</strong> wind tonite)&gt;P(<strong>large</strong> winds tonite) </p>
+</blockquote>
+<p>在上面的例子中，我们的机器会更愿意选择<code>high</code>来搭配<code>wind</code>。</p>
+<ul>
+<li>Spell Correction</li>
+</ul>
+<blockquote>
+<p>The office is Ç from my house</p>
+</blockquote>
+<p>根据以往的经验 P(about fifteen <strong>miutes</strong>)&gt;P(Probabilistic Language Models),可以提示我们<code>minuets</code>这个单词写错了。</p>
+<ul>
+<li>Speech Recognition</li>
+</ul>
+<blockquote>
+<p>P(I saw a van)&gt;&gt;P(eyes awe of an)</p>
+</blockquote>
+<p>在语言识别中如果<code>I saw a van</code>这个句子的概率如果远大于<code>eyes awe of an</code>,我们有理由后面这个句子是不正确的。</p>
+<p>language model(LM)实际上是计算一连串单词出现的概率:$P(W)=P(w_1,w_2,w_3,\cdots,w_n)$</p>
 <h1 id="Estimating-N-gram-Probabilities"><a href="#Estimating-N-gram-Probabilities" class="headerlink" title="Estimating N-gram Probabilities"></a>Estimating N-gram Probabilities</h1><h1 id="Evaluation-and-Perplexity"><a href="#Evaluation-and-Perplexity" class="headerlink" title="Evaluation and Perplexity"></a>Evaluation and Perplexity</h1><h1 id="Generalization-and-Zeros"><a href="#Generalization-and-Zeros" class="headerlink" title="Generalization and Zeros"></a>Generalization and Zeros</h1><h1 id="Smoothing-Add-One"><a href="#Smoothing-Add-One" class="headerlink" title="Smoothing-Add-One"></a>Smoothing-Add-One</h1><h1 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h1><h1 id="Good-Turing-Smoothing"><a href="#Good-Turing-Smoothing" class="headerlink" title="Good-Turing Smoothing"></a>Good-Turing Smoothing</h1><h1 id="Kneser-Ney-Smoothing"><a href="#Kneser-Ney-Smoothing" class="headerlink" title="Kneser-Ney Smoothing"></a>Kneser-Ney Smoothing</h1>
           
         
