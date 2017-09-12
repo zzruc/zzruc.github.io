@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="张长写字的地方">
 <meta property="og:description" content="Introduction to N-gramsProbabilistic Language ModelsProbabilistic Language Models是用于计算句子在文档中出现的概率，这里的句子可以当做一串连续的单词。知道句子在文档中出现的概率有非常大的用处：  Machine Translation  $$ P(high wind tonite)&amp;gt;P(large winds">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-12T12:21:56.000Z">
+<meta property="og:updated_time" content="2017-09-12T12:30:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Standford NLP (03) Language Modeling">
 <meta name="twitter:description" content="Introduction to N-gramsProbabilistic Language ModelsProbabilistic Language Models是用于计算句子在文档中出现的概率，这里的句子可以当做一串连续的单词。知道句子在文档中出现的概率有非常大的用处：  Machine Translation  $$ P(high wind tonite)&amp;gt;P(large winds">
@@ -367,7 +367,7 @@
 <ul>
 <li>Machine Translation</li>
 </ul>
-<p>$$ P(<strong>high</strong> wind tonite)&gt;P(<strong>large</strong> winds tonite) $$ </p>
+<p>$$ P(high wind tonite)&gt;P(large winds tonite) $$ </p>
 <p>在上面的例子中，我们的机器会更愿意选择<code>high</code>来搭配<code>wind</code>。</p>
 <ul>
 <li>Spell Correction</li>
@@ -381,8 +381,9 @@
 </ul>
 <p>$$ P(I saw a van)&gt;&gt;P(eyes awe of an) $$</p>
 <p>在语言识别中如果<code>I saw a van</code>这个句子的概率如果远大于<code>eyes awe of an</code>,我们有理由后面这个句子是不正确的。</p>
-<p>language model(LM) 实际上是计算一连串单词出现的概率:$P(W)=P(w_1,w_2,w_3,\cdots,w_n)$<br>也可以计算，在当前连续的单词下，下一个单词会是什么的概率：<br>$$ P(w_5|w_1,w_2,w_3,w_4$$</p>
-<h2 id="How-to-compute-P-W"><a href="#How-to-compute-P-W" class="headerlink" title="How to compute $P(W)$"></a>How to compute $P(W)$</h2><h1 id="Estimating-N-gram-Probabilities"><a href="#Estimating-N-gram-Probabilities" class="headerlink" title="Estimating N-gram Probabilities"></a>Estimating N-gram Probabilities</h1><h1 id="Evaluation-and-Perplexity"><a href="#Evaluation-and-Perplexity" class="headerlink" title="Evaluation and Perplexity"></a>Evaluation and Perplexity</h1><h1 id="Generalization-and-Zeros"><a href="#Generalization-and-Zeros" class="headerlink" title="Generalization and Zeros"></a>Generalization and Zeros</h1><h1 id="Smoothing-Add-One"><a href="#Smoothing-Add-One" class="headerlink" title="Smoothing-Add-One"></a>Smoothing-Add-One</h1><h1 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h1><h1 id="Good-Turing-Smoothing"><a href="#Good-Turing-Smoothing" class="headerlink" title="Good-Turing Smoothing"></a>Good-Turing Smoothing</h1><h1 id="Kneser-Ney-Smoothing"><a href="#Kneser-Ney-Smoothing" class="headerlink" title="Kneser-Ney Smoothing"></a>Kneser-Ney Smoothing</h1>
+<p>language model(LM) 实际上是计算一连串单词出现的概率:$P(W)=P(w_1,w_2,w_3,\cdots,w_n)$<br>也可以计算，在当前连续的单词下，下一个单词会是什么的概率：<br>$$ P(w_5|w_1,w_2,w_3,w_4)$$</p>
+<h2 id="How-to-compute-P-W"><a href="#How-to-compute-P-W" class="headerlink" title="How to compute $P(W)$"></a>How to compute $P(W)$</h2><p>例如我们有一个句子<code>its, water, is, so, transparent, that</code>,如何计算其出现的概率？<br>因为这是一个联合概率，所以我们直接考虑链式法则来计算<br>$$P(“its, water, is, so, transparent, that”)=P(its) \cdot P(water|its)<em>P(is|water)</em>P(so|is)<em>P(transparent|so)</em>P(that|transparent)<br>$$</p>
+<h1 id="Estimating-N-gram-Probabilities"><a href="#Estimating-N-gram-Probabilities" class="headerlink" title="Estimating N-gram Probabilities"></a>Estimating N-gram Probabilities</h1><h1 id="Evaluation-and-Perplexity"><a href="#Evaluation-and-Perplexity" class="headerlink" title="Evaluation and Perplexity"></a>Evaluation and Perplexity</h1><h1 id="Generalization-and-Zeros"><a href="#Generalization-and-Zeros" class="headerlink" title="Generalization and Zeros"></a>Generalization and Zeros</h1><h1 id="Smoothing-Add-One"><a href="#Smoothing-Add-One" class="headerlink" title="Smoothing-Add-One"></a>Smoothing-Add-One</h1><h1 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h1><h1 id="Good-Turing-Smoothing"><a href="#Good-Turing-Smoothing" class="headerlink" title="Good-Turing Smoothing"></a>Good-Turing Smoothing</h1><h1 id="Kneser-Ney-Smoothing"><a href="#Kneser-Ney-Smoothing" class="headerlink" title="Kneser-Ney Smoothing"></a>Kneser-Ney Smoothing</h1>
       
     </div>
     
