@@ -109,7 +109,7 @@
 <meta property="og:image" content="http://yoursite.com/2017/09/13/机器学习基石-2-Learning-to-Answer-Yes-NO/05.png">
 <meta property="og:image" content="http://yoursite.com/2017/09/13/机器学习基石-2-Learning-to-Answer-Yes-NO/06.png">
 <meta property="og:image" content="http://yoursite.com/2017/09/13/机器学习基石-2-Learning-to-Answer-Yes-NO/07.png">
-<meta property="og:updated_time" content="2017-09-13T14:45:05.000Z">
+<meta property="og:updated_time" content="2017-09-13T14:48:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习基石 (2) Learning to Answer Yes NO">
 <meta name="twitter:description" content="目录 Perception Hypothesis Set Perception Learning Algorithm(PLA) Guarantee of PLA Non-Separable Data  Perception Hypothesis Set考虑这样一个实例，我们有银行客户数据，现在想帮助银行判断应该给哪些客户发放信用卡。这是一个典型的二分类问题，根据第一讲的内容，我们的思路是：通过算法">
@@ -377,7 +377,7 @@
 <li>Non-Separable Data</li>
 </ul>
 <h1 id="Perception-Hypothesis-Set"><a href="#Perception-Hypothesis-Set" class="headerlink" title="Perception Hypothesis Set"></a>Perception Hypothesis Set</h1><p>考虑这样一个实例，我们有银行客户数据，现在想帮助银行判断应该给哪些客户发放信用卡。<br><img src="01.png" alt=""><br>这是一个典型的二分类问题，根据第一讲的内容，我们的思路是：通过算法 $\mathcal{A}$，在假设空间$\mathcal{H}$中，根据样本数据$\mathcal{D}$，选择最好的假设作为$g$,选择标准是$ g \approx f $。所以首先我们需要确定我们的假设空间$\mathcal{H}$,这里我们选定的假设空间是“Perceptron”:<br><img src="02.png" alt=""><br>向量$\textbf{x}$是客户的特征向量，给每个特征以权重，然后相加，如果大于我们的阈值就记作正类，如果小于就记作负类，这就是Perceptron的思想。<br>为了便于书写，我们稍作化简，以向量的形式表示Perceptron:<br><img src="03.png" alt=""><br>那么我们的假设$h$到底长什么样，考虑简单的二维情形，我们的假设$h$就是一条将我们的正类负类分开（不一定能完全分开）的直线<br><img src="04.png" alt=""><br>刚刚的图中只是我们假设空间$\mathcal{H}$中两个Perceptron,实际上，在二维情况下，我们的Perceptron假设空间包含无数个Perceptron,每一个不同的权重向量$\textbf{w}$都对应一个hypothesis,即平面上的无数条直线都是我么的hypothesis.那么我们该怎么从无数条直线中选择那条最好的直线呢？即如何从$\mathcal{H}$中选择最好的$g$使$g \approx f$?这就是接下来要介绍的PLA。</p>
-<h2 id="Perception-Learning-Algorithm-PLA"><a href="#Perception-Learning-Algorithm-PLA" class="headerlink" title="Perception Learning Algorithm(PLA)"></a>Perception Learning Algorithm(PLA)</h2><p>PLA要做的事是：从某一个权重向量$\textbf{w}_0$开始，然后根据我们的数据集$\mathcal{D}$来不断修正这条直线的错误知道没有点被错误分类，然后返回这个最后的$\textbf{w}$，这就是我们的$g$：<br><img src="05.png" alt=""><br>可是PLA为什么能学习到那条最好的直线呢？从直观上理解，我们的直线所犯的错无非两类：</p>
+<h2 id="Perception-Learning-Algorithm-PLA"><a href="#Perception-Learning-Algorithm-PLA" class="headerlink" title="Perception Learning Algorithm(PLA)"></a>Perception Learning Algorithm(PLA)</h2><p>PLA要做的事是：从某一个权重向量$\textbf{w}_0$开始，然后根据我们的数据集$\mathcal{D}$来不断修正这条直线的错误直到没有点被错误分类，然后返回这个最后的$\textbf{w}$，这就是我们的$g$：<br><img src="05.png" alt=""><br>可是PLA为什么能学习到那条最好的直线呢？从直观上理解，我们的直线所犯的错无非两类：</p>
 <ol>
 <li>把正类误分为负类</li>
 <li>把负类误分为正类</li>
