@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="$$ h(\textbf{x})=sign\left(\left(\sum_{i=1}^{d} w_ix_i\right)\right) $$ 算法： 对于$t=0,1,\cdots$ 1.找到一个错误分类的点$(\textbf{x}_{n(t)},y_{n(t)})$,即 $$ sign\left(\textbf{w}_t^T\right)\neq y_{n(t)}  $$  更新$w_t$">
+<meta name="description" content="$$ h(\textbf{x})=sign\left(\left(\sum_{i=1}^{d} w_ix_i\right)\right) $$ 算法： 对于$t=0,1,\cdots$ 1.找到一个错误分类的点$(\textbf{x}_{n(t)},y_{n(t)})$,即 $$ sign\left(\textbf{w}_t^T\right)\neq y_{n(t)}  $$ 2.更新$w_t$:">
 <meta name="keywords" content="Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习基石 (2) Learning to Answer Yes NO">
 <meta property="og:url" content="http://yoursite.com/2017/09/13/机器学习基石-2-Learning-to-Answer-Yes-NO/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="$$ h(\textbf{x})=sign\left(\left(\sum_{i=1}^{d} w_ix_i\right)\right) $$ 算法： 对于$t=0,1,\cdots$ 1.找到一个错误分类的点$(\textbf{x}_{n(t)},y_{n(t)})$,即 $$ sign\left(\textbf{w}_t^T\right)\neq y_{n(t)}  $$  更新$w_t$">
+<meta property="og:description" content="$$ h(\textbf{x})=sign\left(\left(\sum_{i=1}^{d} w_ix_i\right)\right) $$ 算法： 对于$t=0,1,\cdots$ 1.找到一个错误分类的点$(\textbf{x}_{n(t)},y_{n(t)})$,即 $$ sign\left(\textbf{w}_t^T\right)\neq y_{n(t)}  $$ 2.更新$w_t$:">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-13T03:22:57.000Z">
+<meta property="og:updated_time" content="2017-09-13T03:24:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习基石 (2) Learning to Answer Yes NO">
-<meta name="twitter:description" content="$$ h(\textbf{x})=sign\left(\left(\sum_{i=1}^{d} w_ix_i\right)\right) $$ 算法： 对于$t=0,1,\cdots$ 1.找到一个错误分类的点$(\textbf{x}_{n(t)},y_{n(t)})$,即 $$ sign\left(\textbf{w}_t^T\right)\neq y_{n(t)}  $$  更新$w_t$">
+<meta name="twitter:description" content="$$ h(\textbf{x})=sign\left(\left(\sum_{i=1}^{d} w_ix_i\right)\right) $$ 算法： 对于$t=0,1,\cdots$ 1.找到一个错误分类的点$(\textbf{x}_{n(t)},y_{n(t)})$,即 $$ sign\left(\textbf{w}_t^T\right)\neq y_{n(t)}  $$ 2.更新$w_t$:">
 
 
 
@@ -367,10 +367,8 @@
 <p>对于$t=0,1,\cdots$</p>
 <p>1.找到一个错误分类的点$(\textbf{x}_{n(t)},y_{n(t)})$,即</p>
 <p>$$ sign\left(\textbf{w}_t^T\right)\neq y_{n(t)}  $$</p>
-<ol>
-<li>更新$w_t$</li>
-</ol>
-<p>$$ \textbf{w}_{t+1} \leftarrow \textbf{w}_t+y_{n(t)\textbf{x}_{n(t)}}$$</p>
+<p>2.更新$w_t$:</p>
+<p>$$ \textbf{w}_{t+1} \leftarrow \textbf{w}_t+y_{n(t)}\textbf{x}_{n(t)}}$$</p>
 
       
     </div>
