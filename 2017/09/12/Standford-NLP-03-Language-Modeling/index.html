@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="Introduction to N-gramsProbabilistic Language ModelsProbabilistic Language Models是用于计算句子在文档中出现的概率，这里的句子可以当做一串连续的单词。知道句子在文档中出现的概率有非常大的用处：  Machine Translation  $$ P(high wind tonite)&amp;gt;P(large winds">
+<meta name="description" content="Introduction to N-gramsProbabilistic Language ModelsProbabilistic Language Models是用于计算句子在文档中出现的概率，这里的句子可以当做一串连续的单词。知道句子在文档中出现的概率有非常大的用处：  Machine Translation  $$ P(high \ wind \ tonite)&amp;gt;P(large \">
 <meta name="keywords" content="NLP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Standford NLP (03) Language Modeling">
 <meta property="og:url" content="http://yoursite.com/2017/09/12/Standford-NLP-03-Language-Modeling/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="Introduction to N-gramsProbabilistic Language ModelsProbabilistic Language Models是用于计算句子在文档中出现的概率，这里的句子可以当做一串连续的单词。知道句子在文档中出现的概率有非常大的用处：  Machine Translation  $$ P(high wind tonite)&amp;gt;P(large winds">
+<meta property="og:description" content="Introduction to N-gramsProbabilistic Language ModelsProbabilistic Language Models是用于计算句子在文档中出现的概率，这里的句子可以当做一串连续的单词。知道句子在文档中出现的概率有非常大的用处：  Machine Translation  $$ P(high \ wind \ tonite)&amp;gt;P(large \">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-12T12:58:25.000Z">
+<meta property="og:updated_time" content="2017-09-12T13:08:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Standford NLP (03) Language Modeling">
-<meta name="twitter:description" content="Introduction to N-gramsProbabilistic Language ModelsProbabilistic Language Models是用于计算句子在文档中出现的概率，这里的句子可以当做一串连续的单词。知道句子在文档中出现的概率有非常大的用处：  Machine Translation  $$ P(high wind tonite)&amp;gt;P(large winds">
+<meta name="twitter:description" content="Introduction to N-gramsProbabilistic Language ModelsProbabilistic Language Models是用于计算句子在文档中出现的概率，这里的句子可以当做一串连续的单词。知道句子在文档中出现的概率有非常大的用处：  Machine Translation  $$ P(high \ wind \ tonite)&amp;gt;P(large \">
 
 
 
@@ -367,7 +367,7 @@
 <ul>
 <li>Machine Translation</li>
 </ul>
-<p>$$ P(high wind tonite)&gt;P(large winds tonite) $$ </p>
+<p>$$ P(high \ wind \ tonite)&gt;P(large \ winds \ tonite) $$ </p>
 <p>在上面的例子中，我们的机器会更愿意选择<code>high</code>来搭配<code>wind</code>。</p>
 <ul>
 <li>Spell Correction</li>
@@ -375,11 +375,11 @@
 <blockquote>
 <p>The office is about fifteen minuets from my house</p>
 </blockquote>
-<p>根据以往的经验 P(about fifteen <strong>miutes</strong>)&gt;P(Probabilistic Language Models),可以提示我们<code>minuets</code>这个单词写错了。</p>
+<p>根据以往的经验 $ P(about \ fifteen \ miutes)&gt;P(about \ fifteen \ minuets) $,可以提示我们<code>minuets</code>这个单词写错了。</p>
 <ul>
 <li>Speech Recognition</li>
 </ul>
-<p>$$ P(I saw a van)&gt;&gt;P(eyes awe of an) $$</p>
+<p>$$ P(I \ saw \ a \ van)&gt;&gt;P(eyes \ awe \ of \ an) $$</p>
 <p>在语言识别中如果<code>I saw a van</code>这个句子的概率如果远大于<code>eyes awe of an</code>,我们有理由后面这个句子是不正确的。</p>
 <p>language model(LM) 实际上是计算一连串单词出现的概率:$P(W)=P(w_1,w_2,w_3,\cdots,w_n)$<br>也可以计算，在当前连续的单词下，下一个单词会是什么的概率：<br>$$ P(w_5|w_1,w_2,w_3,w_4)$$</p>
 <h2 id="How-to-compute-P-W"><a href="#How-to-compute-P-W" class="headerlink" title="How to compute $P(W)$"></a>How to compute $P(W)$</h2><p>例如我们有一个句子<code>its, water, is, so, transparent, that</code>,如何计算其出现的概率？<br>因为这是一个联合概率，所以我们直接考虑链式法则来计算</p>
@@ -424,6 +424,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/13/机器学习基石-2-Learning-to-Answer-Yes-NO/" rel="prev" title="机器学习基石 (2) Learning to Answer Yes NO">
+                机器学习基石 (2) Learning to Answer Yes NO <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -500,7 +504,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
