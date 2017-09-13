@@ -370,7 +370,11 @@
 <p>算法：</p>
 <p>对于$t=0,1,\cdots$</p>
 <p>1.找到一个错误分类的点$(\textbf{x}_{n(t)},y_{n(t)})$,即</p>
-<p>$$ sign\left(\textbf{w}_t^T\right) $$</p>
+<p>$$ sign\left(\textbf{w}_t^T\right)\neq y_{n(t)}  $$</p>
+<ol>
+<li>更新$w_t$</li>
+</ol>
+<p>$$ \textbf{w}_{t+1} \leftarrow \textbf{w}_t+y_{n(t)\textbf{x}_{n(t)}}$$</p>
 
           
         
