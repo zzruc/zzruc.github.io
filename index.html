@@ -366,7 +366,14 @@
       
         
           
-            <p>$$ h(\textbf{x})=sign\left(\left(\sum_{i=1}^{d} w_ix_i\right)\right) $$</p>
+            <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li>Perception Hypothesis Set</li>
+<li>Perception Learning Algorithm(PLA)</li>
+<li>Guarantee of PLA</li>
+<li>Non-Separable Data</li>
+</ul>
+<h1 id="Perception-Hypothesis-Set"><a href="#Perception-Hypothesis-Set" class="headerlink" title="Perception Hypothesis Set"></a>Perception Hypothesis Set</h1><p>考虑这样一个实例，我们有银行客户数据，现在想帮助银行判断应该给哪些客户发放信用卡。<br><img src="01.png" alt=""><br>这是一个典型的二分类问题，根据第一讲的内容，我们的思路是：通过算法 $\mathcal{A}$，在假设空间$\mathcal{H}$中，根据样本数据$\mathcal{D}$，选择最好的假设作为$g$,选择标准是$ g \sim f $。</p>
+<p>$$ h(\textbf{x})=sign\left(\left(\sum_{i=1}^{d} w_ix_i\right)\right) $$</p>
 <p>算法：</p>
 <p>对于$t=0,1,\cdots$</p>
 <p>1.找到一个错误分类的点$(\textbf{x}_{n(t)},y_{n(t)})$,即</p>
