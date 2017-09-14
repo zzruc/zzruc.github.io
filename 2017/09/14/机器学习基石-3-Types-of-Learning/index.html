@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="NLP," />
+  <meta name="keywords" content="Machine Learning," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="Introduction to N-gramsProbabilistic Language ModelsProbabilistic Language Models是用于计算句子在文档中出现的概率，这里的句子可以当做一串连续的单词。知道句子在文档中出现的概率有非常大的用处：  Machine Translation  $$ P(high \ wind \ tonite)&amp;gt;P(large \">
-<meta name="keywords" content="NLP">
+<meta name="description" content="Learning with Different Output Space $\mathcal{Y}$Learning with Different Data Label $y_n$#Learning with Different Protocol $f \Leftarrow (x_n, y_n)$ #Learning with Different Input Space X">
+<meta name="keywords" content="Machine Learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Standford NLP (03) Language Modeling">
-<meta property="og:url" content="http://yoursite.com/2017/09/12/Standford-NLP-03-Language-Modeling/index.html">
+<meta property="og:title" content="机器学习基石 (3) Types of Learning">
+<meta property="og:url" content="http://yoursite.com/2017/09/14/机器学习基石-3-Types-of-Learning/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="Introduction to N-gramsProbabilistic Language ModelsProbabilistic Language Models是用于计算句子在文档中出现的概率，这里的句子可以当做一串连续的单词。知道句子在文档中出现的概率有非常大的用处：  Machine Translation  $$ P(high \ wind \ tonite)&amp;gt;P(large \">
+<meta property="og:description" content="Learning with Different Output Space $\mathcal{Y}$Learning with Different Data Label $y_n$#Learning with Different Protocol $f \Leftarrow (x_n, y_n)$ #Learning with Different Input Space X">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-12T13:08:59.000Z">
+<meta property="og:updated_time" content="2017-09-14T02:23:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Standford NLP (03) Language Modeling">
-<meta name="twitter:description" content="Introduction to N-gramsProbabilistic Language ModelsProbabilistic Language Models是用于计算句子在文档中出现的概率，这里的句子可以当做一串连续的单词。知道句子在文档中出现的概率有非常大的用处：  Machine Translation  $$ P(high \ wind \ tonite)&amp;gt;P(large \">
+<meta name="twitter:title" content="机器学习基石 (3) Types of Learning">
+<meta name="twitter:description" content="Learning with Different Output Space $\mathcal{Y}$Learning with Different Data Label $y_n$#Learning with Different Protocol $f \Leftarrow (x_n, y_n)$ #Learning with Different Input Space X">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/12/Standford-NLP-03-Language-Modeling/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/14/机器学习基石-3-Types-of-Learning/"/>
 
 
 
 
 
-  <title>Standford NLP (03) Language Modeling | 张长写字的地方</title>
+  <title>机器学习基石 (3) Types of Learning | 张长写字的地方</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/Standford-NLP-03-Language-Modeling/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/14/机器学习基石-3-Types-of-Learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzruc">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Standford NLP (03) Language Modeling</h1>
+          <h1 class="post-title" itemprop="name headline">机器学习基石 (3) Types of Learning</h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-12T18:57:35+08:00">
-                2017-09-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-14T10:13:57+08:00">
+                2017-09-14
               </time>
             
 
@@ -325,8 +325,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Stanford-NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">Stanford NLP</span>
+                  <a href="/categories/Machine-Learning-Foundations/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning Foundations</span>
                   </a>
                 </span>
 
@@ -362,30 +362,9 @@
       
 
       
-        <a id="more"></a>
-<h1 id="Introduction-to-N-grams"><a href="#Introduction-to-N-grams" class="headerlink" title="Introduction to N-grams"></a>Introduction to N-grams</h1><h2 id="Probabilistic-Language-Models"><a href="#Probabilistic-Language-Models" class="headerlink" title="Probabilistic Language Models"></a>Probabilistic Language Models</h2><p>Probabilistic Language Models是用于计算句子在文档中出现的概率，这里的句子可以当做一串连续的单词。知道句子在文档中出现的概率有非常大的用处：</p>
-<ul>
-<li>Machine Translation</li>
-</ul>
-<p>$$ P(high \ wind \ tonite)&gt;P(large \ winds \ tonite) $$ </p>
-<p>在上面的例子中，我们的机器会更愿意选择<code>high</code>来搭配<code>wind</code>。</p>
-<ul>
-<li>Spell Correction</li>
-</ul>
-<blockquote>
-<p>The office is about fifteen minuets from my house</p>
-</blockquote>
-<p>根据以往的经验 $ P(about \ fifteen \ miutes)&gt;P(about \ fifteen \ minuets) $,可以提示我们<code>minuets</code>这个单词写错了。</p>
-<ul>
-<li>Speech Recognition</li>
-</ul>
-<p>$$ P(I \ saw \ a \ van)&gt;&gt;P(eyes \ awe \ of \ an) $$</p>
-<p>在语言识别中如果<code>I saw a van</code>这个句子的概率如果远大于<code>eyes awe of an</code>,我们有理由后面这个句子是不正确的。</p>
-<p>language model(LM) 实际上是计算一连串单词出现的概率:$P(W)=P(w_1,w_2,w_3,\cdots,w_n)$<br>也可以计算，在当前连续的单词下，下一个单词会是什么的概率：<br>$$ P(w_5|w_1,w_2,w_3,w_4)$$</p>
-<h2 id="How-to-compute-P-W"><a href="#How-to-compute-P-W" class="headerlink" title="How to compute $P(W)$"></a>How to compute $P(W)$</h2><p>例如我们有一个句子<code>its, water, is, so, transparent, that</code>,如何计算其出现的概率？<br>因为这是一个联合概率，所以我们直接考虑链式法则来计算</p>
-<p>\begin{equation}\begin{split} P(its \ water \ is \ so \ transparent \ that)&amp;=P(its) \cdot P(water|its) \cdot P(is|water) \cdot P(so|is) \\<br>&amp;\cdot P(transparent|so) \cdot P(that|transparent)<br>\end{split}<br>\end{equation}</p>
-<p>\begin{equation}\begin{split} a&amp;=b+c-d\\<br>&amp;\quad +e-f\\<br>&amp;=g+h\\<br>&amp; =i<br>\end{split}\end{equation}</p>
-<h1 id="Estimating-N-gram-Probabilities"><a href="#Estimating-N-gram-Probabilities" class="headerlink" title="Estimating N-gram Probabilities"></a>Estimating N-gram Probabilities</h1><h1 id="Evaluation-and-Perplexity"><a href="#Evaluation-and-Perplexity" class="headerlink" title="Evaluation and Perplexity"></a>Evaluation and Perplexity</h1><h1 id="Generalization-and-Zeros"><a href="#Generalization-and-Zeros" class="headerlink" title="Generalization and Zeros"></a>Generalization and Zeros</h1><h1 id="Smoothing-Add-One"><a href="#Smoothing-Add-One" class="headerlink" title="Smoothing-Add-One"></a>Smoothing-Add-One</h1><h1 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h1><h1 id="Good-Turing-Smoothing"><a href="#Good-Turing-Smoothing" class="headerlink" title="Good-Turing Smoothing"></a>Good-Turing Smoothing</h1><h1 id="Kneser-Ney-Smoothing"><a href="#Kneser-Ney-Smoothing" class="headerlink" title="Kneser-Ney Smoothing"></a>Kneser-Ney Smoothing</h1>
+        <h1 id="Learning-with-Different-Output-Space-mathcal-Y"><a href="#Learning-with-Different-Output-Space-mathcal-Y" class="headerlink" title="Learning with Different Output Space $\mathcal{Y}$"></a>Learning with Different Output Space $\mathcal{Y}$</h1><h1 id="Learning-with-Different-Data-Label-y-n"><a href="#Learning-with-Different-Data-Label-y-n" class="headerlink" title="Learning with Different Data Label $y_n$"></a>Learning with Different Data Label $y_n$</h1><p>#Learning with Different Protocol $f \Leftarrow (x_n, y_n)$</p>
+<p>#Learning with Different Input Space X</p>
+
       
     </div>
     
@@ -402,7 +381,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
+            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
           
         </div>
       
@@ -415,8 +394,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/12/Standford-NLP-02-Edit-Distance/" rel="next" title="Standford NLP (02) Edit Distance">
-                <i class="fa fa-chevron-left"></i> Standford NLP (02) Edit Distance
+              <a href="/2017/09/13/机器学习基石-2-Learning-to-Answer-Yes-NO/" rel="next" title="机器学习基石 (2) Learning to Answer Yes NO">
+                <i class="fa fa-chevron-left"></i> 机器学习基石 (2) Learning to Answer Yes NO
               </a>
             
           </div>
@@ -424,10 +403,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/13/机器学习基石-2-Learning-to-Answer-Yes-NO/" rel="prev" title="机器学习基石 (2) Learning to Answer Yes NO">
-                机器学习基石 (2) Learning to Answer Yes NO <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -561,7 +536,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-to-N-grams"><span class="nav-number">1.</span> <span class="nav-text">Introduction to N-grams</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Probabilistic-Language-Models"><span class="nav-number">1.1.</span> <span class="nav-text">Probabilistic Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-compute-P-W"><span class="nav-number">1.2.</span> <span class="nav-text">How to compute $P(W)$</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Estimating-N-gram-Probabilities"><span class="nav-number">2.</span> <span class="nav-text">Estimating N-gram Probabilities</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Evaluation-and-Perplexity"><span class="nav-number">3.</span> <span class="nav-text">Evaluation and Perplexity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Generalization-and-Zeros"><span class="nav-number">4.</span> <span class="nav-text">Generalization and Zeros</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Smoothing-Add-One"><span class="nav-number">5.</span> <span class="nav-text">Smoothing-Add-One</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Interpolation"><span class="nav-number">6.</span> <span class="nav-text">Interpolation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Good-Turing-Smoothing"><span class="nav-number">7.</span> <span class="nav-text">Good-Turing Smoothing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Kneser-Ney-Smoothing"><span class="nav-number">8.</span> <span class="nav-text">Kneser-Ney Smoothing</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Learning-with-Different-Output-Space-mathcal-Y"><span class="nav-number">1.</span> <span class="nav-text">Learning with Different Output Space $\mathcal{Y}$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Learning-with-Different-Data-Label-y-n"><span class="nav-number">2.</span> <span class="nav-text">Learning with Different Data Label $y_n$</span></a></li></ol></div>
             
 
           </div>
