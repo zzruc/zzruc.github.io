@@ -94,18 +94,20 @@
 
 
 
-<meta name="description" content="$$\mathbb{P}[|\nu - \mu|&amp;gt;\epsilon] \le 2exp(-2\epsilon^2N)$$">
+<meta name="description" content="这一讲着重介绍PAC学习，即概率近似正确学习。">
 <meta name="keywords" content="Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习基石 (4) Feasibility of Learning">
 <meta property="og:url" content="http://yoursite.com/2017/09/14/机器学习基石-4-Feasibility-of-Learning/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="$$\mathbb{P}[|\nu - \mu|&amp;gt;\epsilon] \le 2exp(-2\epsilon^2N)$$">
+<meta property="og:description" content="这一讲着重介绍PAC学习，即概率近似正确学习。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-14T02:48:40.000Z">
+<meta property="og:image" content="http://yoursite.com/2017/09/14/机器学习基石-4-Feasibility-of-Learning/01.png">
+<meta property="og:updated_time" content="2017-09-14T03:04:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习基石 (4) Feasibility of Learning">
-<meta name="twitter:description" content="$$\mathbb{P}[|\nu - \mu|&amp;gt;\epsilon] \le 2exp(-2\epsilon^2N)$$">
+<meta name="twitter:description" content="这一讲着重介绍PAC学习，即概率近似正确学习。">
+<meta name="twitter:image" content="http://yoursite.com/2017/09/14/机器学习基石-4-Feasibility-of-Learning/01.png">
 
 
 
@@ -362,8 +364,12 @@
       
 
       
-        <p>$$\mathbb{P}[|\nu - \mu|&gt;\epsilon] \le 2exp(-2\epsilon^2N)$$</p>
-
+        <p>这一讲着重介绍PAC学习，即概率近似正确学习。</p>
+<a id="more"></a>
+<p>考虑这样一个例子，我们有一个大罐子，里面装着绿色和橙色的小球，我们怎么去估计这个大罐子里橙球的比例$\mu$呢？很简单的做法是从罐子里抽取$N$个小球作为样本，统计样本里橙球的比例$\nu$，用样本的结果去估计总体的结果。<br><img src="01.png" alt=""></p>
+<p>我们的$\nu$和总体$\mu$相差多少呢？在样本数目$N$足够大的情况下，$\nu$和$\mu$满足Hoeffding不等式:</p>
+<p>$$\mathbb{P}[|\nu - \mu|&gt;\epsilon] \le 2exp(-2\epsilon^2N)$$</p>
+<h1 id="PAC学习"><a href="#PAC学习" class="headerlink" title="PAC学习"></a>PAC学习</h1>
       
     </div>
     
@@ -453,8 +459,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -516,6 +531,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PAC学习"><span class="nav-number">1.</span> <span class="nav-text">PAC学习</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
