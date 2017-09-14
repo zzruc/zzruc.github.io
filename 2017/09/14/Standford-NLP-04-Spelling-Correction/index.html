@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="拼写纠错在生活中很常见，比如我们用Google进行检索时，如果拼写有错误，Google会提示你可能犯的错，并给你建议。">
+<meta name="description" content="拼写纠错在生活中很常见，比如我们用Google进行检索时，如果拼写有错误，Google会提示你可能犯的错，并给你建议。 The Spelling Correction Task要能纠错首先必须发现拼写错误，所以Spelling Tasks包含：  Spelling Error Detection Spelling Error Correction  拼写错误分两类：  None-word Erro">
 <meta name="keywords" content="NLP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Standford NLP (04) Spelling Correction">
 <meta property="og:url" content="http://yoursite.com/2017/09/14/Standford-NLP-04-Spelling-Correction/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="拼写纠错在生活中很常见，比如我们用Google进行检索时，如果拼写有错误，Google会提示你可能犯的错，并给你建议。">
+<meta property="og:description" content="拼写纠错在生活中很常见，比如我们用Google进行检索时，如果拼写有错误，Google会提示你可能犯的错，并给你建议。 The Spelling Correction Task要能纠错首先必须发现拼写错误，所以Spelling Tasks包含：  Spelling Error Detection Spelling Error Correction  拼写错误分两类：  None-word Erro">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/2017/09/14/Standford-NLP-04-Spelling-Correction/01.png">
-<meta property="og:updated_time" content="2017-09-14T07:47:00.000Z">
+<meta property="og:updated_time" content="2017-09-14T08:16:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Standford NLP (04) Spelling Correction">
-<meta name="twitter:description" content="拼写纠错在生活中很常见，比如我们用Google进行检索时，如果拼写有错误，Google会提示你可能犯的错，并给你建议。">
+<meta name="twitter:description" content="拼写纠错在生活中很常见，比如我们用Google进行检索时，如果拼写有错误，Google会提示你可能犯的错，并给你建议。 The Spelling Correction Task要能纠错首先必须发现拼写错误，所以Spelling Tasks包含：  Spelling Error Detection Spelling Error Correction  拼写错误分两类：  None-word Erro">
 <meta name="twitter:image" content="http://yoursite.com/2017/09/14/Standford-NLP-04-Spelling-Correction/01.png">
 
 
@@ -365,6 +365,21 @@
 
       
         <p>拼写纠错在生活中很常见，比如我们用Google进行检索时，如果拼写有错误，Google会提示你可能犯的错，并给你建议。<br><img src="01.png" alt=""></p>
+<h1 id="The-Spelling-Correction-Task"><a href="#The-Spelling-Correction-Task" class="headerlink" title="The Spelling Correction Task"></a>The Spelling Correction Task</h1><p>要能纠错首先必须发现拼写错误，所以Spelling Tasks包含：</p>
+<ul>
+<li>Spelling Error Detection</li>
+<li>Spelling Error Correction</li>
+</ul>
+<p>拼写错误分两类：</p>
+<ul>
+<li>None-word Errors:所犯错的单词不是一个单词，比如<code>graffe -&gt; giraffe</code>,英语中并没有<code>graffe</code>这个单词。</li>
+<li>Real-word Errors:所犯错的单词仍是一个单词，又可细分两类：</li>
+</ul>
+<ol>
+<li>形相近的错误：<code>three -&gt; there</code></li>
+<li>音相近的错误：<code>too -&gt; two</code></li>
+</ol>
+<h1 id="The-Noisy-Channel-Model-of-Spelling"><a href="#The-Noisy-Channel-Model-of-Spelling" class="headerlink" title="The Noisy Channel Model of Spelling"></a>The Noisy Channel Model of Spelling</h1><p>$$  \hat{w}=argmax<em>limits</em>{w,V}$$</p>
 
       
     </div>
@@ -459,8 +474,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -522,6 +546,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#The-Spelling-Correction-Task"><span class="nav-number">1.</span> <span class="nav-text">The Spelling Correction Task</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-Noisy-Channel-Model-of-Spelling"><span class="nav-number">2.</span> <span class="nav-text">The Noisy Channel Model of Spelling</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -509,6 +509,21 @@
         
           
             <p>拼写纠错在生活中很常见，比如我们用Google进行检索时，如果拼写有错误，Google会提示你可能犯的错，并给你建议。<br><img src="01.png" alt=""></p>
+<h1 id="The-Spelling-Correction-Task"><a href="#The-Spelling-Correction-Task" class="headerlink" title="The Spelling Correction Task"></a>The Spelling Correction Task</h1><p>要能纠错首先必须发现拼写错误，所以Spelling Tasks包含：</p>
+<ul>
+<li>Spelling Error Detection</li>
+<li>Spelling Error Correction</li>
+</ul>
+<p>拼写错误分两类：</p>
+<ul>
+<li>None-word Errors:所犯错的单词不是一个单词，比如<code>graffe -&gt; giraffe</code>,英语中并没有<code>graffe</code>这个单词。</li>
+<li>Real-word Errors:所犯错的单词仍是一个单词，又可细分两类：</li>
+</ul>
+<ol>
+<li>形相近的错误：<code>three -&gt; there</code></li>
+<li>音相近的错误：<code>too -&gt; two</code></li>
+</ol>
+<h1 id="The-Noisy-Channel-Model-of-Spelling"><a href="#The-Noisy-Channel-Model-of-Spelling" class="headerlink" title="The Noisy Channel Model of Spelling"></a>The Noisy Channel Model of Spelling</h1><p>$$  \hat{w}=argmax<em>limits</em>{w,V}$$</p>
 
           
         
@@ -936,29 +951,19 @@
 
       
         
-          
-            <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
 <li>Perception Hypothesis Set</li>
 <li>Perception Learning Algorithm(PLA)</li>
 <li>Guarantee of PLA</li>
 <li>Non-Separable Data</li>
 </ul>
-<h1 id="Perception-Hypothesis-Set"><a href="#Perception-Hypothesis-Set" class="headerlink" title="Perception Hypothesis Set"></a>Perception Hypothesis Set</h1><p>考虑这样一个实例，我们有银行客户数据，现在想帮助银行判断应该给哪些客户发放信用卡。<br><img src="01.png" alt=""><br>这是一个典型的二分类问题，根据第一讲的内容，我们的思路是：通过算法 $\mathcal{A}$，在假设空间$\mathcal{H}$中，根据样本数据$\mathcal{D}$，选择最好的假设作为$g$,选择标准是$ g \approx f $。所以首先我们需要确定我们的假设空间$\mathcal{H}$,这里我们选定的假设空间是“Perceptron”:<br><img src="02.png" alt=""><br>向量$\textbf{x}$是客户的特征向量，给每个特征以权重，然后相加，如果大于我们的阈值就记作正类，如果小于就记作负类，这就是Perceptron的思想。<br>为了便于书写，我们稍作化简，以向量的形式表示Perceptron:<br><img src="03.png" alt=""><br>那么我们的假设$h$到底长什么样，考虑简单的二维情形，我们的假设$h$就是一条将我们的正类负类分开（不一定能完全分开）的直线<br><img src="04.png" alt=""><br>刚刚的图中只是我们假设空间$\mathcal{H}$中两个Perceptron,实际上，在二维情况下，我们的Perceptron假设空间包含无数个Perceptron,每一个不同的权重向量$\textbf{w}$都对应一个hypothesis,即平面上的无数条直线都是我么的hypothesis.那么我们该怎么从无数条直线中选择那条最好的直线呢？即如何从$\mathcal{H}$中选择最好的$g$使$g \approx f$?这就是接下来要介绍的PLA。</p>
-<h2 id="Perception-Learning-Algorithm-PLA"><a href="#Perception-Learning-Algorithm-PLA" class="headerlink" title="Perception Learning Algorithm(PLA)"></a>Perception Learning Algorithm(PLA)</h2><p>PLA要做的事是：从某一个权重向量$\textbf{w}_0$开始，然后根据我们的数据集$\mathcal{D}$来不断修正这条直线的错误直到没有点被错误分类，然后返回这个最后的$\textbf{w}$，这就是我们的$g$：<br><img src="05.png" alt=""><br>可是PLA为什么能学习到那条最好的直线呢？从直观上理解，我们的直线所犯的错无非两类：</p>
-<ol>
-<li>把正类误分为负类</li>
-<li>把负类误分为正类</li>
-</ol>
-<p>从几何上理解，两个向量的夹角大于90度则积为负，所以我们的直线把正类误分为负类就是因为$\textbf{w}$和$\textbf{x}$的夹角太大，我们把$\textbf{w}$向$\textbf{x}$稍微拉一下，这就对应算法中我们对$\textbf{w}$的一次更新<br><img src="06.png" alt=""><br>同样，对于把负类误分为正类的情况，也可这样理解：<br><img src="07.png" alt=""></p>
-<p>$$ h(\textbf{x})=sign\left(\left(\sum_{i=1}^{d} w_ix_i\right)\right) $$</p>
-<h2 id="Guarantee-of-PLA"><a href="#Guarantee-of-PLA" class="headerlink" title="Guarantee of PLA"></a>Guarantee of PLA</h2><h2 id="Non-Separable-Data"><a href="#Non-Separable-Data" class="headerlink" title="Non-Separable Data"></a>Non-Separable Data</h2><p>算法：</p>
-<p>对于$t=0,1,\cdots$</p>
-<p>1.找到一个错误分类的点$(\textbf{x}_{n(t)},y_{n(t)})$,即</p>
-<p>$$ sign\left(\textbf{w}_t^T\right)\neq y_{n(t)}  $$</p>
-<p>2.更新$w_t$:</p>
-<p>$$ \textbf{w}_{t+1} \leftarrow \textbf{w}_t+y_{n(t)}\textbf{x}_{n(t)}}$$</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/13/机器学习基石-2-Learning-to-Answer-Yes-NO/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
