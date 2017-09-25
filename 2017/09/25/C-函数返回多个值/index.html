@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Machine Learning," />
+  <meta name="keywords" content="C++," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="Learning with Different Output Space $\mathcal{Y}$Learning with Different Data Label $y_n$Learning with Different Protocol $f \Rightarrow (x_n, y_n)$Learning with Different Input Space $\mathcal{X}$">
-<meta name="keywords" content="Machine Learning">
+<meta name="description" content="对于C++ 111234567891011121314151617#include &amp;lt;tuple&amp;gt;std::tuple&amp;lt;int, int&amp;gt; divide(int dividend, int divisor) &amp;#123;    return  std::make_tuple(dividend / divisor, dividend % divisor);&amp;#125;#inc">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习基石 (3) Types of Learning">
-<meta property="og:url" content="http://yoursite.com/2017/09/14/机器学习基石-3-Types-of-Learning/index.html">
+<meta property="og:title" content="C++函数返回多个值">
+<meta property="og:url" content="http://yoursite.com/2017/09/25/C-函数返回多个值/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="Learning with Different Output Space $\mathcal{Y}$Learning with Different Data Label $y_n$Learning with Different Protocol $f \Rightarrow (x_n, y_n)$Learning with Different Input Space $\mathcal{X}$">
+<meta property="og:description" content="对于C++ 111234567891011121314151617#include &amp;lt;tuple&amp;gt;std::tuple&amp;lt;int, int&amp;gt; divide(int dividend, int divisor) &amp;#123;    return  std::make_tuple(dividend / divisor, dividend % divisor);&amp;#125;#inc">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-14T02:26:16.000Z">
+<meta property="og:updated_time" content="2017-09-25T01:42:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习基石 (3) Types of Learning">
-<meta name="twitter:description" content="Learning with Different Output Space $\mathcal{Y}$Learning with Different Data Label $y_n$Learning with Different Protocol $f \Rightarrow (x_n, y_n)$Learning with Different Input Space $\mathcal{X}$">
+<meta name="twitter:title" content="C++函数返回多个值">
+<meta name="twitter:description" content="对于C++ 111234567891011121314151617#include &amp;lt;tuple&amp;gt;std::tuple&amp;lt;int, int&amp;gt; divide(int dividend, int divisor) &amp;#123;    return  std::make_tuple(dividend / divisor, dividend % divisor);&amp;#125;#inc">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/14/机器学习基石-3-Types-of-Learning/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/25/C-函数返回多个值/"/>
 
 
 
 
 
-  <title>机器学习基石 (3) Types of Learning | 张长写字的地方</title>
+  <title>C++函数返回多个值 | 张长写字的地方</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/14/机器学习基石-3-Types-of-Learning/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/25/C-函数返回多个值/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzruc">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">机器学习基石 (3) Types of Learning</h1>
+          <h1 class="post-title" itemprop="name headline">C++函数返回多个值</h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-14T10:13:57+08:00">
-                2017-09-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-25T09:38:43+08:00">
+                2017-09-25
               </time>
             
 
@@ -312,28 +312,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning-Foundations/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning Foundations</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -362,7 +340,12 @@
       
 
       
-        <h1 id="Learning-with-Different-Output-Space-mathcal-Y"><a href="#Learning-with-Different-Output-Space-mathcal-Y" class="headerlink" title="Learning with Different Output Space $\mathcal{Y}$"></a>Learning with Different Output Space $\mathcal{Y}$</h1><h1 id="Learning-with-Different-Data-Label-y-n"><a href="#Learning-with-Different-Data-Label-y-n" class="headerlink" title="Learning with Different Data Label $y_n$"></a>Learning with Different Data Label $y_n$</h1><h1 id="Learning-with-Different-Protocol-f-Rightarrow-x-n-y-n"><a href="#Learning-with-Different-Protocol-f-Rightarrow-x-n-y-n" class="headerlink" title="Learning with Different Protocol $f \Rightarrow (x_n, y_n)$"></a>Learning with Different Protocol $f \Rightarrow (x_n, y_n)$</h1><h1 id="Learning-with-Different-Input-Space-mathcal-X"><a href="#Learning-with-Different-Input-Space-mathcal-X" class="headerlink" title="Learning with Different Input Space $\mathcal{X}$"></a>Learning with Different Input Space $\mathcal{X}$</h1>
+        <p>对于C++ 11<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tuple&gt;</span></span></div><div class="line"></div><div class="line"><span class="built_in">std</span>::tuple&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; divide(<span class="keyword">int</span> dividend, <span class="keyword">int</span> divisor) &#123;</div><div class="line">    <span class="keyword">return</span>  <span class="built_in">std</span>::make_tuple(dividend / divisor, dividend % divisor);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> quotient, remainder;</div><div class="line"></div><div class="line">    tie(quotient, remainder) = divide(<span class="number">14</span>, <span class="number">3</span>);</div><div class="line"></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; quotient &lt;&lt; <span class="string">','</span> &lt;&lt; remainder &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>对于C++ 17</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tuple&gt;</span></span></div><div class="line"></div><div class="line"><span class="built_in">std</span>::tuple&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; divide(<span class="keyword">int</span> dividend, <span class="keyword">int</span> divisor) &#123;</div><div class="line">    <span class="keyword">return</span>  &#123;dividend / divisor, dividend % divisor&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line">    <span class="keyword">auto</span> [quotient, remainder] = divide(<span class="number">14</span>, <span class="number">3</span>);</div><div class="line"></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; quotient &lt;&lt; <span class="string">','</span> &lt;&lt; remainder &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>或者使用结构体struct</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tuple&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">auto</span> <span class="title">divide</span><span class="params">(<span class="keyword">int</span> dividend, <span class="keyword">int</span> divisor)</span> </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">result</span> &#123;</span><span class="keyword">int</span> quotient; <span class="keyword">int</span> remainder;&#125;;</div><div class="line">    <span class="keyword">return</span> result &#123;dividend / divisor, dividend % divisor&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line">    <span class="keyword">auto</span> result = divide(<span class="number">14</span>, <span class="number">3</span>);</div><div class="line"></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; result.quotient &lt;&lt; <span class="string">','</span> &lt;&lt; result.remainder &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="comment">// or</span></div><div class="line"></div><div class="line">    <span class="keyword">auto</span> [quotient, remainder] = divide(<span class="number">14</span>, <span class="number">3</span>);</div><div class="line"></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; quotient &lt;&lt; <span class="string">','</span> &lt;&lt; remainder &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -379,7 +362,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
       
@@ -392,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/13/机器学习基石-2-Learning-to-Answer-Yes-NO/" rel="next" title="机器学习基石 (2) Learning to Answer Yes NO">
-                <i class="fa fa-chevron-left"></i> 机器学习基石 (2) Learning to Answer Yes NO
+              <a href="/2017/09/14/Standford-NLP-05-Text-Classification/" rel="next" title="Standford NLP (05) Text Classification">
+                <i class="fa fa-chevron-left"></i> Standford NLP (05) Text Classification
               </a>
             
           </div>
@@ -401,10 +384,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/14/机器学习基石-4-Feasibility-of-Learning/" rel="prev" title="机器学习基石 (4) Feasibility of Learning">
-                机器学习基石 (4) Feasibility of Learning <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -456,17 +435,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -528,22 +498,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Learning-with-Different-Output-Space-mathcal-Y"><span class="nav-number">1.</span> <span class="nav-text">Learning with Different Output Space $\mathcal{Y}$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Learning-with-Different-Data-Label-y-n"><span class="nav-number">2.</span> <span class="nav-text">Learning with Different Data Label $y_n$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Learning-with-Different-Protocol-f-Rightarrow-x-n-y-n"><span class="nav-number">3.</span> <span class="nav-text">Learning with Different Protocol $f \Rightarrow (x_n, y_n)$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Learning-with-Different-Input-Space-mathcal-X"><span class="nav-number">4.</span> <span class="nav-text">Learning with Different Input Space $\mathcal{X}$</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
