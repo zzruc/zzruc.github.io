@@ -273,6 +273,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/Standford-NLP-03-Language-Modeling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zzruc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张长写字的地方">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/12/Standford-NLP-03-Language-Modeling/" itemprop="url">Standford NLP (03) Language Modeling</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-12T18:57:35+08:00">
+                2017-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Stanford-NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">Stanford NLP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h1 id="Introduction-to-N-grams"><a href="#Introduction-to-N-grams" class="headerlink" title="Introduction to N-grams"></a>Introduction to N-grams</h1><h2 id="Probabilistic-Language-Models"><a href="#Probabilistic-Language-Models" class="headerlink" title="Probabilistic Language Models"></a>Probabilistic Language Models</h2><p>Probabilistic Language Models是用于计算句子在文档中出现的概率，这里的句子可以当做一串连续的单词。知道句子在文档中出现的概率有非常大的用处：</p>
+<ul>
+<li>Machine Translation</li>
+</ul>
+<p>$$ P(high \ wind \ tonite)&gt;P(large \ winds \ tonite) $$ </p>
+<p>在上面的例子中，我们的机器会更愿意选择<code>high</code>来搭配<code>wind</code>。</p>
+<ul>
+<li>Spell Correction</li>
+</ul>
+<blockquote>
+<p>The office is about fifteen minuets from my house</p>
+</blockquote>
+<p>根据以往的经验 $ P(about \ fifteen \ miutes)&gt;P(about \ fifteen \ minuets) $,可以提示我们<code>minuets</code>这个单词写错了。</p>
+<ul>
+<li>Speech Recognition</li>
+</ul>
+<p>$$ P(I \ saw \ a \ van)&gt;&gt;P(eyes \ awe \ of \ an) $$</p>
+<p>在语言识别中如果<code>I saw a van</code>这个句子的概率如果远大于<code>eyes awe of an</code>,我们有理由后面这个句子是不正确的。</p>
+<p>language model(LM) 实际上是计算一连串单词出现的概率:$P(W)=P(w_1,w_2,w_3,\cdots,w_n)$<br>也可以计算，在当前连续的单词下，下一个单词会是什么的概率：<br>$$ P(w_5|w_1,w_2,w_3,w_4)$$</p>
+<h2 id="How-to-compute-P-W"><a href="#How-to-compute-P-W" class="headerlink" title="How to compute $P(W)$"></a>How to compute $P(W)$</h2><p>例如我们有一个句子<code>its, water, is, so, transparent, that</code>,如何计算其出现的概率？<br>因为这是一个联合概率，所以我们直接考虑链式法则来计算</p>
+<p>\begin{equation}\begin{split} P(its \ water \ is \ so \ transparent \ that)&amp;=P(its) \cdot P(water|its) \cdot P(is|water) \cdot P(so|is) \\<br>&amp;\cdot P(transparent|so) \cdot P(that|transparent)<br>\end{split}<br>\end{equation}</p>
+<p>\begin{equation}\begin{split} a&amp;=b+c-d\\<br>&amp;\quad +e-f\\<br>&amp;=g+h\\<br>&amp; =i<br>\end{split}\end{equation}</p>
+<h1 id="Estimating-N-gram-Probabilities"><a href="#Estimating-N-gram-Probabilities" class="headerlink" title="Estimating N-gram Probabilities"></a>Estimating N-gram Probabilities</h1><h1 id="Evaluation-and-Perplexity"><a href="#Evaluation-and-Perplexity" class="headerlink" title="Evaluation and Perplexity"></a>Evaluation and Perplexity</h1><h1 id="Generalization-and-Zeros"><a href="#Generalization-and-Zeros" class="headerlink" title="Generalization and Zeros"></a>Generalization and Zeros</h1><h1 id="Smoothing-Add-One"><a href="#Smoothing-Add-One" class="headerlink" title="Smoothing-Add-One"></a>Smoothing-Add-One</h1><h1 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h1><h1 id="Good-Turing-Smoothing"><a href="#Good-Turing-Smoothing" class="headerlink" title="Good-Turing Smoothing"></a>Good-Turing Smoothing</h1><h1 id="Kneser-Ney-Smoothing"><a href="#Kneser-Ney-Smoothing" class="headerlink" title="Kneser-Ney Smoothing"></a>Kneser-Ney Smoothing</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/Standford-NLP-02-Edit-Distance/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1293,7 +1457,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
