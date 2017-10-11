@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="NLP," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -94,18 +94,17 @@
 
 
 
-<meta name="description" content="Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入graffe这个单词，下面四个单词那个与之最接近：graf graft grail giraffe 。在生物领域的用处更大，比如判断两段碱基序列有多相似： AGGCTATCACCTGACCTCCAGGCCGATGCCC TAGCTATCACGACCGCGGTCGATTTGCCCGAC 另外，在Machine Transla">
-<meta name="keywords" content="NLP">
+<meta name="description" content="Exercises Section 2.1.1Exercise 2.1Exercise 2.2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Standford NLP (02) Edit Distance">
-<meta property="og:url" content="http://yoursite.com/2017/09/12/Standford-NLP-02-Edit-Distance/index.html">
+<meta property="og:title" content="《C++ Primer 5th》Chapter2-ex2.1_2.25">
+<meta property="og:url" content="http://yoursite.com/2017/10/11/《C-Primer-5th》Chapter2-ex2-1-2-25/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入graffe这个单词，下面四个单词那个与之最接近：graf graft grail giraffe 。在生物领域的用处更大，比如判断两段碱基序列有多相似： AGGCTATCACCTGACCTCCAGGCCGATGCCC TAGCTATCACGACCGCGGTCGATTTGCCCGAC 另外，在Machine Transla">
+<meta property="og:description" content="Exercises Section 2.1.1Exercise 2.1Exercise 2.2">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-12T07:43:00.000Z">
+<meta property="og:updated_time" content="2017-10-11T01:10:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Standford NLP (02) Edit Distance">
-<meta name="twitter:description" content="Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入graffe这个单词，下面四个单词那个与之最接近：graf graft grail giraffe 。在生物领域的用处更大，比如判断两段碱基序列有多相似： AGGCTATCACCTGACCTCCAGGCCGATGCCC TAGCTATCACGACCGCGGTCGATTTGCCCGAC 另外，在Machine Transla">
+<meta name="twitter:title" content="《C++ Primer 5th》Chapter2-ex2.1_2.25">
+<meta name="twitter:description" content="Exercises Section 2.1.1Exercise 2.1Exercise 2.2">
 
 
 
@@ -134,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/12/Standford-NLP-02-Edit-Distance/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/11/《C-Primer-5th》Chapter2-ex2-1-2-25/"/>
 
 
 
 
 
-  <title>Standford NLP (02) Edit Distance | 张长写字的地方</title>
+  <title>《C++ Primer 5th》Chapter2-ex2.1_2.25 | 张长写字的地方</title>
   
 
 
@@ -273,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/Standford-NLP-02-Edit-Distance/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/11/《C-Primer-5th》Chapter2-ex2-1-2-25/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzruc">
@@ -290,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Standford NLP (02) Edit Distance</h1>
+          <h1 class="post-title" itemprop="name headline">《C++ Primer 5th》Chapter2-ex2.1_2.25</h1>
         
 
         <div class="post-meta">
@@ -302,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-12T14:57:12+08:00">
-                2017-09-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-11T09:03:34+08:00">
+                2017-10-11
               </time>
             
 
@@ -325,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Standford-NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">Standford NLP</span>
+                  <a href="/categories/C-Primer-5th-Edition-Exercises/" itemprop="url" rel="index">
+                    <span itemprop="name">C++ Primer 5th Edition Exercises</span>
                   </a>
                 </span>
 
@@ -362,12 +361,7 @@
       
 
       
-        <p>Edit distance 主要是用于检测两个字符串有多么相近。比如用户输入<code>graffe</code>这个单词，下面四个单词那个与之最接近：<span style="color:orange"><strong>graf</strong></span> <span style="color:orange"><strong>graft</strong></span> <span style="color:orange"><strong>grail</strong></span> <span style="color:orange"><strong>giraffe</strong></span> 。在生物领域的用处更大，比如判断两段碱基序列有多相似：</p>
-<p><span style="color:blue"><strong>AGGCTATCACCTGACCTCCAGGCCGATGCCC</strong></span></p>
-<p><span style="color:blue"><strong>TAGCTATCACGACCGCGGTCGATTTGCCCGAC</strong></span></p>
-<p>另外，在Machine Translation, Information Extraction, Speech Recognition领域也有很多应用，下面进行深入了解。</p>
-<a id="more"></a>
-<h1 id="Defining-Minimum-Edit-Distance"><a href="#Defining-Minimum-Edit-Distance" class="headerlink" title="Defining Minimum Edit Distance"></a>Defining Minimum Edit Distance</h1><h1 id="Computing-Minimum-Edit-Distance"><a href="#Computing-Minimum-Edit-Distance" class="headerlink" title="Computing Minimum Edit Distance"></a>Computing Minimum Edit Distance</h1><h1 id="Backtrace-for-Computing-Alignments"><a href="#Backtrace-for-Computing-Alignments" class="headerlink" title="Backtrace for Computing Alignments"></a>Backtrace for Computing Alignments</h1><h1 id="Weighted-Minimum-Edit-Distance"><a href="#Weighted-Minimum-Edit-Distance" class="headerlink" title="Weighted Minimum Edit Distance"></a>Weighted Minimum Edit Distance</h1><h1 id="Minimum-Edit-Distance-in-Computational-Biology"><a href="#Minimum-Edit-Distance-in-Computational-Biology" class="headerlink" title="Minimum Edit Distance in Computational Biology"></a>Minimum Edit Distance in Computational Biology</h1>
+        <h1 id="Exercises-Section-2-1-1"><a href="#Exercises-Section-2-1-1" class="headerlink" title="Exercises Section 2.1.1"></a>Exercises Section 2.1.1</h1><h2 id="Exercise-2-1"><a href="#Exercise-2-1" class="headerlink" title="Exercise 2.1"></a>Exercise 2.1</h2><h2 id="Exercise-2-2"><a href="#Exercise-2-2" class="headerlink" title="Exercise 2.2"></a>Exercise 2.2</h2>
       
     </div>
     
@@ -382,12 +376,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
-          
-        </div>
-      
 
       
       
@@ -397,8 +385,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/07/Git/" rel="next" title="Git学习笔记（1）">
-                <i class="fa fa-chevron-left"></i> Git学习笔记（1）
+              <a href="/2017/10/10/《C-Primer-5th》Chapter1-ex1-20-1-25/" rel="next" title="《C++ Primer 5th》Chapter1-ex1.20_1.25">
+                <i class="fa fa-chevron-left"></i> 《C++ Primer 5th》Chapter1-ex1.20_1.25
               </a>
             
           </div>
@@ -406,10 +394,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/12/Standford-NLP-03-Language-Modeling/" rel="prev" title="Standford NLP (03) Language Modeling">
-                Standford NLP (03) Language Modeling <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -543,7 +527,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Defining-Minimum-Edit-Distance"><span class="nav-number">1.</span> <span class="nav-text">Defining Minimum Edit Distance</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Computing-Minimum-Edit-Distance"><span class="nav-number">2.</span> <span class="nav-text">Computing Minimum Edit Distance</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Backtrace-for-Computing-Alignments"><span class="nav-number">3.</span> <span class="nav-text">Backtrace for Computing Alignments</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Weighted-Minimum-Edit-Distance"><span class="nav-number">4.</span> <span class="nav-text">Weighted Minimum Edit Distance</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Minimum-Edit-Distance-in-Computational-Biology"><span class="nav-number">5.</span> <span class="nav-text">Minimum Edit Distance in Computational Biology</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-2-1-1"><span class="nav-number">1.</span> <span class="nav-text">Exercises Section 2.1.1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-1"><span class="nav-number">1.1.</span> <span class="nav-text">Exercise 2.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-2"><span class="nav-number">1.2.</span> <span class="nav-text">Exercise 2.2</span></a></li></ol></li></ol></div>
             
 
           </div>
