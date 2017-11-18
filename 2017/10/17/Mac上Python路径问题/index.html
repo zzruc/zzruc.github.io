@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="NLP," />
+  <meta name="keywords" content="python," />
 
 
 
@@ -94,20 +94,18 @@
 
 
 
-<meta name="description" content="拼写纠错在生活中很常见，比如我们用Google进行检索时，如果拼写有错误，Google会提示你可能犯的错，并给你建议。">
-<meta name="keywords" content="NLP">
+<meta name="description" content="由于Mac系统自带python，但是不建议直接这个系统级的python上操作，一是因为在pip安装包时会出现权限问题；二是因为万一误删了某些问题，对系统应用会有影响。所以通常我们会选择使用homebrew或者Anaconda安装python。那么在我们命令行启动python时使用的是哪个python呢？">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Standford NLP (04) Spelling Correction">
-<meta property="og:url" content="http://yoursite.com/2017/09/14/Standford-NLP-04-Spelling-Correction/index.html">
+<meta property="og:title" content="Mac上Python路径问题">
+<meta property="og:url" content="http://yoursite.com/2017/10/17/Mac上Python路径问题/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="拼写纠错在生活中很常见，比如我们用Google进行检索时，如果拼写有错误，Google会提示你可能犯的错，并给你建议。">
+<meta property="og:description" content="由于Mac系统自带python，但是不建议直接这个系统级的python上操作，一是因为在pip安装包时会出现权限问题；二是因为万一误删了某些问题，对系统应用会有影响。所以通常我们会选择使用homebrew或者Anaconda安装python。那么在我们命令行启动python时使用的是哪个python呢？">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/2017/09/14/Standford-NLP-04-Spelling-Correction/01.png">
-<meta property="og:updated_time" content="2017-10-11T01:20:54.000Z">
+<meta property="og:updated_time" content="2017-10-17T11:34:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Standford NLP (04) Spelling Correction">
-<meta name="twitter:description" content="拼写纠错在生活中很常见，比如我们用Google进行检索时，如果拼写有错误，Google会提示你可能犯的错，并给你建议。">
-<meta name="twitter:image" content="http://yoursite.com/2017/09/14/Standford-NLP-04-Spelling-Correction/01.png">
+<meta name="twitter:title" content="Mac上Python路径问题">
+<meta name="twitter:description" content="由于Mac系统自带python，但是不建议直接这个系统级的python上操作，一是因为在pip安装包时会出现权限问题；二是因为万一误删了某些问题，对系统应用会有影响。所以通常我们会选择使用homebrew或者Anaconda安装python。那么在我们命令行启动python时使用的是哪个python呢？">
 
 
 
@@ -136,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/14/Standford-NLP-04-Spelling-Correction/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/17/Mac上Python路径问题/"/>
 
 
 
 
 
-  <title>Standford NLP (04) Spelling Correction | 张长写字的地方</title>
+  <title>Mac上Python路径问题 | 张长写字的地方</title>
   
 
 
@@ -275,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/14/Standford-NLP-04-Spelling-Correction/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/17/Mac上Python路径问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzruc">
@@ -292,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Standford NLP (04) Spelling Correction</h1>
+          <h1 class="post-title" itemprop="name headline">Mac上Python路径问题</h1>
         
 
         <div class="post-meta">
@@ -304,8 +302,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-14T14:16:28+08:00">
-                2017-09-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-17T16:53:25+08:00">
+                2017-10-17
               </time>
             
 
@@ -314,28 +312,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Stanford-NLP/" itemprop="url" rel="index">
-                    <span itemprop="name">Stanford NLP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -364,24 +340,33 @@
       
 
       
-        <p>拼写纠错在生活中很常见，比如我们用Google进行检索时，如果拼写有错误，Google会提示你可能犯的错，并给你建议。</p>
-<a id="more"></a>
-<p><img src="01.png" alt=""></p>
-<h1 id="The-Spelling-Correction-Task"><a href="#The-Spelling-Correction-Task" class="headerlink" title="The Spelling Correction Task"></a>The Spelling Correction Task</h1><p>要能纠错首先必须发现拼写错误，所以Spelling Tasks包含：</p>
-<ul>
-<li>Spelling Error Detection</li>
-<li>Spelling Error Correction</li>
-</ul>
-<p>拼写错误分两类：</p>
-<ul>
-<li>None-word Errors:所犯错的单词不是一个单词，比如<code>graffe -&gt; giraffe</code>,英语中并没有<code>graffe</code>这个单词。</li>
-<li>Real-word Errors:所犯错的单词仍是一个单词，又可细分两类：</li>
-</ul>
-<ol>
-<li>形相近的错误：<code>three -&gt; there</code></li>
-<li>音相近的错误：<code>too -&gt; two</code></li>
-</ol>
-<h1 id="The-Noisy-Channel-Model-of-Spelling"><a href="#The-Noisy-Channel-Model-of-Spelling" class="headerlink" title="The Noisy Channel Model of Spelling"></a>The Noisy Channel Model of Spelling</h1><p>$$  \hat{w}=argmax<em>limits</em>{w,V}$$</p>
+        <p>由于Mac系统自带python，但是不建议直接这个系统级的python上操作，一是因为在pip安装包时会出现权限问题；二是因为万一误删了某些问题，对系统应用会有影响。所以通常我们会选择使用homebrew或者Anaconda安装python。那么在我们命令行启动python时使用的是哪个python呢？<br><a id="more"></a><br>/usr/local/bin<br>目录下有python2</p>
+<p>/usr/local/Cellar/python/2.7.13_1/bin<br>目录下有python2</p>
+<p>/usr/local/Frameworks/Python.framework/Versions/2.7/bin</p>
+<p>目录下有python但是版本是2.7.10，也有python2</p>
+<p>所以问题来了，这些目录下的python文件是如何来的？</p>
+<p>homebrew 安装软件的位置？<br>Homebrew 会将软件包安装到独立目录，并将其文件软链接至 /usr/local 。<a href="https://brew.sh/index_zh-cn.html" target="_blank" rel="external">https://brew.sh/index_zh-cn.html</a><br>软连接？</p>
+<p><code>which</code> only works for executable programs, not builtins nor aliases that are substitutes for actual executable programs.</p>
+<p>[<a href="http://wulfric.me/2015/08/homebrew/" target="_blank" rel="external">http://wulfric.me/2015/08/homebrew/</a>]</p>
+<p>[<a href="https://www.zhihu.com/question/30941329" target="_blank" rel="external">https://www.zhihu.com/question/30941329</a>]</p>
+<p>echo $SHELL 查看使用的是什么shell</p>
+<h2 id="Mac配置环境变量的地方"><a href="#Mac配置环境变量的地方" class="headerlink" title="Mac配置环境变量的地方"></a>Mac配置环境变量的地方</h2><p> 1./etc/profile   （建议不修改这个文件 ）<br> 全局（公有）配置，不管是哪个用户，登录时都会读取该文件。</p>
+<p> 2./etc/bashrc    （一般在这个文件中添加系统级环境变量）<br> 全局（公有）配置，bash shell执行时，不管是何种方式，都会读取此文件。</p>
+<p> 3.~/.bash_profile  （一般在这个文件中添加用户级环境变量）<br> 每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次!</p>
+<p> linux下查看和添加PATH环境变量</p>
+<h2 id="PATH的格式为："><a href="#PATH的格式为：" class="headerlink" title="PATH的格式为："></a>PATH的格式为：</h2><p>PATH=$PATH:<path 1=""></path>:<path 2=""></path>:<path 3=""></path>:——:<path n=""></path>   ，中间用冒号隔开。</p>
+<p>添加PATH环境变量：</p>
+<p>[root@localhost u-boot-sh4]#export PATH=/opt/STM/STLinux-2.3/devkit/sh4/bin:$PATH</p>
+<p>查看PATH环境变量：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> <span class="variable">$PATH</span></div><div class="line">/usr/kerberos/sbin:/usr/kerberos/bin:/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin</div></pre></td></tr></table></figure>
+<p>/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin</p>
+<p> 操作示例：</p>
+<p>通过编辑 启动文件 来改PATH，</p>
+<h1 id="vim-etc-profile"><a href="#vim-etc-profile" class="headerlink" title="vim /etc/profile"></a>vim /etc/profile</h1><p>在文档最后，添加:<br>export PATH=”/opt/STM/STLinux-2.3/devkit/sh4/bin:$PATH”<br>保存，退出。</p>
+<p>想立即生效请运行：</p>
+<p>#source /etc/profile<br>不报错则成功。</p>
+<p>如果想立刻生效，则可执行下面的语句：<br>$ source .bash_profile（这是文件名）<br>环境变量更改后，在用户下次登陆时生效。</p>
+<p><a href="http://elf8848.iteye.com/blog/1582137" target="_blank" rel="external">http://elf8848.iteye.com/blog/1582137</a></p>
 
       
     </div>
@@ -399,7 +384,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
+            <a href="/tags/python/" rel="tag"># python</a>
           
         </div>
       
@@ -412,8 +397,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/14/机器学习基石-4-Feasibility-of-Learning/" rel="next" title="机器学习基石 (4) Feasibility of Learning">
-                <i class="fa fa-chevron-left"></i> 机器学习基石 (4) Feasibility of Learning
+              <a href="/2017/10/11/《C-Primer-5th》Chapter2-ex2-26-2-42/" rel="next" title="《C++ Primer 5th》Chapter2-ex2.26_2.42">
+                <i class="fa fa-chevron-left"></i> 《C++ Primer 5th》Chapter2-ex2.26_2.42
               </a>
             
           </div>
@@ -422,8 +407,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/14/Standford-NLP-05-Text-Classification/" rel="prev" title="Standford NLP (05) Text Classification">
-                Standford NLP (05) Text Classification <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/17/《C-Primer-5th》Chapter3-ex3-1-3-11/" rel="prev" title="《C++ Primer 5th》Chapter3-ex3.1_3.11">
+                《C++ Primer 5th》Chapter3-ex3.1_3.11 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -558,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#The-Spelling-Correction-Task"><span class="nav-number">1.</span> <span class="nav-text">The Spelling Correction Task</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-Noisy-Channel-Model-of-Spelling"><span class="nav-number">2.</span> <span class="nav-text">The Noisy Channel Model of Spelling</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac配置环境变量的地方"><span class="nav-number">1.</span> <span class="nav-text">Mac配置环境变量的地方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PATH的格式为："><span class="nav-number">2.</span> <span class="nav-text">PATH的格式为：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim-etc-profile"><span class="nav-number"></span> <span class="nav-text">vim /etc/profile</span></a></div>
             
 
           </div>
