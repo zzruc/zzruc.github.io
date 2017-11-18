@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="张长写字的地方">
 <meta property="og:description" content="Todo">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-18T07:47:20.000Z">
+<meta property="og:updated_time" content="2017-11-18T08:48:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《C++ Primer 5th》Chapter2-ex2.1_2.25">
 <meta name="twitter:description" content="Todo">
@@ -391,9 +391,55 @@
 <td>长长整型</td>
 <td>64 bits</td>
 </tr>
+<tr>
+<td style="text-align:left">float</td>
+<td>单精度浮点数</td>
+<td>6位有效小数</td>
+</tr>
+<tr>
+<td style="text-align:left">double</td>
+<td>双精度浮点数</td>
+<td>10位有效小数</td>
+</tr>
+<tr>
+<td style="text-align:left">long double</td>
+<td>扩展的双进度浮点数</td>
+<td>10位有效小数</td>
+</tr>
 </tbody>
 </table>
-<h2 id="Exercise-2-2"><a href="#Exercise-2-2" class="headerlink" title="Exercise 2.2"></a>Exercise 2.2</h2>
+<p>short ,int ,long,long long 都是signed ,即是有正负号的，只有带unsigned 才表示是没有正负号，即只能表示正数。</p>
+<h2 id="Exercise-2-2"><a href="#Exercise-2-2" class="headerlink" title="Exercise 2.2"></a>Exercise 2.2</h2><p>因为利率，本金和付款都有可能是小数，所以选择double 。</p>
+<h1 id="Exercises-Section-2-1-3"><a href="#Exercises-Section-2-1-3" class="headerlink" title="Exercises Section 2.1.3"></a>Exercises Section 2.1.3</h1><h2 id="Exercise-2-3"><a href="#Exercise-2-3" class="headerlink" title="Exercise 2.3"></a>Exercise 2.3</h2><p>此题的计算结果和计算机的表示有关，我的编译环境下，int占32位,可以表示的最大unsigned为$2^{32}-1=4294967295$。当unsigned和signed混合计算时，编译器会把signed转换成unsigned。</p>
+<ul>
+<li>32</li>
+<li>4294967264。实际是-32，但因为是unsigned，所以是$-32+2^{32}$</li>
+<li>32</li>
+<li>-32</li>
+<li>0</li>
+<li>0</li>
+</ul>
+<h2 id="Exercise-2-4"><a href="#Exercise-2-4" class="headerlink" title="Exercise 2.4"></a>Exercise 2.4</h2><p>略。</p>
+<h2 id="Exercise-2-5"><a href="#Exercise-2-5" class="headerlink" title="Exercise 2.5"></a>Exercise 2.5</h2><blockquote>
+<p>Determine the type of each of the following literals. Explain the differences among the literals in each of the four examples:</p>
+<p>(a)  ‘a’, L’a’, “a”, L”a”</p>
+<p>(b)  10, 10u, 10L, 10uL, 012, 0xC</p>
+<p>(c)  3.14, 3.14f, 3.14L</p>
+<p>(d)  10, 10u, 10., 10e-2</p>
+</blockquote>
+<ul>
+<li>(a)  ‘a’表示字符, L’a’表示宽字符, “a”，双引号表示字符串, L”a”，表示宽字符串</li>
+<li>(b) 10 表示十进制整型, 10u表示10进制无符号整型，10L表示10进制长整型, 10uL表示10进制无符号长整型, 012表示8进制整数, 0xC表示16进制整数</li>
+<li>(c)  3.14表示浮点数, 3.14f表示单精度浮点数, 3.14L表示long double浮点数</li>
+<li>(d) 10表示整数, 10u表示无符号整数, 10.表示浮点数, 10e-2表示科学计数法</li>
+</ul>
+<h2 id="Exercise-2-6"><a href="#Exercise-2-6" class="headerlink" title="Exercise 2.6"></a>Exercise 2.6</h2><ul>
+<li>第一组定义正确</li>
+<li>第二组定义错误，因为’09’以零开头，表示8进制数，但是9超过了八进制表示范围。</li>
+</ul>
+<h2 id="Exercise-2-7"><a href="#Exercise-2-7" class="headerlink" title="Exercise 2.7"></a>Exercise 2.7</h2><h2 id="Exercise-2-8"><a href="#Exercise-2-8" class="headerlink" title="Exercise 2.8"></a>Exercise 2.8</h2><h2 id="Exercise-2-9"><a href="#Exercise-2-9" class="headerlink" title="Exercise 2.9"></a>Exercise 2.9</h2><h2 id="Exercise-2-10"><a href="#Exercise-2-10" class="headerlink" title="Exercise 2.10"></a>Exercise 2.10</h2><h2 id="Exercise-2-11"><a href="#Exercise-2-11" class="headerlink" title="Exercise 2.11"></a>Exercise 2.11</h2><h2 id="Exercise-2-12"><a href="#Exercise-2-12" class="headerlink" title="Exercise 2.12"></a>Exercise 2.12</h2><h2 id="Exercise-2-13"><a href="#Exercise-2-13" class="headerlink" title="Exercise 2.13"></a>Exercise 2.13</h2><h2 id="Exercise-2-14"><a href="#Exercise-2-14" class="headerlink" title="Exercise 2.14"></a>Exercise 2.14</h2><h2 id="Exercise-2-15"><a href="#Exercise-2-15" class="headerlink" title="Exercise 2.15"></a>Exercise 2.15</h2><h2 id="Exercise-2-16"><a href="#Exercise-2-16" class="headerlink" title="Exercise 2.16"></a>Exercise 2.16</h2><h2 id="Exercise-2-17"><a href="#Exercise-2-17" class="headerlink" title="Exercise 2.17"></a>Exercise 2.17</h2><h2 id="Exercise-2-18"><a href="#Exercise-2-18" class="headerlink" title="Exercise 2.18"></a>Exercise 2.18</h2><h2 id="Exercise-2-19"><a href="#Exercise-2-19" class="headerlink" title="Exercise 2.19"></a>Exercise 2.19</h2><h2 id="Exercise-2-20"><a href="#Exercise-2-20" class="headerlink" title="Exercise 2.20"></a>Exercise 2.20</h2><h2 id="Exercise-2-21"><a href="#Exercise-2-21" class="headerlink" title="Exercise 2.21"></a>Exercise 2.21</h2><h2 id="Exercise-2-22"><a href="#Exercise-2-22" class="headerlink" title="Exercise 2.22"></a>Exercise 2.22</h2><h2 id="Exercise-2-23"><a href="#Exercise-2-23" class="headerlink" title="Exercise 2.23"></a>Exercise 2.23</h2><h2 id="Exercise-2-24"><a href="#Exercise-2-24" class="headerlink" title="Exercise 2.24"></a>Exercise 2.24</h2><h2 id="Exercise-2-25"><a href="#Exercise-2-25" class="headerlink" title="Exercise 2.25"></a>Exercise 2.25</h2><p>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​                        </p>
+<p>​<br>​<br>​<br>​<br>​    </p>
+
       
     </div>
     
@@ -563,7 +609,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-2-1-1"><span class="nav-number">1.</span> <span class="nav-text">Exercises Section 2.1.1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-1"><span class="nav-number">1.1.</span> <span class="nav-text">Exercise 2.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-2"><span class="nav-number">1.2.</span> <span class="nav-text">Exercise 2.2</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-2-1-1"><span class="nav-number">1.</span> <span class="nav-text">Exercises Section 2.1.1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-1"><span class="nav-number">1.1.</span> <span class="nav-text">Exercise 2.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-2"><span class="nav-number">1.2.</span> <span class="nav-text">Exercise 2.2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-2-1-3"><span class="nav-number">2.</span> <span class="nav-text">Exercises Section 2.1.3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-3"><span class="nav-number">2.1.</span> <span class="nav-text">Exercise 2.3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-4"><span class="nav-number">2.2.</span> <span class="nav-text">Exercise 2.4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-5"><span class="nav-number">2.3.</span> <span class="nav-text">Exercise 2.5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-6"><span class="nav-number">2.4.</span> <span class="nav-text">Exercise 2.6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-7"><span class="nav-number">2.5.</span> <span class="nav-text">Exercise 2.7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-8"><span class="nav-number">2.6.</span> <span class="nav-text">Exercise 2.8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-9"><span class="nav-number">2.7.</span> <span class="nav-text">Exercise 2.9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-10"><span class="nav-number">2.8.</span> <span class="nav-text">Exercise 2.10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-11"><span class="nav-number">2.9.</span> <span class="nav-text">Exercise 2.11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-12"><span class="nav-number">2.10.</span> <span class="nav-text">Exercise 2.12</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-13"><span class="nav-number">2.11.</span> <span class="nav-text">Exercise 2.13</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-14"><span class="nav-number">2.12.</span> <span class="nav-text">Exercise 2.14</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-15"><span class="nav-number">2.13.</span> <span class="nav-text">Exercise 2.15</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-16"><span class="nav-number">2.14.</span> <span class="nav-text">Exercise 2.16</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-17"><span class="nav-number">2.15.</span> <span class="nav-text">Exercise 2.17</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-18"><span class="nav-number">2.16.</span> <span class="nav-text">Exercise 2.18</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-19"><span class="nav-number">2.17.</span> <span class="nav-text">Exercise 2.19</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-20"><span class="nav-number">2.18.</span> <span class="nav-text">Exercise 2.20</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-21"><span class="nav-number">2.19.</span> <span class="nav-text">Exercise 2.21</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-22"><span class="nav-number">2.20.</span> <span class="nav-text">Exercise 2.22</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-23"><span class="nav-number">2.21.</span> <span class="nav-text">Exercise 2.23</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-24"><span class="nav-number">2.22.</span> <span class="nav-text">Exercise 2.24</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-25"><span class="nav-number">2.23.</span> <span class="nav-text">Exercise 2.25</span></a></li></ol></li></ol></div>
             
 
           </div>
