@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="重点内容：">
+<meta name="description" content="重点内容： 摘自 Bjarne Stroustrup’s “The C++ Programming Language 4th Edition” (section 6.3.5):  List initialization does not allow narrowing (§iso.8.5.4). That is:  An integer cannot be converted to another">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《C++ Primer 5th》Chapter2-ex2.1_2.25">
 <meta property="og:url" content="http://yoursite.com/2017/10/11/《C-Primer-5th》Chapter2-ex2-1-2-25/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="重点内容：">
+<meta property="og:description" content="重点内容： 摘自 Bjarne Stroustrup’s “The C++ Programming Language 4th Edition” (section 6.3.5):  List initialization does not allow narrowing (§iso.8.5.4). That is:  An integer cannot be converted to another">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-19T02:50:50.000Z">
+<meta property="og:updated_time" content="2017-11-19T09:05:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《C++ Primer 5th》Chapter2-ex2.1_2.25">
-<meta name="twitter:description" content="重点内容：">
+<meta name="twitter:description" content="重点内容： 摘自 Bjarne Stroustrup’s “The C++ Programming Language 4th Edition” (section 6.3.5):  List initialization does not allow narrowing (§iso.8.5.4). That is:  An integer cannot be converted to another">
 
 
 
@@ -362,7 +362,36 @@
 
       
         <p>重点内容：</p>
+<p>摘自 Bjarne Stroustrup’s <em>“The C++ Programming Language 4th Edition”</em> (section 6.3.5):</p>
+<blockquote>
+<p><strong>List initialization</strong> does not allow narrowing (§iso.8.5.4). That is:</p>
+<ul>
+<li><p>An integer cannot be converted to another integer that cannot hold its value. For example, char to int is allowed, but not int to char.</p>
+</li>
+<li><p>A floating-point value cannot be converted to another floating-point type that cannot hold its value. For example, float to double is allowed, but not double to float.</p>
+</li>
+<li><p>A floating-point value cannot be converted to an integer type.</p>
+</li>
+<li><p>An integer value cannot be converted to a floating-point type.</p>
+<p>Example:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt;   <span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">double</span> val, <span class="keyword">int</span> val2)</span> </span>&#123;</div><div class="line">&gt;</div><div class="line">&gt;       <span class="keyword">int</span> x2 = val; <span class="comment">// if val==7.9, x2 becomes 7 (bad)</span></div><div class="line">&gt;</div><div class="line">&gt;       <span class="keyword">char</span> c2 = val2; <span class="comment">// if val2==1025, c2 becomes 1 (bad)</span></div><div class="line">&gt;</div><div class="line">&gt;       <span class="keyword">int</span> x3 &#123;val&#125;; <span class="comment">// error: possible truncation (good)</span></div><div class="line">&gt;</div><div class="line">&gt;       <span class="keyword">char</span> c3 &#123;val2&#125;; <span class="comment">// error: possible narrowing (good)</span></div><div class="line">&gt;</div><div class="line">&gt;       <span class="keyword">char</span> c4 &#123;<span class="number">24</span>&#125;; <span class="comment">// OK: 24 can be represented exactly as a char (good)</span></div><div class="line">&gt;</div><div class="line">&gt;       <span class="keyword">char</span> c5 &#123;<span class="number">264</span>&#125;; <span class="comment">// error (assuming 8-bit chars): 264 cannot be </span></div><div class="line">&gt;                      <span class="comment">// represented as a char (good)</span></div><div class="line">&gt;</div><div class="line">&gt;       <span class="keyword">int</span> x4 &#123;<span class="number">2.0</span>&#125;; <span class="comment">// error: no double to int value conversion (good)</span></div><div class="line">&gt;</div><div class="line">&gt;   &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>  ​</p>
+</blockquote>
 <a id="more"></a>
+<blockquote>
+<p>The <em>only</em> situation where = is preferred over {} is when using <code>auto</code> keyword to get the type determined by the initializer.</p>
+<p>Exmample:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="keyword">auto</span> z1 &#123;<span class="number">99</span>&#125;; <span class="comment">// z1 is an initializer_list&lt;int&gt;</span></div><div class="line">&gt; <span class="keyword">auto</span> z2 = <span class="number">99</span>; <span class="comment">// z2 is an int</span></div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+</blockquote>
+<p><strong>结论：初始化优先考虑花括号{}，除非有其他原因。</strong></p>
 <h1 id="Exercises-Section-2-1-1"><a href="#Exercises-Section-2-1-1" class="headerlink" title="Exercises Section 2.1.1"></a>Exercises Section 2.1.1</h1><h2 id="Exercise-2-1"><a href="#Exercise-2-1" class="headerlink" title="Exercise 2.1"></a>Exercise 2.1</h2><table>
 <thead>
 <tr>
