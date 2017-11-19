@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="张长写字的地方">
 <meta property="og:description" content="重点内容1：初始化时推荐使用{}初始化，但是要注意列表初始化（即使用{}初始化）不允许窄化操作。  摘自 Bjarne Stroustrup’s “The C++ Programming Language 4th Edition” (section 6.3.5):  List initialization does not allow narrowing (§iso.8.5.4). That is">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-19T11:17:37.000Z">
+<meta property="og:updated_time" content="2017-11-19T15:15:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《C++ Primer 5th》Chapter2-ex2.1_2.25">
 <meta name="twitter:description" content="重点内容1：初始化时推荐使用{}初始化，但是要注意列表初始化（即使用{}初始化）不允许窄化操作。  摘自 Bjarne Stroustrup’s “The C++ Programming Language 4th Edition” (section 6.3.5):  List initialization does not allow narrowing (§iso.8.5.4). That is">
@@ -486,7 +486,30 @@
 <li><code>local_str</code>虽是定义在函数内的局部变量，但由于string类自身定义了默认初始化，所以会被默认初始化为空字符串。</li>
 </ul>
 <p>#Exercises Section 2.2.2</p>
-<h2 id="Exercise-2-11"><a href="#Exercise-2-11" class="headerlink" title="Exercise 2.11"></a>Exercise 2.11</h2><h2 id="Exercise-2-12"><a href="#Exercise-2-12" class="headerlink" title="Exercise 2.12"></a>Exercise 2.12</h2><h2 id="Exercise-2-13"><a href="#Exercise-2-13" class="headerlink" title="Exercise 2.13"></a>Exercise 2.13</h2><h2 id="Exercise-2-14"><a href="#Exercise-2-14" class="headerlink" title="Exercise 2.14"></a>Exercise 2.14</h2><h2 id="Exercise-2-15"><a href="#Exercise-2-15" class="headerlink" title="Exercise 2.15"></a>Exercise 2.15</h2><h2 id="Exercise-2-16"><a href="#Exercise-2-16" class="headerlink" title="Exercise 2.16"></a>Exercise 2.16</h2><h2 id="Exercise-2-17"><a href="#Exercise-2-17" class="headerlink" title="Exercise 2.17"></a>Exercise 2.17</h2><h2 id="Exercise-2-18"><a href="#Exercise-2-18" class="headerlink" title="Exercise 2.18"></a>Exercise 2.18</h2><h2 id="Exercise-2-19"><a href="#Exercise-2-19" class="headerlink" title="Exercise 2.19"></a>Exercise 2.19</h2><h2 id="Exercise-2-20"><a href="#Exercise-2-20" class="headerlink" title="Exercise 2.20"></a>Exercise 2.20</h2><h2 id="Exercise-2-21"><a href="#Exercise-2-21" class="headerlink" title="Exercise 2.21"></a>Exercise 2.21</h2><h2 id="Exercise-2-22"><a href="#Exercise-2-22" class="headerlink" title="Exercise 2.22"></a>Exercise 2.22</h2><h2 id="Exercise-2-23"><a href="#Exercise-2-23" class="headerlink" title="Exercise 2.23"></a>Exercise 2.23</h2><h2 id="Exercise-2-24"><a href="#Exercise-2-24" class="headerlink" title="Exercise 2.24"></a>Exercise 2.24</h2><h2 id="Exercise-2-25"><a href="#Exercise-2-25" class="headerlink" title="Exercise 2.25"></a>Exercise 2.25</h2><p>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​                        </p>
+<h2 id="Exercise-2-11"><a href="#Exercise-2-11" class="headerlink" title="Exercise 2.11"></a>Exercise 2.11</h2><blockquote>
+<p>Explain whether each of the following is a declaration or a definition:</p>
+<p>(a) extern int ix = 1024; </p>
+<p>(b) int iy;</p>
+<p>(c) extern int iz;</p>
+</blockquote>
+<ul>
+<li>(a) 虽然有关键字<code>extern</code>但是对变量ix初始化了，所以依然是定义了ix。</li>
+<li>(b) 申明并定义了iy。</li>
+<li>(c) 使用了关键字<code>extern</code>并且没有对变量iz初始化，所以只是申明了变量iz。</li>
+</ul>
+<h2 id="Exercise-2-12"><a href="#Exercise-2-12" class="headerlink" title="Exercise 2.12"></a>Exercise 2.12</h2><ul>
+<li>(a) 非法。因为double是关键字，不能当变量名使用。</li>
+<li>(b) 合法。</li>
+<li>(c) 非法。不能使用“-”，可以将其改成“_”。</li>
+<li>(d) 非法。标识符只能以字母或者下划线开头，不能使用数字开头。</li>
+<li>(e) 正确。C++是区分大小写了，Double和double不同。</li>
+</ul>
+<h2 id="Exercise-2-13"><a href="#Exercise-2-13" class="headerlink" title="Exercise 2.13"></a>Exercise 2.13</h2><p>j的值为100。全局变量i在函数内部被重新定义了。</p>
+<h2 id="Exercise-2-14"><a href="#Exercise-2-14" class="headerlink" title="Exercise 2.14"></a>Exercise 2.14</h2><blockquote>
+<p>Is the following program legal ? If so,what values are printed ?</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="keyword">int</span> i = <span class="number">100</span>, sum = <span class="number">0</span>;</div><div class="line">&gt; <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i != <span class="number">10</span>; ++i)</div><div class="line">&gt; 	sum += i;</div><div class="line">&gt; <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">" "</span> &lt;&lt; sum &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="Exercise-2-15"><a href="#Exercise-2-15" class="headerlink" title="Exercise 2.15"></a>Exercise 2.15</h2><h2 id="Exercise-2-16"><a href="#Exercise-2-16" class="headerlink" title="Exercise 2.16"></a>Exercise 2.16</h2><h2 id="Exercise-2-17"><a href="#Exercise-2-17" class="headerlink" title="Exercise 2.17"></a>Exercise 2.17</h2><h2 id="Exercise-2-18"><a href="#Exercise-2-18" class="headerlink" title="Exercise 2.18"></a>Exercise 2.18</h2><h2 id="Exercise-2-19"><a href="#Exercise-2-19" class="headerlink" title="Exercise 2.19"></a>Exercise 2.19</h2><h2 id="Exercise-2-20"><a href="#Exercise-2-20" class="headerlink" title="Exercise 2.20"></a>Exercise 2.20</h2><h2 id="Exercise-2-21"><a href="#Exercise-2-21" class="headerlink" title="Exercise 2.21"></a>Exercise 2.21</h2><h2 id="Exercise-2-22"><a href="#Exercise-2-22" class="headerlink" title="Exercise 2.22"></a>Exercise 2.22</h2><h2 id="Exercise-2-23"><a href="#Exercise-2-23" class="headerlink" title="Exercise 2.23"></a>Exercise 2.23</h2><h2 id="Exercise-2-24"><a href="#Exercise-2-24" class="headerlink" title="Exercise 2.24"></a>Exercise 2.24</h2><h2 id="Exercise-2-25"><a href="#Exercise-2-25" class="headerlink" title="Exercise 2.25"></a>Exercise 2.25</h2><p>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​                        </p>
 <p>​<br>​<br>​<br>​<br>​    </p>
 
       
