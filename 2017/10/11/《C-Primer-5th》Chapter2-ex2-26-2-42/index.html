@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="Todo">
+<meta name="description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《C++ Primer 5th》Chapter2-ex2.26_2.42">
 <meta property="og:url" content="http://yoursite.com/2017/10/11/《C-Primer-5th》Chapter2-ex2-26-2-42/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="Todo">
+<meta property="og:description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-10-11T01:16:09.000Z">
+<meta property="og:updated_time" content="2017-11-20T12:55:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《C++ Primer 5th》Chapter2-ex2.26_2.42">
-<meta name="twitter:description" content="Todo">
+<meta name="twitter:description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字。">
 
 
 
@@ -361,8 +361,30 @@
       
 
       
-        <p>Todo<br><a id="more"></a></p>
-<h1 id="Exercises-Section-2-4"><a href="#Exercises-Section-2-4" class="headerlink" title="Exercises Section 2.4"></a>Exercises Section 2.4</h1><h2 id="Exercise-2-26"><a href="#Exercise-2-26" class="headerlink" title="Exercise 2.26"></a>Exercise 2.26</h2><h1 id="Exercises-Section-2-4-2"><a href="#Exercises-Section-2-4-2" class="headerlink" title="Exercises Section 2.4.2"></a>Exercises Section 2.4.2</h1><h2 id="Exercise-2-27"><a href="#Exercise-2-27" class="headerlink" title="Exercise 2.27"></a>Exercise 2.27</h2><h2 id="Exercise-2-28"><a href="#Exercise-2-28" class="headerlink" title="Exercise 2.28"></a>Exercise 2.28</h2><h2 id="Exercise-2-29"><a href="#Exercise-2-29" class="headerlink" title="Exercise 2.29"></a>Exercise 2.29</h2><h1 id="Exercises-Section-2-4-3"><a href="#Exercises-Section-2-4-3" class="headerlink" title="Exercises Section 2.4.3"></a>Exercises Section 2.4.3</h1><h2 id="Exercise-2-30"><a href="#Exercise-2-30" class="headerlink" title="Exercise 2.30"></a>Exercise 2.30</h2><h2 id="Exercise-2-31"><a href="#Exercise-2-31" class="headerlink" title="Exercise 2.31"></a>Exercise 2.31</h2><h1 id="Exercises-Section-2-5-2"><a href="#Exercises-Section-2-5-2" class="headerlink" title="Exercises Section 2.5.2"></a>Exercises Section 2.5.2</h1><h2 id="Exercise-2-33"><a href="#Exercise-2-33" class="headerlink" title="Exercise 2.33"></a>Exercise 2.33</h2><h2 id="Exercise-2-34"><a href="#Exercise-2-34" class="headerlink" title="Exercise 2.34"></a>Exercise 2.34</h2><h2 id="Exercise-2-35"><a href="#Exercise-2-35" class="headerlink" title="Exercise 2.35"></a>Exercise 2.35</h2>
+        <table><tr><td bgcolor="Lightcoral">重点内容1：const 和extern</td></tr></table>
+
+<ul>
+<li>const 对象必须初始化。</li>
+<li>多个文件共享const对象，必须使用extern关键字。</li>
+</ul>
+<a id="more"></a>
+<p>摘自 Bjarne Stroustrup’s <em>“The C++ Programming Language 4th Edition”</em> (section 15.2 Linkage):</p>
+<blockquote>
+<p>// file1.cpp:<br>int x = 1;<br>int b = 1;<br>extern int c;</p>
+<p>// file2.cpp:<br>int x;  // means ‘‘int x = 0;’’<br>extern double b;<br>extern int c;</p>
+<p>There are three errors here: x is defined twice, b is declared twice with different types, and c is declared twice but not defined.</p>
+<p>static int x1 = 1; // internal linkage: not accessible from other translation units </p>
+<p>const char x2 = ‘a’; // internal linkage: not accessible from other translation units</p>
+<p>The keyword const implies default internal linkage, so if you wanted x2 to have external linkage, you need to precede its definitions with extern:</p>
+<p>int x1 = 1; // external linkage: accessible from other translation units<br>extern const char x2 = ‘a’; // external linkage: accessible from other translation units</p>
+</blockquote>
+<h1 id="Exercises-Section-2-4"><a href="#Exercises-Section-2-4" class="headerlink" title="Exercises Section 2.4"></a>Exercises Section 2.4</h1><h2 id="Exercise-2-26"><a href="#Exercise-2-26" class="headerlink" title="Exercise 2.26"></a>Exercise 2.26</h2><ul>
+<li>(a) 错误。const对象必须初始化。</li>
+<li>(b) 正确。</li>
+<li>(c) 正确。</li>
+<li>(d) 错误。不能对const对象进行修改。</li>
+</ul>
+<h1 id="Exercises-Section-2-4-2"><a href="#Exercises-Section-2-4-2" class="headerlink" title="Exercises Section 2.4.2"></a>Exercises Section 2.4.2</h1><h2 id="Exercise-2-27"><a href="#Exercise-2-27" class="headerlink" title="Exercise 2.27"></a>Exercise 2.27</h2><h2 id="Exercise-2-28"><a href="#Exercise-2-28" class="headerlink" title="Exercise 2.28"></a>Exercise 2.28</h2><h2 id="Exercise-2-29"><a href="#Exercise-2-29" class="headerlink" title="Exercise 2.29"></a>Exercise 2.29</h2><h1 id="Exercises-Section-2-4-3"><a href="#Exercises-Section-2-4-3" class="headerlink" title="Exercises Section 2.4.3"></a>Exercises Section 2.4.3</h1><h2 id="Exercise-2-30"><a href="#Exercise-2-30" class="headerlink" title="Exercise 2.30"></a>Exercise 2.30</h2><h2 id="Exercise-2-31"><a href="#Exercise-2-31" class="headerlink" title="Exercise 2.31"></a>Exercise 2.31</h2><h1 id="Exercises-Section-2-5-2"><a href="#Exercises-Section-2-5-2" class="headerlink" title="Exercises Section 2.5.2"></a>Exercises Section 2.5.2</h1><h2 id="Exercise-2-33"><a href="#Exercise-2-33" class="headerlink" title="Exercise 2.33"></a>Exercise 2.33</h2><h2 id="Exercise-2-34"><a href="#Exercise-2-34" class="headerlink" title="Exercise 2.34"></a>Exercise 2.34</h2><h2 id="Exercise-2-35"><a href="#Exercise-2-35" class="headerlink" title="Exercise 2.35"></a>Exercise 2.35</h2>
       
     </div>
     
