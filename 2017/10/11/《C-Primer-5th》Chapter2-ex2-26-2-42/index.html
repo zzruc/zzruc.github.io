@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字。">
+<meta name="description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字定义该对象。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《C++ Primer 5th》Chapter2-ex2.26_2.42">
 <meta property="og:url" content="http://yoursite.com/2017/10/11/《C-Primer-5th》Chapter2-ex2-26-2-42/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字。">
+<meta property="og:description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字定义该对象。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-20T12:55:54.000Z">
+<meta property="og:updated_time" content="2017-11-22T09:09:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《C++ Primer 5th》Chapter2-ex2.26_2.42">
-<meta name="twitter:description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字。">
+<meta name="twitter:description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字定义该对象。">
 
 
 
@@ -365,7 +365,7 @@
 
 <ul>
 <li>const 对象必须初始化。</li>
-<li>多个文件共享const对象，必须使用extern关键字。</li>
+<li>多个文件共享const对象，必须使用extern关键字定义该对象。</li>
 </ul>
 <a id="more"></a>
 <p>摘自 Bjarne Stroustrup’s <em>“The C++ Programming Language 4th Edition”</em> (section 15.2 Linkage):</p>
@@ -378,13 +378,77 @@
 <p>The keyword const implies default internal linkage, so if you wanted x2 to have external linkage, you need to precede its definitions with extern:</p>
 <p>int x1 = 1; // external linkage: accessible from other translation units<br>extern const char x2 = ‘a’; // external linkage: accessible from other translation units</p>
 </blockquote>
+<table><tr><td bgcolor="Lightcoral">重点内容2：常量引用(指向常量的引用)和常量指针，指向常量的指针</td></tr></table>
+
+<p><strong>常量引用：</strong></p>
+<ul>
+<li><p>只有指向常量的引用，没有常量引用，因为引用不是对象，只是日常表述方便称之为常量引用。</p>
+</li>
+<li><p>引用的类型必须和它所绑定的对象类型一致的两个例外：1.只要初始值类型可以<strong>转化</strong>为引用的类型，那么我们就可以将其和reference const绑定，即指向常量的引用可以绑定非常量对象，字面值，表达式。之所以可以这样，可以按中间产生了临时变量来理解。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">double</span> dval = <span class="number">3.14</span>; </div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;ri = dval;</div></pre></td></tr></table></figure>
+<p>相当于：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> temp = dval; <span class="comment">// create a temporary const int from the  temp; </span></div><div class="line"><span class="keyword">double</span> <span class="keyword">const</span> <span class="keyword">int</span> &amp;ri =temp<span class="comment">// bind ri to that temporary</span></div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>指向常量的引用仅仅是约束了我们能通过引用做的操作，不能约束我们直接对引用所指向的对象的操作。即我们不能通过指向常量的引用改变其指向的对象，但是我们可以直接对其指向的对象进行更改。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i=<span class="number">10</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;r=i;<span class="comment">//正确</span></div><div class="line">r=<span class="number">9</span>;<span class="comment">//错误</span></div><div class="line">i=<span class="number">9</span>;<span class="comment">//可以</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>常量指针与指向常量的指针：</strong></p>
+<ul>
+<li><p>常量指针表示该指针是常量，它始终指向同一个地址。它不能保证它所指向的对象不被更改。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> i=<span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> *<span class="keyword">const</span> p1= &amp;i;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"before change i: "</span>&lt;&lt;p1&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    *p1=<span class="number">1</span>;<span class="comment">//通过常量指针p1改变了，但p1记录的地址没有改变</span></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"after change i: "</span>&lt;&lt;p1&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>指向常量的指针表示其指向的对象是常量，我们不能对其指向的对象进行更改，但是我们可以让该指针指向其他对象。</p>
+</li>
+</ul>
+<table><tr><td bgcolor="Lightcoral">重点内容3：顶层const和底层const</td></tr></table>
+
+<ul>
+<li>顶层const是指对象本身是常量，如常量指针；底层const是指该指针所指向的对象是常量（或该引用所绑定的对象是常量）。</li>
+<li>顶层const在复制时被忽略，毕竟复制不会改变被复制对象；底层const在复制时必须匹配，我们可以将non-const赋值给const，反之不行。</li>
+</ul>
 <h1 id="Exercises-Section-2-4"><a href="#Exercises-Section-2-4" class="headerlink" title="Exercises Section 2.4"></a>Exercises Section 2.4</h1><h2 id="Exercise-2-26"><a href="#Exercise-2-26" class="headerlink" title="Exercise 2.26"></a>Exercise 2.26</h2><ul>
 <li>(a) 错误。const对象必须初始化。</li>
 <li>(b) 正确。</li>
 <li>(c) 正确。</li>
 <li>(d) 错误。不能对const对象进行修改。</li>
 </ul>
-<h1 id="Exercises-Section-2-4-2"><a href="#Exercises-Section-2-4-2" class="headerlink" title="Exercises Section 2.4.2"></a>Exercises Section 2.4.2</h1><h2 id="Exercise-2-27"><a href="#Exercise-2-27" class="headerlink" title="Exercise 2.27"></a>Exercise 2.27</h2><h2 id="Exercise-2-28"><a href="#Exercise-2-28" class="headerlink" title="Exercise 2.28"></a>Exercise 2.28</h2><h2 id="Exercise-2-29"><a href="#Exercise-2-29" class="headerlink" title="Exercise 2.29"></a>Exercise 2.29</h2><h1 id="Exercises-Section-2-4-3"><a href="#Exercises-Section-2-4-3" class="headerlink" title="Exercises Section 2.4.3"></a>Exercises Section 2.4.3</h1><h2 id="Exercise-2-30"><a href="#Exercise-2-30" class="headerlink" title="Exercise 2.30"></a>Exercise 2.30</h2><h2 id="Exercise-2-31"><a href="#Exercise-2-31" class="headerlink" title="Exercise 2.31"></a>Exercise 2.31</h2><h1 id="Exercises-Section-2-5-2"><a href="#Exercises-Section-2-5-2" class="headerlink" title="Exercises Section 2.5.2"></a>Exercises Section 2.5.2</h1><h2 id="Exercise-2-33"><a href="#Exercise-2-33" class="headerlink" title="Exercise 2.33"></a>Exercise 2.33</h2><h2 id="Exercise-2-34"><a href="#Exercise-2-34" class="headerlink" title="Exercise 2.34"></a>Exercise 2.34</h2><h2 id="Exercise-2-35"><a href="#Exercise-2-35" class="headerlink" title="Exercise 2.35"></a>Exercise 2.35</h2>
+<h1 id="Exercises-Section-2-4-2"><a href="#Exercises-Section-2-4-2" class="headerlink" title="Exercises Section 2.4.2"></a>Exercises Section 2.4.2</h1><h2 id="Exercise-2-27"><a href="#Exercise-2-27" class="headerlink" title="Exercise 2.27"></a>Exercise 2.27</h2><blockquote>
+<p>Which of the following initializations are legal? Explain why.<br>(a) int i = -1, &amp;r = 0;<br>(b) int <em>const p2 = &i2;<br>(c) const int i = -1, &amp;r = 0;<br>(d) const int </em>const p3 = &i2;<br>(e) const int *p1 = &i2;<br>(f) const int &amp;const r2;<br>(g) const int i2 = i, &amp;r = i;</p>
+</blockquote>
+<ul>
+<li>(a) 引用r的初始化错误，引用只能和对象绑定，不能和字面值或其他表达式绑定。</li>
+<li>(b) 正确。</li>
+<li>(c) 正确。</li>
+<li>(d) 正确。</li>
+<li>(e) 正确。</li>
+<li>(f) 错误。没有常量引用。</li>
+<li>(g) 正确。</li>
+</ul>
+<h2 id="Exercise-2-28"><a href="#Exercise-2-28" class="headerlink" title="Exercise 2.28"></a>Exercise 2.28</h2><blockquote>
+<p>Explain the following definitions. Identify any that are illegal. </p>
+<p>(a) int i, <em>const cp;<br>(b) int </em>p1, <em>const p2;<br>(c) const int ic, &amp;r = ic;<br>(d) const int </em>const p3;<br>(e) const int *p;</p>
+</blockquote>
+<ul>
+<li>整型i定义正确，相当于<code>int i=0;</code>；指针cp定义错误，常量指针必须初始化（因为常量对象必须初始化）。</li>
+<li>指针p1定义正确；p2定义错误。</li>
+<li>ic定义错误，常量对象必须初始化；正确，指向常量的引用绑定到ic。</li>
+<li>p3是指向常量对象的常量指针，必须初始化，定义错误。</li>
+<li>p是指向常量int类型的指针，定义正确。</li>
+</ul>
+<h2 id="Exercise-2-29"><a href="#Exercise-2-29" class="headerlink" title="Exercise 2.29"></a>Exercise 2.29</h2><blockquote>
+<p>Uing the variables in the previous exercise, which of the following assignments are legal? Explain why.<br>(a) i = ic;<br>(b) p1 = p3;<br>(c) p1 = &ic; &amp;ic<br>(d) p3 = &ic; &amp;ic<br>(e) p2 = p1;<br>(f) ic = *p3;</p>
+</blockquote>
+<ul>
+<li>(a)错误。常量对象ic复制给了非常量对象i。</li>
+<li>(b)错误。指向常量对象的指针赋值给了普通指针。</li>
+<li>(c)错误。普通指针指向了常量对象。</li>
+<li>(d)正确。并且我们不能通过p3改变ic的值。</li>
+<li>(e)正确。用普通指针去初始化了常量指针（相当与用普通对象初始化常量对象）。</li>
+<li>(f)错误。ic是常量，不能对其更改。</li>
+</ul>
+<h1 id="Exercises-Section-2-4-3"><a href="#Exercises-Section-2-4-3" class="headerlink" title="Exercises Section 2.4.3"></a>Exercises Section 2.4.3</h1><h2 id="Exercise-2-30"><a href="#Exercise-2-30" class="headerlink" title="Exercise 2.30"></a>Exercise 2.30</h2><h2 id="Exercise-2-31"><a href="#Exercise-2-31" class="headerlink" title="Exercise 2.31"></a>Exercise 2.31</h2><h1 id="Exercises-Section-2-5-2"><a href="#Exercises-Section-2-5-2" class="headerlink" title="Exercises Section 2.5.2"></a>Exercises Section 2.5.2</h1><h2 id="Exercise-2-33"><a href="#Exercise-2-33" class="headerlink" title="Exercise 2.33"></a>Exercise 2.33</h2><h2 id="Exercise-2-34"><a href="#Exercise-2-34" class="headerlink" title="Exercise 2.34"></a>Exercise 2.34</h2><h2 id="Exercise-2-35"><a href="#Exercise-2-35" class="headerlink" title="Exercise 2.35"></a>Exercise 2.35</h2>
       
     </div>
     
