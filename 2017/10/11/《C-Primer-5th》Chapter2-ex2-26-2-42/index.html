@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="张长写字的地方">
 <meta property="og:description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字定义该对象。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-22T09:09:43.000Z">
+<meta property="og:updated_time" content="2017-12-07T03:49:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《C++ Primer 5th》Chapter2-ex2.26_2.42">
 <meta name="twitter:description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字定义该对象。">
@@ -407,6 +407,21 @@
 <ul>
 <li>顶层const是指对象本身是常量，如常量指针；底层const是指该指针所指向的对象是常量（或该引用所绑定的对象是常量）。</li>
 <li>顶层const在复制时被忽略，毕竟复制不会改变被复制对象；底层const在复制时必须匹配，我们可以将non-const赋值给const，反之不行。</li>
+<li>当我们用constexpr来定义一个指针时，是指该指针是个常量指针而不是该指针指向的对象为常量。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p = <span class="literal">nullptr</span>; <span class="comment">// p is a pointer to a const int</span></div><div class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> *q = <span class="literal">nullptr</span>; <span class="comment">// q is a const pointer to int</span></div></pre></td></tr></table></figure>
+<table><tr><td bgcolor="Lightcoral">重点内容4：typedef</td></tr></table>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> *pstring;</div><div class="line"><span class="keyword">const</span> pstring cstr = <span class="number">0</span>; <span class="comment">// cstr is a constant pointer to char</span></div><div class="line"><span class="keyword">const</span> pstring *ps; <span class="comment">// ps is a pointer to a constant pointer to char</span></div></pre></td></tr></table></figure>
+<table><tr><td bgcolor="Lightcoral">重点内容5：decltype</td></tr></table>
+
+<p><code>decltype</code>会返回表达式的类型，但是有时候一些表达式会让 <code>decltype</code>返回引用类型。当一个表达式返回的结果我们能对其赋值，那么该表达式的 <code>decltype</code>的类型即为引用。因为 <code>*p</code>的返回对象，我们可以对其赋值，所以<code>decltype(*p)</code>返回的类型是<code>int&amp;</code></p>
+<ul>
+<li><p><code>decltype(*p)</code>返回的类型是 <code>int&amp;</code>。因为 <code>*p</code>的返回对象，我们可以对其赋值，所以<code>decltype(*p)</code>返回的类型是<code>int&amp;</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i=<span class="number">42</span>,*p=&amp;i;</div><div class="line"><span class="keyword">decltype</span>(*p) c; <span class="comment">// error: c is int&amp; and must be initialized</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><code>decltype((variable))</code>返回的类型是 引用。</p>
+</li>
 </ul>
 <h1 id="Exercises-Section-2-4"><a href="#Exercises-Section-2-4" class="headerlink" title="Exercises Section 2.4"></a>Exercises Section 2.4</h1><h2 id="Exercise-2-26"><a href="#Exercise-2-26" class="headerlink" title="Exercise 2.26"></a>Exercise 2.26</h2><ul>
 <li>(a) 错误。const对象必须初始化。</li>
@@ -448,7 +463,53 @@
 <li>(e)正确。用普通指针去初始化了常量指针（相当与用普通对象初始化常量对象）。</li>
 <li>(f)错误。ic是常量，不能对其更改。</li>
 </ul>
-<h1 id="Exercises-Section-2-4-3"><a href="#Exercises-Section-2-4-3" class="headerlink" title="Exercises Section 2.4.3"></a>Exercises Section 2.4.3</h1><h2 id="Exercise-2-30"><a href="#Exercise-2-30" class="headerlink" title="Exercise 2.30"></a>Exercise 2.30</h2><h2 id="Exercise-2-31"><a href="#Exercise-2-31" class="headerlink" title="Exercise 2.31"></a>Exercise 2.31</h2><h1 id="Exercises-Section-2-5-2"><a href="#Exercises-Section-2-5-2" class="headerlink" title="Exercises Section 2.5.2"></a>Exercises Section 2.5.2</h1><h2 id="Exercise-2-33"><a href="#Exercise-2-33" class="headerlink" title="Exercise 2.33"></a>Exercise 2.33</h2><h2 id="Exercise-2-34"><a href="#Exercise-2-34" class="headerlink" title="Exercise 2.34"></a>Exercise 2.34</h2><h2 id="Exercise-2-35"><a href="#Exercise-2-35" class="headerlink" title="Exercise 2.35"></a>Exercise 2.35</h2>
+<h1 id="Exercises-Section-2-4-3"><a href="#Exercises-Section-2-4-3" class="headerlink" title="Exercises Section 2.4.3"></a>Exercises Section 2.4.3</h1><h2 id="Exercise-2-30"><a href="#Exercise-2-30" class="headerlink" title="Exercise 2.30"></a>Exercise 2.30</h2><ul>
+<li>V1顶层const。</li>
+<li>p1是底层const。</li>
+<li>p2是底层const，p3既是顶层const，也是底层const。</li>
+</ul>
+<h2 id="Exercise-2-31"><a href="#Exercise-2-31" class="headerlink" title="Exercise 2.31"></a>Exercise 2.31</h2><ul>
+<li>正确。</li>
+<li>用底层const对象p2去给p1赋值，会发生错误；可以将用指向非常量对象的指针p1初始化指向常量的指针p2，正确。</li>
+<li>用p3给p1赋值时，p3的顶层const会被忽略，但是p3的底层const不会被忽略，错误；p3既是顶层const，也是底层const，用p3给p2赋值，底层匹配，正确。</li>
+</ul>
+<h1 id="Exercises-Section-2-4-4"><a href="#Exercises-Section-2-4-4" class="headerlink" title="Exercises Section 2.4.4"></a>Exercises Section 2.4.4</h1><h2 id="Exercise-2-32"><a href="#Exercise-2-32" class="headerlink" title="Exercise 2.32"></a>Exercise 2.32</h2><blockquote>
+<p>Is the following code legal or not? If not, how might you make it legal?</p>
+<p>int null = 0, *p = null;</p>
+</blockquote>
+<p>错误，需使用 constexpr 关键字。constexpr表示对象本身是常量。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">constexpr</span> <span class="keyword">int</span> null=<span class="number">0</span>,*p=null;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Exercises-Section-2-5-2"><a href="#Exercises-Section-2-5-2" class="headerlink" title="Exercises Section 2.5.2"></a>Exercises Section 2.5.2</h1><h2 id="Exercise-2-33"><a href="#Exercise-2-33" class="headerlink" title="Exercise 2.33"></a>Exercise 2.33</h2><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt; int i = 0, &amp;r = i;</div><div class="line">&gt; auto a=r;</div><div class="line">&gt; const int ci = i, &amp;cr = ci;</div><div class="line">&gt; auto b = ci; // b is an int (top-level const in ci is dropped)</div><div class="line">&gt; auto c = cr; // c is an int (cr is an alias for ci whose const is top-level)</div><div class="line">&gt; auto d=&amp;i; // d is an int*(&amp; of an int object is int*)</div><div class="line">&gt; auto e = &amp;ci; // e is const int*(&amp; of a const object is low-level const)</div><div class="line">&gt; const auto f = ci; // deduced type of ci is int; f has type const int</div><div class="line">&gt; auto &amp;g=ci; // g is a const int&amp; that is bound to ci</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>a=42，正确。因为a是int。</li>
+<li>b=42，正确。因为b是int。</li>
+<li>c=42，正确。</li>
+<li>d=42，错误。d是一个指向int类型的指针，不能直接用字面值赋值。</li>
+<li>e=42，错误。e是const int*类型（指向常量int的指针），不能对其赋值。</li>
+<li>g=42，错误。g是一个绑定了const int 对象的引用，不能对其赋值。</li>
+</ul>
+<h2 id="Exercise-2-34"><a href="#Exercise-2-34" class="headerlink" title="Exercise 2.34"></a>Exercise 2.34</h2><p>略。</p>
+<h2 id="Exercise-2-35"><a href="#Exercise-2-35" class="headerlink" title="Exercise 2.35"></a>Exercise 2.35</h2><ul>
+<li>i是常量int;</li>
+<li>j是int;</li>
+<li>k是绑定了常量对象的引用；</li>
+<li>p是指向常量对象的指针；</li>
+<li>j2是const int;</li>
+<li>k2是const int;</li>
+</ul>
+<h1 id="Exercises-Section-2-5-3"><a href="#Exercises-Section-2-5-3" class="headerlink" title="Exercises Section 2.5.3"></a>Exercises Section 2.5.3</h1><h2 id="Exercise-2-36"><a href="#Exercise-2-36" class="headerlink" title="Exercise 2.36"></a>Exercise 2.36</h2><ul>
+<li>a,b是int；</li>
+<li>c是int；</li>
+<li>d是int &amp;</li>
+</ul>
+<p>代码运行完毕后，a,b,c,d的值都为4</p>
+<h2 id="Exercise-2-37"><a href="#Exercise-2-37" class="headerlink" title="Exercise 2.37"></a>Exercise 2.37</h2><ul>
+<li>a,b,c都是int</li>
+<li>d是int&amp;</li>
+</ul>
+<h2 id="Exercise-2-38"><a href="#Exercise-2-38" class="headerlink" title="Exercise 2.38"></a>Exercise 2.38</h2>
       
     </div>
     
@@ -618,7 +679,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-2-4"><span class="nav-number">1.</span> <span class="nav-text">Exercises Section 2.4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-26"><span class="nav-number">1.1.</span> <span class="nav-text">Exercise 2.26</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-2-4-2"><span class="nav-number">2.</span> <span class="nav-text">Exercises Section 2.4.2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-27"><span class="nav-number">2.1.</span> <span class="nav-text">Exercise 2.27</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-28"><span class="nav-number">2.2.</span> <span class="nav-text">Exercise 2.28</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-29"><span class="nav-number">2.3.</span> <span class="nav-text">Exercise 2.29</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-2-4-3"><span class="nav-number">3.</span> <span class="nav-text">Exercises Section 2.4.3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-30"><span class="nav-number">3.1.</span> <span class="nav-text">Exercise 2.30</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-31"><span class="nav-number">3.2.</span> <span class="nav-text">Exercise 2.31</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-2-5-2"><span class="nav-number">4.</span> <span class="nav-text">Exercises Section 2.5.2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-33"><span class="nav-number">4.1.</span> <span class="nav-text">Exercise 2.33</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-34"><span class="nav-number">4.2.</span> <span class="nav-text">Exercise 2.34</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-35"><span class="nav-number">4.3.</span> <span class="nav-text">Exercise 2.35</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-2-4"><span class="nav-number">1.</span> <span class="nav-text">Exercises Section 2.4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-26"><span class="nav-number">1.1.</span> <span class="nav-text">Exercise 2.26</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-2-4-2"><span class="nav-number">2.</span> <span class="nav-text">Exercises Section 2.4.2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-27"><span class="nav-number">2.1.</span> <span class="nav-text">Exercise 2.27</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-28"><span class="nav-number">2.2.</span> <span class="nav-text">Exercise 2.28</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-29"><span class="nav-number">2.3.</span> <span class="nav-text">Exercise 2.29</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-2-4-3"><span class="nav-number">3.</span> <span class="nav-text">Exercises Section 2.4.3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-30"><span class="nav-number">3.1.</span> <span class="nav-text">Exercise 2.30</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-31"><span class="nav-number">3.2.</span> <span class="nav-text">Exercise 2.31</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-2-4-4"><span class="nav-number">4.</span> <span class="nav-text">Exercises Section 2.4.4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-32"><span class="nav-number">4.1.</span> <span class="nav-text">Exercise 2.32</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-2-5-2"><span class="nav-number">5.</span> <span class="nav-text">Exercises Section 2.5.2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-33"><span class="nav-number">5.1.</span> <span class="nav-text">Exercise 2.33</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-34"><span class="nav-number">5.2.</span> <span class="nav-text">Exercise 2.34</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-35"><span class="nav-number">5.3.</span> <span class="nav-text">Exercise 2.35</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-2-5-3"><span class="nav-number">6.</span> <span class="nav-text">Exercises Section 2.5.3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-36"><span class="nav-number">6.1.</span> <span class="nav-text">Exercise 2.36</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-37"><span class="nav-number">6.2.</span> <span class="nav-text">Exercise 2.37</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-2-38"><span class="nav-number">6.3.</span> <span class="nav-text">Exercise 2.38</span></a></li></ol></li></ol></div>
             
 
           </div>
