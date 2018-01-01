@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="悟已往之不谏,知来者之可追">
+<meta name="description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字定义该对象。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《C++ Primer 5th》Chapter3-ex3.12_3.26">
 <meta property="og:url" content="http://yoursite.com/2017/11/19/《C-Primer-5th》Chapter3-ex3-12-3-26/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="悟已往之不谏,知来者之可追">
+<meta property="og:description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字定义该对象。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-19T01:44:56.000Z">
+<meta property="og:updated_time" content="2018-01-01T13:53:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《C++ Primer 5th》Chapter3-ex3.12_3.26">
-<meta name="twitter:description" content="悟已往之不谏,知来者之可追">
+<meta name="twitter:description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字定义该对象。">
 
 
 
@@ -339,7 +339,18 @@
       
 
       
-        
+        <table><tr><td bgcolor="Lightcoral">重点内容1：const 和extern</td></tr></table>
+
+<ul>
+<li>const 对象必须初始化。</li>
+<li>多个文件共享const对象，必须使用extern关键字定义该对象。</li>
+</ul>
+<a id="more"></a>
+<h1 id="Exercises-Section-3-3-1"><a href="#Exercises-Section-3-3-1" class="headerlink" title="Exercises Section 3.3.1"></a>Exercises Section 3.3.1</h1><h2 id="Exercise-3-12"><a href="#Exercise-3-12" class="headerlink" title="Exercise  3.12"></a>Exercise  3.12</h2><h2 id="Exercise-3-13"><a href="#Exercise-3-13" class="headerlink" title="Exercise  3.13"></a>Exercise  3.13</h2><h1 id="Exercises-Section-3-3-2"><a href="#Exercises-Section-3-3-2" class="headerlink" title="Exercises Section 3.3.2"></a>Exercises Section 3.3.2</h1><h2 id="Exercise-3-14"><a href="#Exercise-3-14" class="headerlink" title="Exercise  3.14"></a>Exercise  3.14</h2><h2 id="Exercise-3-15"><a href="#Exercise-3-15" class="headerlink" title="Exercise  3.15"></a>Exercise  3.15</h2><h1 id="Exercises-Section-3-3-3"><a href="#Exercises-Section-3-3-3" class="headerlink" title="Exercises Section 3.3.3"></a>Exercises Section 3.3.3</h1><h2 id="Exercise-3-16"><a href="#Exercise-3-16" class="headerlink" title="Exercise  3.16"></a>Exercise  3.16</h2><h2 id="Exercise-3-17"><a href="#Exercise-3-17" class="headerlink" title="Exercise  3.17"></a>Exercise  3.17</h2><h2 id="Exercise-3-18"><a href="#Exercise-3-18" class="headerlink" title="Exercise  3.18"></a>Exercise  3.18</h2><h2 id="Exercise-3-19"><a href="#Exercise-3-19" class="headerlink" title="Exercise  3.19"></a>Exercise  3.19</h2><h2 id="Exercise-3-20"><a href="#Exercise-3-20" class="headerlink" title="Exercise  3.20"></a>Exercise  3.20</h2><h1 id="Exercises-Section-3-4-1"><a href="#Exercises-Section-3-4-1" class="headerlink" title="Exercises Section 3.4.1"></a>Exercises Section 3.4.1</h1><h2 id="Exercise-3-21"><a href="#Exercise-3-21" class="headerlink" title="Exercise  3.21"></a>Exercise  3.21</h2><h2 id="Exercise-3-22"><a href="#Exercise-3-22" class="headerlink" title="Exercise  3.22"></a>Exercise  3.22</h2><h2 id="Exercise-3-23"><a href="#Exercise-3-23" class="headerlink" title="Exercise  3.23"></a>Exercise  3.23</h2><h1 id="Exercises-Section-3-4-2"><a href="#Exercises-Section-3-4-2" class="headerlink" title="Exercises Section 3.4.2"></a>Exercises Section 3.4.2</h1><h2 id="Exercise-3-24"><a href="#Exercise-3-24" class="headerlink" title="Exercise  3.24"></a>Exercise  3.24</h2><p>&gt;</p>
+<blockquote>
+<p>Redo the last exercise from § 3.3.3 (p. 105) using iterators.    </p>
+</blockquote>
+<h2 id="Exercise-3-25"><a href="#Exercise-3-25" class="headerlink" title="Exercise  3.25"></a>Exercise  3.25</h2><h2 id="Exercise-3-26"><a href="#Exercise-3-26" class="headerlink" title="Exercise  3.26"></a>Exercise  3.26</h2>
       
     </div>
     
@@ -427,8 +438,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -491,6 +511,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-3-3-1"><span class="nav-number">1.</span> <span class="nav-text">Exercises Section 3.3.1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-3-12"><span class="nav-number">1.1.</span> <span class="nav-text">Exercise  3.12</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-3-13"><span class="nav-number">1.2.</span> <span class="nav-text">Exercise  3.13</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-3-3-2"><span class="nav-number">2.</span> <span class="nav-text">Exercises Section 3.3.2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-3-14"><span class="nav-number">2.1.</span> <span class="nav-text">Exercise  3.14</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-3-15"><span class="nav-number">2.2.</span> <span class="nav-text">Exercise  3.15</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-3-3-3"><span class="nav-number">3.</span> <span class="nav-text">Exercises Section 3.3.3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-3-16"><span class="nav-number">3.1.</span> <span class="nav-text">Exercise  3.16</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-3-17"><span class="nav-number">3.2.</span> <span class="nav-text">Exercise  3.17</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-3-18"><span class="nav-number">3.3.</span> <span class="nav-text">Exercise  3.18</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-3-19"><span class="nav-number">3.4.</span> <span class="nav-text">Exercise  3.19</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-3-20"><span class="nav-number">3.5.</span> <span class="nav-text">Exercise  3.20</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-3-4-1"><span class="nav-number">4.</span> <span class="nav-text">Exercises Section 3.4.1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-3-21"><span class="nav-number">4.1.</span> <span class="nav-text">Exercise  3.21</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-3-22"><span class="nav-number">4.2.</span> <span class="nav-text">Exercise  3.22</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-3-23"><span class="nav-number">4.3.</span> <span class="nav-text">Exercise  3.23</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exercises-Section-3-4-2"><span class="nav-number">5.</span> <span class="nav-text">Exercises Section 3.4.2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-3-24"><span class="nav-number">5.1.</span> <span class="nav-text">Exercise  3.24</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-3-25"><span class="nav-number">5.2.</span> <span class="nav-text">Exercise  3.25</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise-3-26"><span class="nav-number">5.3.</span> <span class="nav-text">Exercise  3.26</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -507,7 +543,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
