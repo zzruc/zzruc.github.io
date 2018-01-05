@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="张长写字的地方">
 <meta property="og:description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字定义该对象。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-01T14:28:29.000Z">
+<meta property="og:updated_time" content="2018-01-02T14:40:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《C++ Primer 5th》Chapter3-ex3.12_3.26">
 <meta name="twitter:description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字定义该对象。">
@@ -346,7 +346,22 @@
 <li>多个文件共享const对象，必须使用extern关键字定义该对象。</li>
 </ul>
 <a id="more"></a>
-<h2 id="Exercise-3-12"><a href="#Exercise-3-12" class="headerlink" title="Exercise  3.12"></a>Exercise  3.12</h2><h2 id="Exercise-3-13"><a href="#Exercise-3-13" class="headerlink" title="Exercise  3.13"></a>Exercise  3.13</h2><h2 id="Exercise-3-14"><a href="#Exercise-3-14" class="headerlink" title="Exercise  3.14"></a>Exercise  3.14</h2><h2 id="Exercise-3-15"><a href="#Exercise-3-15" class="headerlink" title="Exercise  3.15"></a>Exercise  3.15</h2><h2 id="Exercise-3-16"><a href="#Exercise-3-16" class="headerlink" title="Exercise  3.16"></a>Exercise  3.16</h2><h2 id="Exercise-3-17"><a href="#Exercise-3-17" class="headerlink" title="Exercise  3.17"></a>Exercise  3.17</h2><h2 id="Exercise-3-18"><a href="#Exercise-3-18" class="headerlink" title="Exercise  3.18"></a>Exercise  3.18</h2><h2 id="Exercise-3-19"><a href="#Exercise-3-19" class="headerlink" title="Exercise  3.19"></a>Exercise  3.19</h2><h2 id="Exercise-3-20"><a href="#Exercise-3-20" class="headerlink" title="Exercise  3.20"></a>Exercise  3.20</h2><h2 id="Exercise-3-21"><a href="#Exercise-3-21" class="headerlink" title="Exercise  3.21"></a>Exercise  3.21</h2><h2 id="Exercise-3-22"><a href="#Exercise-3-22" class="headerlink" title="Exercise  3.22"></a>Exercise  3.22</h2><h2 id="Exercise-3-23"><a href="#Exercise-3-23" class="headerlink" title="Exercise  3.23"></a>Exercise  3.23</h2><h2 id="Exercise-3-24"><a href="#Exercise-3-24" class="headerlink" title="Exercise  3.24"></a>Exercise  3.24</h2><p>&gt;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; matrix(<span class="number">10</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> row:matrix)&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> value:row)</div><div class="line">            <span class="built_in">cout</span>&lt;&lt;value&lt;&lt;<span class="string">" "</span>;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Exercise-3-12"><a href="#Exercise-3-12" class="headerlink" title="Exercise  3.12"></a>Exercise  3.12</h2><ul>
+<li>(a) 正确，创建了一个vector,其元素也是vector,默认初始化；</li>
+<li>(b) 错误，ivec的元素是向量，svec的元素是string,不能用ivec去初始化svec；</li>
+<li>(c) 正确，svec是一个由10个”null”构成的向量；</li>
+</ul>
+<h2 id="Exercise-3-13"><a href="#Exercise-3-13" class="headerlink" title="Exercise  3.13"></a>Exercise  3.13</h2><ul>
+<li>(a) 0个元素；</li>
+<li>(b) 10个元素，均为0；</li>
+<li>(c) 10个元素，均为42；</li>
+<li>(d) 1个元素，为10；</li>
+<li>(e) 2个元素，分别为10，42；</li>
+<li>(f) 10个元素，均为空字符串；</li>
+<li>(g) 10个元素，均为“hi”;</li>
+</ul>
+<h2 id="Exercise-3-14"><a href="#Exercise-3-14" class="headerlink" title="Exercise  3.14"></a>Exercise  3.14</h2><h2 id="Exercise-3-15"><a href="#Exercise-3-15" class="headerlink" title="Exercise  3.15"></a>Exercise  3.15</h2><h2 id="Exercise-3-16"><a href="#Exercise-3-16" class="headerlink" title="Exercise  3.16"></a>Exercise  3.16</h2><h2 id="Exercise-3-17"><a href="#Exercise-3-17" class="headerlink" title="Exercise  3.17"></a>Exercise  3.17</h2><h2 id="Exercise-3-18"><a href="#Exercise-3-18" class="headerlink" title="Exercise  3.18"></a>Exercise  3.18</h2><h2 id="Exercise-3-19"><a href="#Exercise-3-19" class="headerlink" title="Exercise  3.19"></a>Exercise  3.19</h2><h2 id="Exercise-3-20"><a href="#Exercise-3-20" class="headerlink" title="Exercise  3.20"></a>Exercise  3.20</h2><h2 id="Exercise-3-21"><a href="#Exercise-3-21" class="headerlink" title="Exercise  3.21"></a>Exercise  3.21</h2><h2 id="Exercise-3-22"><a href="#Exercise-3-22" class="headerlink" title="Exercise  3.22"></a>Exercise  3.22</h2><h2 id="Exercise-3-23"><a href="#Exercise-3-23" class="headerlink" title="Exercise  3.23"></a>Exercise  3.23</h2><h2 id="Exercise-3-24"><a href="#Exercise-3-24" class="headerlink" title="Exercise  3.24"></a>Exercise  3.24</h2><p>&gt;</p>
 <blockquote>
 <p>Redo the last exercise from § 3.3.3 (p. 105) using iterators.    </p>
 </blockquote>
