@@ -1216,12 +1216,21 @@
 
       
         
-          <table><tr><td bgcolor="Lightcoral">重点内容1：const 和extern</td></tr></table>
+          <table><tr><td bgcolor="Lightcoral">重点内容1：指针数组（数组的元素是指针）和数组指针（指向数组的指针）</td></tr></table>
 
+<p>技巧，从右向左读：</p>
 <ul>
-<li>const 对象必须初始化。</li>
-<li>多个文件共享const对象，必须使用extern关键字定义该对象。</li>
+<li>先定义了一个包含10个元素的数组ptrs，它的元素类型是<code>int *</code>。</li>
+<li>先定义了一个包含10个元素的数组refs,它的元素类型是<code>int &amp;</code>,但是数组的元素只能是对象，不能是引用，所以此条语句错误。</li>
 </ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *ptrs[<span class="number">10</span>]; 				<span class="comment">// ptrs is an array of ten pointers to int </span></div><div class="line"><span class="keyword">int</span> &amp;refs[<span class="number">10</span>] = <span class="comment">/* ? */</span>;    <span class="comment">// error: no arrays of references</span></div></pre></td></tr></table></figure>
+<p>技巧，从内向外读：</p>
+<ul>
+<li>首先读小括号里面的，可知，Parray是一个指针；再读小括号右边，可知Parray指向的是长度为10的数组；再读小括号左边，可知，该数组元素类型是int。所以，Parray是指向包含10个int类型的数组的指针。</li>
+<li>同理，可知arrRef是指向包含10个int类型的数组的引用。</li>
+<li>同理，arry是指向一个包含10个元素的数组的引用，该数组的元素是指向int类型的指针。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> (*Parray)[<span class="number">10</span>] = &amp;arr; 	<span class="comment">// Parray points to an array of ten ints</span></div><div class="line"><span class="keyword">int</span> (&amp;arrRef)[<span class="number">10</span>] = arr; 	<span class="comment">// arrRef refers to an array of ten ints</span></div><div class="line"><span class="keyword">int</span> *(&amp;arry)[<span class="number">10</span>] = ptrs; 	<span class="comment">// arry is a reference to an array of ten pointers</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/19/《C-Primer-5th》Chapter3-ex3-27-3-45/#more" rel="contents">

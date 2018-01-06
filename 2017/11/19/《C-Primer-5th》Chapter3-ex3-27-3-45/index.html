@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字定义该对象。">
+<meta name="description" content="重点内容1：指针数组（数组的元素是指针）和数组指针（指向数组的指针）  技巧，从右向左读：  先定义了一个包含10个元素的数组ptrs，它的元素类型是int *。 先定义了一个包含10个元素的数组refs,它的元素类型是int &amp;amp;,但是数组的元素只能是对象，不能是引用，所以此条语句错误。  12int *ptrs[10]; 				// ptrs is an array of ten po">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《C++ Primer 5th》Chapter3-ex3.27_3.45">
 <meta property="og:url" content="http://yoursite.com/2017/11/19/《C-Primer-5th》Chapter3-ex3-27-3-45/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字定义该对象。">
+<meta property="og:description" content="重点内容1：指针数组（数组的元素是指针）和数组指针（指向数组的指针）  技巧，从右向左读：  先定义了一个包含10个元素的数组ptrs，它的元素类型是int *。 先定义了一个包含10个元素的数组refs,它的元素类型是int &amp;amp;,但是数组的元素只能是对象，不能是引用，所以此条语句错误。  12int *ptrs[10]; 				// ptrs is an array of ten po">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-01T14:28:03.000Z">
+<meta property="og:updated_time" content="2018-01-06T12:19:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《C++ Primer 5th》Chapter3-ex3.27_3.45">
-<meta name="twitter:description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字定义该对象。">
+<meta name="twitter:description" content="重点内容1：指针数组（数组的元素是指针）和数组指针（指向数组的指针）  技巧，从右向左读：  先定义了一个包含10个元素的数组ptrs，它的元素类型是int *。 先定义了一个包含10个元素的数组refs,它的元素类型是int &amp;amp;,但是数组的元素只能是对象，不能是引用，所以此条语句错误。  12int *ptrs[10]; 				// ptrs is an array of ten po">
 
 
 
@@ -339,14 +339,34 @@
       
 
       
-        <table><tr><td bgcolor="Lightcoral">重点内容1：const 和extern</td></tr></table>
+        <table><tr><td bgcolor="Lightcoral">重点内容1：指针数组（数组的元素是指针）和数组指针（指向数组的指针）</td></tr></table>
 
+<p>技巧，从右向左读：</p>
 <ul>
-<li>const 对象必须初始化。</li>
-<li>多个文件共享const对象，必须使用extern关键字定义该对象。</li>
+<li>先定义了一个包含10个元素的数组ptrs，它的元素类型是<code>int *</code>。</li>
+<li>先定义了一个包含10个元素的数组refs,它的元素类型是<code>int &amp;</code>,但是数组的元素只能是对象，不能是引用，所以此条语句错误。</li>
 </ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *ptrs[<span class="number">10</span>]; 				<span class="comment">// ptrs is an array of ten pointers to int </span></div><div class="line"><span class="keyword">int</span> &amp;refs[<span class="number">10</span>] = <span class="comment">/* ? */</span>;    <span class="comment">// error: no arrays of references</span></div></pre></td></tr></table></figure>
+<p>技巧，从内向外读：</p>
+<ul>
+<li>首先读小括号里面的，可知，Parray是一个指针；再读小括号右边，可知Parray指向的是长度为10的数组；再读小括号左边，可知，该数组元素类型是int。所以，Parray是指向包含10个int类型的数组的指针。</li>
+<li>同理，可知arrRef是指向包含10个int类型的数组的引用。</li>
+<li>同理，arry是指向一个包含10个元素的数组的引用，该数组的元素是指向int类型的指针。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> (*Parray)[<span class="number">10</span>] = &amp;arr; 	<span class="comment">// Parray points to an array of ten ints</span></div><div class="line"><span class="keyword">int</span> (&amp;arrRef)[<span class="number">10</span>] = arr; 	<span class="comment">// arrRef refers to an array of ten ints</span></div><div class="line"><span class="keyword">int</span> *(&amp;arry)[<span class="number">10</span>] = ptrs; 	<span class="comment">// arry is a reference to an array of ten pointers</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="Exercise-3-27"><a href="#Exercise-3-27" class="headerlink" title="Exercise  3.27"></a>Exercise  3.27</h2><h2 id="Exercise-3-28"><a href="#Exercise-3-28" class="headerlink" title="Exercise  3.28"></a>Exercise  3.28</h2><h2 id="Exercise-3-29"><a href="#Exercise-3-29" class="headerlink" title="Exercise  3.29"></a>Exercise  3.29</h2><h2 id="Exercise-3-30"><a href="#Exercise-3-30" class="headerlink" title="Exercise  3.30"></a>Exercise  3.30</h2><h2 id="Exercise-3-31"><a href="#Exercise-3-31" class="headerlink" title="Exercise  3.31"></a>Exercise  3.31</h2><h2 id="Exercise-3-32"><a href="#Exercise-3-32" class="headerlink" title="Exercise  3.32"></a>Exercise  3.32</h2><h2 id="Exercise-3-33"><a href="#Exercise-3-33" class="headerlink" title="Exercise  3.33"></a>Exercise  3.33</h2><h2 id="Exercise-3-34"><a href="#Exercise-3-34" class="headerlink" title="Exercise  3.34"></a>Exercise  3.34</h2><h2 id="Exercise-3-35"><a href="#Exercise-3-35" class="headerlink" title="Exercise  3.35"></a>Exercise  3.35</h2><h2 id="Exercise-3-36"><a href="#Exercise-3-36" class="headerlink" title="Exercise  3.36"></a>Exercise  3.36</h2><h2 id="Exercise-3-37"><a href="#Exercise-3-37" class="headerlink" title="Exercise  3.37"></a>Exercise  3.37</h2><h2 id="Exercise-3-38"><a href="#Exercise-3-38" class="headerlink" title="Exercise  3.38"></a>Exercise  3.38</h2><h2 id="Exercise-3-39"><a href="#Exercise-3-39" class="headerlink" title="Exercise  3.39"></a>Exercise  3.39</h2><h2 id="Exercise-3-40"><a href="#Exercise-3-40" class="headerlink" title="Exercise  3.40"></a>Exercise  3.40</h2><h2 id="Exercise-3-41"><a href="#Exercise-3-41" class="headerlink" title="Exercise  3.41"></a>Exercise  3.41</h2><h2 id="Exercise-3-42"><a href="#Exercise-3-42" class="headerlink" title="Exercise  3.42"></a>Exercise  3.42</h2><h2 id="Exercise-3-43"><a href="#Exercise-3-43" class="headerlink" title="Exercise  3.43"></a>Exercise  3.43</h2><h2 id="Exercise-3-44"><a href="#Exercise-3-44" class="headerlink" title="Exercise  3.44"></a>Exercise  3.44</h2><h2 id="Exercise-3-45"><a href="#Exercise-3-45" class="headerlink" title="Exercise  3.45"></a>Exercise  3.45</h2><p>## </p>
+<h2 id="Exercise-3-27"><a href="#Exercise-3-27" class="headerlink" title="Exercise  3.27"></a>Exercise  3.27</h2><blockquote>
+<p>Assuming <strong>txt_size</strong> is a function that takes no arguments and returns an int value, which of the following definitions are illegal? Explain why.</p>
+<p>unsigned buf_size = 1024;<br>(a) int ia[buf_size];<br>(b) int ia[4 * 7 - 14];<br>(c) int ia[txt_size()];<br>(d) char st[11] = “fundamental”;</p>
+</blockquote>
+<ul>
+<li>(a) 错误。申明数组时，数组的维度必须是常量。</li>
+<li>(b) 正确。因为数组的维度是常量表达式。</li>
+<li>(c) 错误。因为txt_size()返回的只是普通int，不是const int 。</li>
+<li>(d) 错误。st数组的维度是11，但是用于初始化的字符串长度是12，因为还有一个空字符。</li>
+</ul>
+<h2 id="Exercise-3-28"><a href="#Exercise-3-28" class="headerlink" title="Exercise  3.28"></a>Exercise  3.28</h2><h2 id="Exercise-3-29"><a href="#Exercise-3-29" class="headerlink" title="Exercise  3.29"></a>Exercise  3.29</h2><p>数组长度是固定的，访问便捷，但是不能添加元素。</p>
+<h2 id="Exercise-3-30"><a href="#Exercise-3-30" class="headerlink" title="Exercise  3.30"></a>Exercise  3.30</h2><h2 id="Exercise-3-31"><a href="#Exercise-3-31" class="headerlink" title="Exercise  3.31"></a>Exercise  3.31</h2><h2 id="Exercise-3-32"><a href="#Exercise-3-32" class="headerlink" title="Exercise  3.32"></a>Exercise  3.32</h2><h2 id="Exercise-3-33"><a href="#Exercise-3-33" class="headerlink" title="Exercise  3.33"></a>Exercise  3.33</h2><h2 id="Exercise-3-34"><a href="#Exercise-3-34" class="headerlink" title="Exercise  3.34"></a>Exercise  3.34</h2><h2 id="Exercise-3-35"><a href="#Exercise-3-35" class="headerlink" title="Exercise  3.35"></a>Exercise  3.35</h2><h2 id="Exercise-3-36"><a href="#Exercise-3-36" class="headerlink" title="Exercise  3.36"></a>Exercise  3.36</h2><h2 id="Exercise-3-37"><a href="#Exercise-3-37" class="headerlink" title="Exercise  3.37"></a>Exercise  3.37</h2><h2 id="Exercise-3-38"><a href="#Exercise-3-38" class="headerlink" title="Exercise  3.38"></a>Exercise  3.38</h2><h2 id="Exercise-3-39"><a href="#Exercise-3-39" class="headerlink" title="Exercise  3.39"></a>Exercise  3.39</h2><h2 id="Exercise-3-40"><a href="#Exercise-3-40" class="headerlink" title="Exercise  3.40"></a>Exercise  3.40</h2><h2 id="Exercise-3-41"><a href="#Exercise-3-41" class="headerlink" title="Exercise  3.41"></a>Exercise  3.41</h2><h2 id="Exercise-3-42"><a href="#Exercise-3-42" class="headerlink" title="Exercise  3.42"></a>Exercise  3.42</h2><h2 id="Exercise-3-43"><a href="#Exercise-3-43" class="headerlink" title="Exercise  3.43"></a>Exercise  3.43</h2><h2 id="Exercise-3-44"><a href="#Exercise-3-44" class="headerlink" title="Exercise  3.44"></a>Exercise  3.44</h2><h2 id="Exercise-3-45"><a href="#Exercise-3-45" class="headerlink" title="Exercise  3.45"></a>Exercise  3.45</h2><p>## </p>
 
       
     </div>
