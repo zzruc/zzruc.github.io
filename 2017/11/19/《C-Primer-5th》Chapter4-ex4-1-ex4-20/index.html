@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="重点内容1：左值和右值  左值和右值的内容较为复杂，先记下这两点，以后再补充。  当我们使用右值时，我们使用的是该对象的值（它的内容）；当我们使用左值时，我们使用的是该对象的身份（它的内存地址）； 取地址符（&amp;amp;）作用于左值，返回一个指向其操作数的指针，是右值；解引用符（*）返回的是左值； 当decltype作用于返回左值的表达式时，其返回值是引用。例如，p是int ,因为解引用返回的是左值">
+<meta name="description" content="重点内容1：左值和右值  左值和右值的内容较为复杂，先记下这两点，以后再补充。  当我们使用右值时，我们使用的是该对象的值（它的内容）；当我们使用左值时，我们使用的是该对象的身份（它的内存地址）； 取地址符（&amp;amp;）作用于左值，返回一个指向其操作数的指针，是右值；解引用符（*）返回的是左值； 当decltype作用于返回左值的表达式时，其返回值是引用。例如，p是int *,因为解引用返回的是左">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《C++ Primer 5th》Chapter4-ex4.1_ex4.20">
 <meta property="og:url" content="http://yoursite.com/2017/11/19/《C-Primer-5th》Chapter4-ex4-1-ex4-20/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="重点内容1：左值和右值  左值和右值的内容较为复杂，先记下这两点，以后再补充。  当我们使用右值时，我们使用的是该对象的值（它的内容）；当我们使用左值时，我们使用的是该对象的身份（它的内存地址）； 取地址符（&amp;amp;）作用于左值，返回一个指向其操作数的指针，是右值；解引用符（*）返回的是左值； 当decltype作用于返回左值的表达式时，其返回值是引用。例如，p是int ,因为解引用返回的是左值">
+<meta property="og:description" content="重点内容1：左值和右值  左值和右值的内容较为复杂，先记下这两点，以后再补充。  当我们使用右值时，我们使用的是该对象的值（它的内容）；当我们使用左值时，我们使用的是该对象的身份（它的内存地址）； 取地址符（&amp;amp;）作用于左值，返回一个指向其操作数的指针，是右值；解引用符（*）返回的是左值； 当decltype作用于返回左值的表达式时，其返回值是引用。例如，p是int *,因为解引用返回的是左">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-08T03:48:35.000Z">
+<meta property="og:updated_time" content="2018-01-08T08:41:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《C++ Primer 5th》Chapter4-ex4.1_ex4.20">
-<meta name="twitter:description" content="重点内容1：左值和右值  左值和右值的内容较为复杂，先记下这两点，以后再补充。  当我们使用右值时，我们使用的是该对象的值（它的内容）；当我们使用左值时，我们使用的是该对象的身份（它的内存地址）； 取地址符（&amp;amp;）作用于左值，返回一个指向其操作数的指针，是右值；解引用符（*）返回的是左值； 当decltype作用于返回左值的表达式时，其返回值是引用。例如，p是int ,因为解引用返回的是左值">
+<meta name="twitter:description" content="重点内容1：左值和右值  左值和右值的内容较为复杂，先记下这两点，以后再补充。  当我们使用右值时，我们使用的是该对象的值（它的内容）；当我们使用左值时，我们使用的是该对象的身份（它的内存地址）； 取地址符（&amp;amp;）作用于左值，返回一个指向其操作数的指针，是右值；解引用符（*）返回的是左值； 当decltype作用于返回左值的表达式时，其返回值是引用。例如，p是int *,因为解引用返回的是左">
 
 
 
@@ -312,6 +312,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-Primer-5th-Edition-Exercises/" itemprop="url" rel="index">
+                    <span itemprop="name">C++ Primer 5th Edition Exercises</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -345,7 +367,7 @@
 <ul>
 <li>当我们使用右值时，我们使用的是该对象的值（它的内容）；当我们使用左值时，我们使用的是该对象的身份（它的内存地址）；</li>
 <li>取地址符（&amp;）作用于左值，返回一个指向其操作数的指针，是右值；解引用符（*）返回的是左值；</li>
-<li>当decltype作用于返回左值的表达式时，其返回值是引用。例如，p是int <em>,因为解引用返回的是左值，则decltype(\</em>p)是int&amp;;取地址值符返回的是右值，所以decltype(&amp;p)是int**。</li>
+<li>当decltype作用于返回左值的表达式时，其返回值是引用。例如，p是int *,因为解引用返回的是左值，则decltype(*p)是int&amp;;取地址值符返回的是右值，所以decltype(&amp;p)是int**。</li>
 </ul>
 <a id="more"></a>
 <table><tr><td bgcolor="Lightcoral">重点内容2：求值顺序</td></tr></table>
