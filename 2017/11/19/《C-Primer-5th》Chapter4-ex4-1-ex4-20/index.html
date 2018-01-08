@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字定义该对象。">
+<meta name="description" content="重点内容1：左值和右值  左值和右值的内容较为复杂，先记下这两点，以后再补充。  当我们使用右值时，我们使用的是该对象的值（它的内容）；当我们使用左值时，我们使用的是该对象的身份（它的内存地址）； 取地址符（&amp;amp;）作用于左值，返回一个指向其操作数的指针，是右值；解引用符（*）返回的是左值； 当decltype作用于返回左值的表达式时，其返回值是引用。例如，p是int ,因为解引用返回的是左值">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《C++ Primer 5th》Chapter4-ex4.1_ex4.20">
 <meta property="og:url" content="http://yoursite.com/2017/11/19/《C-Primer-5th》Chapter4-ex4-1-ex4-20/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字定义该对象。">
+<meta property="og:description" content="重点内容1：左值和右值  左值和右值的内容较为复杂，先记下这两点，以后再补充。  当我们使用右值时，我们使用的是该对象的值（它的内容）；当我们使用左值时，我们使用的是该对象的身份（它的内存地址）； 取地址符（&amp;amp;）作用于左值，返回一个指向其操作数的指针，是右值；解引用符（*）返回的是左值； 当decltype作用于返回左值的表达式时，其返回值是引用。例如，p是int ,因为解引用返回的是左值">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-01T14:27:27.000Z">
+<meta property="og:updated_time" content="2018-01-08T03:48:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《C++ Primer 5th》Chapter4-ex4.1_ex4.20">
-<meta name="twitter:description" content="重点内容1：const 和extern   const 对象必须初始化。 多个文件共享const对象，必须使用extern关键字定义该对象。">
+<meta name="twitter:description" content="重点内容1：左值和右值  左值和右值的内容较为复杂，先记下这两点，以后再补充。  当我们使用右值时，我们使用的是该对象的值（它的内容）；当我们使用左值时，我们使用的是该对象的身份（它的内存地址）； 取地址符（&amp;amp;）作用于左值，返回一个指向其操作数的指针，是右值；解引用符（*）返回的是左值； 当decltype作用于返回左值的表达式时，其返回值是引用。例如，p是int ,因为解引用返回的是左值">
 
 
 
@@ -339,14 +339,73 @@
       
 
       
-        <table><tr><td bgcolor="Lightcoral">重点内容1：const 和extern</td></tr></table>
+        <table><tr><td bgcolor="Lightcoral">重点内容1：左值和右值</td></tr></table>
 
+<p>左值和右值的内容较为复杂，先记下这两点，以后再补充。</p>
 <ul>
-<li>const 对象必须初始化。</li>
-<li>多个文件共享const对象，必须使用extern关键字定义该对象。</li>
+<li>当我们使用右值时，我们使用的是该对象的值（它的内容）；当我们使用左值时，我们使用的是该对象的身份（它的内存地址）；</li>
+<li>取地址符（&amp;）作用于左值，返回一个指向其操作数的指针，是右值；解引用符（*）返回的是左值；</li>
+<li>当decltype作用于返回左值的表达式时，其返回值是引用。例如，p是int <em>,因为解引用返回的是左值，则decltype(\</em>p)是int&amp;;取地址值符返回的是右值，所以decltype(&amp;p)是int**。</li>
 </ul>
 <a id="more"></a>
-<h2 id="Exercise-4-1"><a href="#Exercise-4-1" class="headerlink" title="Exercise  4.1"></a>Exercise  4.1</h2><h2 id="Exercise-4-2"><a href="#Exercise-4-2" class="headerlink" title="Exercise  4.2"></a>Exercise  4.2</h2><h2 id="Exercise-4-3"><a href="#Exercise-4-3" class="headerlink" title="Exercise  4.3"></a>Exercise  4.3</h2><h2 id="Exercise-4-4"><a href="#Exercise-4-4" class="headerlink" title="Exercise  4.4"></a>Exercise  4.4</h2><h2 id="Exercise-4-5"><a href="#Exercise-4-5" class="headerlink" title="Exercise  4.5"></a>Exercise  4.5</h2><h2 id="Exercise-4-6"><a href="#Exercise-4-6" class="headerlink" title="Exercise  4.6"></a>Exercise  4.6</h2><h2 id="Exercise-4-7"><a href="#Exercise-4-7" class="headerlink" title="Exercise  4.7"></a>Exercise  4.7</h2><h2 id="Exercise-4-8"><a href="#Exercise-4-8" class="headerlink" title="Exercise  4.8"></a>Exercise  4.8</h2><h2 id="Exercise-4-9"><a href="#Exercise-4-9" class="headerlink" title="Exercise  4.9"></a>Exercise  4.9</h2><h2 id="Exercise-4-10"><a href="#Exercise-4-10" class="headerlink" title="Exercise  4.10"></a>Exercise  4.10</h2><h2 id="Exercise-4-11"><a href="#Exercise-4-11" class="headerlink" title="Exercise  4.11"></a>Exercise  4.11</h2><h2 id="Exercise-4-12"><a href="#Exercise-4-12" class="headerlink" title="Exercise  4.12"></a>Exercise  4.12</h2><h2 id="Exercise-4-13"><a href="#Exercise-4-13" class="headerlink" title="Exercise  4.13"></a>Exercise  4.13</h2><h2 id="Exercise-4-14"><a href="#Exercise-4-14" class="headerlink" title="Exercise  4.14"></a>Exercise  4.14</h2><h2 id="Exercise-4-15"><a href="#Exercise-4-15" class="headerlink" title="Exercise  4.15"></a>Exercise  4.15</h2><h2 id="Exercise-4-16"><a href="#Exercise-4-16" class="headerlink" title="Exercise  4.16"></a>Exercise  4.16</h2><h2 id="Exercise-4-17"><a href="#Exercise-4-17" class="headerlink" title="Exercise  4.17"></a>Exercise  4.17</h2><h2 id="Exercise-4-18"><a href="#Exercise-4-18" class="headerlink" title="Exercise  4.18"></a>Exercise  4.18</h2><h2 id="Exercise-4-19"><a href="#Exercise-4-19" class="headerlink" title="Exercise  4.19"></a>Exercise  4.19</h2><h2 id="Exercise-4-20"><a href="#Exercise-4-20" class="headerlink" title="Exercise  4.20"></a>Exercise  4.20</h2>
+<table><tr><td bgcolor="Lightcoral">重点内容2：求值顺序</td></tr></table>
+
+<p>编译器不知道是先求值还是先输出，所以以下语句错误。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line"><span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">" "</span> &lt;&lt; ++i &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+<table><tr><td bgcolor="Lightcoral">重点内容3：求余运算</td></tr></table>
+
+<p><code>(m%-n)=m%n</code>,<code>(-m)%n=-(m%n)</code></p>
+<h2 id="Exercise-4-1"><a href="#Exercise-4-1" class="headerlink" title="Exercise  4.1"></a>Exercise  4.1</h2><p>105</p>
+<h2 id="Exercise-4-2"><a href="#Exercise-4-2" class="headerlink" title="Exercise  4.2"></a>Exercise  4.2</h2><ul>
+<li>(a)</li>
+<li>(b)</li>
+</ul>
+<h2 id="Exercise-4-3"><a href="#Exercise-4-3" class="headerlink" title="Exercise  4.3"></a>Exercise  4.3</h2><blockquote>
+<p>Order of evaluation for most of the binary operators is left undefined to give the compiler opportunities for optimization. This strategy presents a trade-off between efficient code generation and potential pitfalls in the use of the language by the programmer. Do you consider that an acceptable trade-off? Why or why not?</p>
+</blockquote>
+<h2 id="Exercise-4-4"><a href="#Exercise-4-4" class="headerlink" title="Exercise  4.4"></a>Exercise  4.4</h2><p>91</p>
+<h2 id="Exercise-4-5"><a href="#Exercise-4-5" class="headerlink" title="Exercise  4.5"></a>Exercise  4.5</h2><ul>
+<li>(a) -6</li>
+<li>(b) -18</li>
+<li>(c) 0</li>
+<li>(d) -2</li>
+</ul>
+<h2 id="Exercise-4-6"><a href="#Exercise-4-6" class="headerlink" title="Exercise  4.6"></a>Exercise  4.6</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">oddEven</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> a)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(a%<span class="number">2</span>==<span class="number">0</span>)</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"even"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"odd"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Exercise-4-7"><a href="#Exercise-4-7" class="headerlink" title="Exercise  4.7"></a>Exercise  4.7</h2><h2 id="Exercise-4-8"><a href="#Exercise-4-8" class="headerlink" title="Exercise  4.8"></a>Exercise  4.8</h2><h2 id="Exercise-4-9"><a href="#Exercise-4-9" class="headerlink" title="Exercise  4.9"></a>Exercise  4.9</h2><h2 id="Exercise-4-10"><a href="#Exercise-4-10" class="headerlink" title="Exercise  4.10"></a>Exercise  4.10</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n)&#123;</div><div class="line">        <span class="keyword">if</span>(n==<span class="number">42</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="built_in">cout</span>&lt;&lt;n&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Exercise-4-11"><a href="#Exercise-4-11" class="headerlink" title="Exercise  4.11"></a>Exercise  4.11</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a&gt;b &amp;&amp; b&gt;c &amp;&amp; c&gt;d</div></pre></td></tr></table></figure>
+<h2 id="Exercise-4-12"><a href="#Exercise-4-12" class="headerlink" title="Exercise  4.12"></a>Exercise  4.12</h2><p>先比较i和j是否相等，结果是0或1，然后再和k比较。</p>
+<h2 id="Exercise-4-13"><a href="#Exercise-4-13" class="headerlink" title="Exercise  4.13"></a>Exercise  4.13</h2><ul>
+<li>(a) i=3,d=3</li>
+<li>(b) d=3.5,i=3</li>
+</ul>
+<h2 id="Exercise-4-14"><a href="#Exercise-4-14" class="headerlink" title="Exercise  4.14"></a>Exercise  4.14</h2><p>错误，不能对字面值42赋值；IF判断的条件永远是true</p>
+<h2 id="Exercise-4-15"><a href="#Exercise-4-15" class="headerlink" title="Exercise  4.15"></a>Exercise  4.15</h2><h2 id="Exercise-4-16"><a href="#Exercise-4-16" class="headerlink" title="Exercise  4.16"></a>Exercise  4.16</h2><ul>
+<li>(a) if((p=getPtr()) !=0)</li>
+<li>(b) if(i==1024)</li>
+</ul>
+<h2 id="Exercise-4-17"><a href="#Exercise-4-17" class="headerlink" title="Exercise  4.17"></a>Exercise  4.17</h2><p>前置加运算符先将操作数加1，在使用加1后的结果；后置加运算符先存一份当前的值，然后对操作数加1，再使用之前存的值。</p>
+<h2 id="Exercise-4-18"><a href="#Exercise-4-18" class="headerlink" title="Exercise  4.18"></a>Exercise  4.18</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">-5</span>,<span class="number">6</span>&#125;;</div><div class="line">    <span class="keyword">auto</span> pbegin=v.cbegin();</div><div class="line">    <span class="keyword">while</span>(pbegin!=v.cend() &amp;&amp; *pbegin&gt;=<span class="number">0</span>)</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;*++pbegin&lt;&lt;<span class="string">" "</span>;<span class="comment">//错误,此处应该使用后置++</span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出：2 3 4 -5</p>
+<p>显然我们想要的结果是1 2 3 4。这是由于代码里采用了前置++，从而导致，先将迭代器加1再输出结果导致。更严重的，如果向量v中都是整数，则此代码输出的数据最后会是一个无法预料的出，因为其相当于输出了*v.cend()。</p>
+<h2 id="Exercise-4-19"><a href="#Exercise-4-19" class="headerlink" title="Exercise  4.19"></a>Exercise  4.19</h2><h2 id="Exercise-4-20"><a href="#Exercise-4-20" class="headerlink" title="Exercise  4.20"></a>Exercise  4.20</h2><blockquote>
+<p>Assuming that <strong>iter</strong> is a <strong>vector<string>::iterator</string></strong>, indicate which, if any, of the following expressions are legal. Explain the behavior of the legal expressions and why those that aren’t legal are in error.<br>(a) <em>iter++;<br>(b) (</em>iter)++;<br>(c) <em>iter.empty()<br>(d) iter-&gt;empty();<br>(e) ++</em>iter;<br>(f) iter++-&gt;empty();</p>
+</blockquote>
+<ul>
+<li><p>(a) 正确。 先存下当前的iter,在对iter加1，然后解应用之前存的iter;</p>
+</li>
+<li><p>(b) 错误。先解引用iter,存下解引用后的值，再对其加1。但是iter解引用返回的是string，不能加1；</p>
+</li>
+<li><p>(c) 错误。dot运算符比dereference运算符等级高，所以先是iter.empty(),但iter是迭代器，没有empty()成员函数；</p>
+</li>
+<li><p>(d) 正确。相当于（*p).empty();</p>
+</li>
+<li><p>(e) 错误。先解引用iter,然后对解应用的值加1，但是iter解引用返回的是string，不能加1；</p>
+</li>
+<li><p>(f) 正确。先存下当前的iter,然后对iter加1，再调用empty()函数，此时是对之前存下的iter所指向的string使用empty()。</p>
+<p>​</p>
+</li>
+</ul>
+
       
     </div>
     
