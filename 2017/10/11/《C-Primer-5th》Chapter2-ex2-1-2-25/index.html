@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="重点内容1：初始化时推荐使用{}初始化，但是要注意列表初始化（即使用{}初始化）不允许窄化操作。  摘自 Bjarne Stroustrup’s “The C++ Programming Language 4th Edition” (section 6.3.5):  List initialization does not allow narrowing (§iso.8.5.4). That is">
+<meta name="description" content="重点内容1：复合类型  变量的声明语句，是由基类型（int,float,char等）和其后面跟的一系列声明符（declarator）构成。每一个声明符将它后面的变量和基类型绑定起来，它只对紧跟着它的变量负责；基类型对它后面的所有变量负责。 123int i=1024,i2=2048; // i and i2 are both ints int&amp;amp;r=i,r2=i2; // r is a re">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《C++ Primer 5th》Chapter2-ex2.1_2.25">
 <meta property="og:url" content="http://yoursite.com/2017/10/11/《C-Primer-5th》Chapter2-ex2-1-2-25/index.html">
 <meta property="og:site_name" content="张长写字的地方">
-<meta property="og:description" content="重点内容1：初始化时推荐使用{}初始化，但是要注意列表初始化（即使用{}初始化）不允许窄化操作。  摘自 Bjarne Stroustrup’s “The C++ Programming Language 4th Edition” (section 6.3.5):  List initialization does not allow narrowing (§iso.8.5.4). That is">
+<meta property="og:description" content="重点内容1：复合类型  变量的声明语句，是由基类型（int,float,char等）和其后面跟的一系列声明符（declarator）构成。每一个声明符将它后面的变量和基类型绑定起来，它只对紧跟着它的变量负责；基类型对它后面的所有变量负责。 123int i=1024,i2=2048; // i and i2 are both ints int&amp;amp;r=i,r2=i2; // r is a re">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-01T14:30:32.000Z">
+<meta property="og:updated_time" content="2018-01-09T13:31:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《C++ Primer 5th》Chapter2-ex2.1_2.25">
-<meta name="twitter:description" content="重点内容1：初始化时推荐使用{}初始化，但是要注意列表初始化（即使用{}初始化）不允许窄化操作。  摘自 Bjarne Stroustrup’s “The C++ Programming Language 4th Edition” (section 6.3.5):  List initialization does not allow narrowing (§iso.8.5.4). That is">
+<meta name="twitter:description" content="重点内容1：复合类型  变量的声明语句，是由基类型（int,float,char等）和其后面跟的一系列声明符（declarator）构成。每一个声明符将它后面的变量和基类型绑定起来，它只对紧跟着它的变量负责；基类型对它后面的所有变量负责。 123int i=1024,i2=2048; // i and i2 are both ints int&amp;amp;r=i,r2=i2; // r is a re">
 
 
 
@@ -361,7 +361,11 @@
       
 
       
-        <table><tr><td bgcolor="Lightcoral">重点内容1：初始化时推荐使用{}初始化，但是要注意列表初始化（即使用{}初始化）不允许窄化操作。</td></tr></table>
+        <table><tr><td bgcolor="Lightcoral">重点内容1：复合类型</td></tr></table>
+
+<p>变量的声明语句，是由<strong>基类型</strong>（int,float,char等）和其后面跟的一系列<strong>声明符</strong>（declarator）构成。每一个声明符将它后面的变量和基类型绑定起来，它只对紧跟着它的变量负责；基类型对它后面的所有变量负责。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i=<span class="number">1024</span>,i2=<span class="number">2048</span>; <span class="comment">// i and i2 are both ints </span></div><div class="line"><span class="keyword">int</span>&amp;r=i,r2=i2; <span class="comment">// r is a reference boundto i;r2 is an int int i3=1024,&amp;ri=i3; // i3 is an int;ri is a reference boundto i3 </span></div><div class="line"><span class="keyword">int</span> &amp;r3 = i3, &amp;r4 = i2; <span class="comment">// both r3 and r4 are references</span></div></pre></td></tr></table></figure>
+<table><tr><td bgcolor="Lightcoral">重点内容2：初始化时推荐使用{}初始化，但是要注意列表初始化（即使用{}初始化）不允许窄化操作。</td></tr></table>
 
 <p>摘自 Bjarne Stroustrup’s <em>“The C++ Programming Language 4th Edition”</em> (section 6.3.5):</p>
 <blockquote>
@@ -382,14 +386,14 @@
 <p>Example:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">auto</span> z1 &#123;<span class="number">99</span>&#125;; <span class="comment">// z1 is an initializer_list&lt;int&gt;</span></div><div class="line"><span class="keyword">auto</span> z2 = <span class="number">99</span>; <span class="comment">// z2 is an int</span></div></pre></td></tr></table></figure>
 <p><strong>结论：初始化优先考虑花括号{}，除非有其他原因。</strong></p>
-<table><tr><td bgcolor="Lightcoral">重点内容2：当定义变量而没有对变量初始化，该变量会被默认初始化。默认初始化的值取决于该变量的类型和其所在位置（全局变量还是函数里的局部变量）。</td></tr></table>
+<table><tr><td bgcolor="Lightcoral">重点内容3：当定义变量而没有对变量初始化，该变量会被默认初始化。默认初始化的值取决于该变量的类型和其所在位置（全局变量还是函数里的局部变量）。</td></tr></table>
 
 <ul>
 <li>定义在函数外的全局变量如果没有显式初始化，会被默认初始化为0。</li>
 <li>定义在函数内的内置类型变量如果没有显式初始化，不会被默认初始化。此时该变量很危险，因为不知道它是什么值。</li>
 <li>定义在函数内的类（class）类型变量如果没有显式初始化，它是否能被默认初始化，取决于该类。</li>
 </ul>
-<table><tr><td bgcolor="Lightcoral">重点内容3：引用和指针</td></tr></table>
+<table><tr><td bgcolor="Lightcoral">重点内容4：引用和指针</td></tr></table>
 
 <p><strong>引用：</strong></p>
 <ul>

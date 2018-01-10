@@ -640,7 +640,11 @@
 
       
         
-          <table><tr><td bgcolor="Lightcoral">重点内容1：初始化时推荐使用{}初始化，但是要注意列表初始化（即使用{}初始化）不允许窄化操作。</td></tr></table>
+          <table><tr><td bgcolor="Lightcoral">重点内容1：复合类型</td></tr></table>
+
+<p>变量的声明语句，是由<strong>基类型</strong>（int,float,char等）和其后面跟的一系列<strong>声明符</strong>（declarator）构成。每一个声明符将它后面的变量和基类型绑定起来，它只对紧跟着它的变量负责；基类型对它后面的所有变量负责。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i=<span class="number">1024</span>,i2=<span class="number">2048</span>; <span class="comment">// i and i2 are both ints </span></div><div class="line"><span class="keyword">int</span>&amp;r=i,r2=i2; <span class="comment">// r is a reference boundto i;r2 is an int int i3=1024,&amp;ri=i3; // i3 is an int;ri is a reference boundto i3 </span></div><div class="line"><span class="keyword">int</span> &amp;r3 = i3, &amp;r4 = i2; <span class="comment">// both r3 and r4 are references</span></div></pre></td></tr></table></figure>
+<table><tr><td bgcolor="Lightcoral">重点内容2：初始化时推荐使用{}初始化，但是要注意列表初始化（即使用{}初始化）不允许窄化操作。</td></tr></table>
 
 <p>摘自 Bjarne Stroustrup’s <em>“The C++ Programming Language 4th Edition”</em> (section 6.3.5):</p>
 <blockquote>
