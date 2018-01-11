@@ -939,12 +939,11 @@
 
       
         
-          <table><tr><td bgcolor="Lightcoral">重点内容1：const 和extern</td></tr></table>
+          <table><tr><td bgcolor="Lightcoral">重点内容1：语句作用域。定义在if,switch,while,for等控制结构的循环控制变量，只能在控制结构内部访问。</td></tr></table>
 
-<ul>
-<li>const 对象必须初始化。</li>
-<li>多个文件共享const对象，必须使用extern关键字定义该对象。</li>
-</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> (<span class="keyword">int</span> i = get_num()) <span class="comment">// i is created and initialized on each iteration </span></div><div class="line">  <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">i = <span class="number">0</span>; <span class="comment">// error: i is not accessible outside the loop</span></div></pre></td></tr></table></figure>
+<p>如果我们想访问循环控制变量，则应该把循环控制变量定义在控制结构外</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i;</div><div class="line"><span class="keyword">while</span> (i = get_num()) </div><div class="line">  <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">i = <span class="number">0</span>; <span class="comment">// ok</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/19/《C-Primer-5th》Chapter5-ex5-1-ex5-13/#more" rel="contents">
