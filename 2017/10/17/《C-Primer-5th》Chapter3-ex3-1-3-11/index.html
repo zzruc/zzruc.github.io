@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="张长写字的地方">
 <meta property="og:description" content="重点内容1：getline   geline接受的参数是一个输入流（cin)和一个字符串（string)。它将输入流当做一个字符串，包括空格，当读到第一个换行符时，它将该换行符之前的内容存入字符串。  可以将getline当做条件控制语句的条件。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-08T08:40:57.000Z">
+<meta property="og:updated_time" content="2018-01-12T01:40:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《C++ Primer 5th》Chapter3-ex3.1_3.11">
 <meta name="twitter:description" content="重点内容1：getline   geline接受的参数是一个输入流（cin)和一个字符串（string)。它将输入流当做一个字符串，包括空格，当读到第一个换行符时，它将该换行符之前的内容存入字符串。  可以将getline当做条件控制语句的条件。">
@@ -375,6 +375,70 @@
 <ul>
 <li>如果n是int类型，且为负数，s为string，则s.size()&lt;n一定成立，因为负数会转化为一个很大的正数。</li>
 </ul>
+<table><tr><td bgcolor="Lightcoral">重点内容3：字符函数</td></tr></table>
+
+<table>
+<thead>
+<tr>
+<th>字符函数（在cctype头文件里）</th>
+<th>为true的含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isalnum(c)</td>
+<td>为字母或数字</td>
+</tr>
+<tr>
+<td>isalpha(c)</td>
+<td>为字母</td>
+</tr>
+<tr>
+<td>iscntrl(c)</td>
+<td>为control字符</td>
+</tr>
+<tr>
+<td>isdigit(c)</td>
+<td>为数字</td>
+</tr>
+<tr>
+<td>isgraph(c)</td>
+<td>不是空格，但是可打印</td>
+</tr>
+<tr>
+<td>islower(c)</td>
+<td>是小写字母</td>
+</tr>
+<tr>
+<td>isprint(c)</td>
+<td>是可打印字符</td>
+</tr>
+<tr>
+<td>ispunct(c)</td>
+<td>是标点符号</td>
+</tr>
+<tr>
+<td>isspace(c)</td>
+<td>是空白符（空格，制表符，回车符等）</td>
+</tr>
+<tr>
+<td>isupper(c)</td>
+<td>是大写字母</td>
+</tr>
+<tr>
+<td>isxdigit(c)</td>
+<td>是16进制数字</td>
+</tr>
+<tr>
+<td>tolower(c)</td>
+<td>转化为小写</td>
+</tr>
+<tr>
+<td>toupper(c)</td>
+<td>转化为大写</td>
+</tr>
+</tbody>
+</table>
 <h2 id="Exercise-3-1"><a href="#Exercise-3-1" class="headerlink" title="Exercise  3.1"></a>Exercise  3.1</h2><blockquote>
 <p>Rewrite the exercises from § 1.4.1 (p. 13) and § 2.6.2 (p. 76) with appropriate using declarations.</p>
 </blockquote>
