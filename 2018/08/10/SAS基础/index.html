@@ -103,7 +103,8 @@
 <meta property="og:description" content="SAS基础知识点整理。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/2018/08/10/SAS基础/length.png">
-<meta property="og:updated_time" content="2018-08-10T08:34:32.023Z">
+<meta property="og:image" content="http://yoursite.com/2018/08/10/SAS基础/date.png">
+<meta property="og:updated_time" content="2018-08-10T12:38:24.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SAS基础">
 <meta name="twitter:description" content="SAS基础知识点整理。">
@@ -366,7 +367,7 @@
       
         <p>SAS基础知识点整理。</p>
 <a id="more"></a>
-<p>Variable attributes are defined when the variable is first encountered in the DATA step, a variable that is defined in a LENGTH statement (if it precedes an INPUT statement) appears first in the data set, regardless of the order of the variables in the INPUT statement.</p>
+<h1 id="变量Length属性的设定"><a href="#变量Length属性的设定" class="headerlink" title="变量Length属性的设定"></a>变量Length属性的设定</h1><p>Variable attributes are defined when the variable is first encountered in the DATA step, a variable that is defined in a LENGTH statement (if it precedes an INPUT statement) appears first in the data set, regardless of the order of the variables in the INPUT statement.</p>
 <p>For character variables, you must use the longest possible value in the first statement that uses the variable, because you cannot change the length with a subsequent LENGTH statement within the same DATA step. The maximum length of any character variable in SAS is 32,767 bytes. For numeric variables, you can change the length of the variable by using a subsequent LENGTH statement.</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">data a;</div><div class="line">input num  id $ <span class="number">3.</span>;</div><div class="line">length num <span class="number">3</span> id $<span class="number">2</span>;</div><div class="line">datalines;</div><div class="line"><span class="number">111</span> aaa</div><div class="line"><span class="number">222</span> bbb</div><div class="line">;</div><div class="line">run;</div></pre></td></tr></table></figure>
 <p><strong>length</strong>在这里可以更改num的长度，但是无法更改id的长度，因为id是character。</p>
@@ -375,6 +376,134 @@
 <p><img src="length.png" alt=""></p>
 <p>If a variable appears for the first time on the right side of an assignment statement, SAS assumes that it is a numeric variable and that its value is missing. If no later statement gives it a value, SAS prints a note in the log that the variable is uninitialized.</p>
 <p>Note:   A RETAIN statement initializes a variable and can assign it an initial value, even if the RETAIN statement appears after the assignment statement.</p>
+<h1 id="SAS-时间函数"><a href="#SAS-时间函数" class="headerlink" title="SAS 时间函数"></a>SAS 时间函数</h1><p>SAS时间函数里不容易记住的是<a href="http://support.sas.com/documentation/cdl/en/lefunctionsref/63354/HTML/default/viewer.htm#p1md4mx2crzfaqn14va8kt7qvfhr.htm" target="_blank" rel="external"><strong>INTCK</strong></a>和<strong>INTNX</strong>,因为这两个函数参数太多，不过同时也表明这两个函数很灵活,可以根据需求设置不同的multiple和shift-index,比如WEEK6.11表示每6周一个间隔的第二个星期三，其中6.11中的6是multiple，11是shife-index。具体可见<a href="http://support.sas.com/documentation/cdl/en/lefunctionsref/63354/HTML/default/viewer.htm#p0syn64amroombn14vrdzksh459w.htm" target="_blank" rel="external">这里</a></p>
+<p><img src="date.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>Interval</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DAY3</td>
+<td>Three-day intervals</td>
+</tr>
+<tr>
+<td>WEEK</td>
+<td>Weekly intervals starting on Sundays</td>
+</tr>
+<tr>
+<td>WEEK.7</td>
+<td>Weekly intervals starting on Saturdays</td>
+</tr>
+<tr>
+<td>WEEK6.13</td>
+<td>Six-week intervals starting on second Fridays</td>
+</tr>
+<tr>
+<td>WEEK2</td>
+<td>Biweekly intervals starting on first Sundays</td>
+</tr>
+<tr>
+<td>WEEK1.1</td>
+<td>Same as WEEK</td>
+</tr>
+<tr>
+<td>WEEK.2</td>
+<td>Weekly intervals starting on Mondays</td>
+</tr>
+<tr>
+<td>WEEK6.3</td>
+<td>Six-week intervals starting on first Tuesdays</td>
+</tr>
+<tr>
+<td>WEEK6.11</td>
+<td>Six-week intervals starting on second Wednesdays</td>
+</tr>
+<tr>
+<td>WEEK4</td>
+<td>Four-week intervals starting on first Sundays</td>
+</tr>
+<tr>
+<td>WEEKDAY</td>
+<td>Five-day work week with a Saturday-Sunday weekend</td>
+</tr>
+<tr>
+<td>WEEKDAY1W</td>
+<td>Six-day week with Sunday as a weekend day</td>
+</tr>
+<tr>
+<td>WEEKDAY35W</td>
+<td>Five-day week with Tuesday and Thursday as weekend days (W indicates that day 3 and day 5 are weekend days)</td>
+</tr>
+<tr>
+<td>WEEKDAY17W</td>
+<td>Same as WEEKDAY</td>
+</tr>
+<tr>
+<td>WEEKDAY67W</td>
+<td>Five-day week with Friday and Saturday as weekend days</td>
+</tr>
+<tr>
+<td>WEEKDAY3.2</td>
+<td>Three-weekday intervals with Saturday and Sunday as weekend days (The intervals are aligned with respect to Jan. 1, 1960. For intervals that nest within a year, it is not necessary to go back to Jan. 1, 1960 to determine the alignment.)</td>
+</tr>
+<tr>
+<td>TENDAY4.2</td>
+<td>Four ten-day periods starting at the second TENDAY period</td>
+</tr>
+<tr>
+<td>SEMIMONTH2.2</td>
+<td>Intervals from the sixteenth of one month through the fifteenth of the next month</td>
+</tr>
+<tr>
+<td>MONTH2.2</td>
+<td>February–March, April–May, June–July, August–September, October–November, and December–January of the following year</td>
+</tr>
+<tr>
+<td>MONTH2</td>
+<td>January–February, March–April, May–June, July–August, September–October, November–December</td>
+</tr>
+<tr>
+<td>QTR3.2</td>
+<td>Nine-month intervals starting on February 1, 1960, November 1, 1960, August 1, 1961, May 1, 1962, and so on.</td>
+</tr>
+<tr>
+<td>SEMIYEAR.3</td>
+<td>Six-month intervals, March–August and September–February</td>
+</tr>
+<tr>
+<td>YEAR.10</td>
+<td>Fiscal years starting in October</td>
+</tr>
+<tr>
+<td>YEAR2.7</td>
+<td>Biennial intervals starting in July of even years</td>
+</tr>
+<tr>
+<td>YEAR2.19</td>
+<td>Biennial intervals starting in July of odd years</td>
+</tr>
+<tr>
+<td>YEAR4.11</td>
+<td>Four-year intervals starting in November of leap years (frequency of U.S. presidential elections)</td>
+</tr>
+<tr>
+<td>YEAR4.35</td>
+<td>Four-year intervals starting in November of even years between leap years (frequency of U.S. midterm elections)</td>
+</tr>
+<tr>
+<td>DTMONTH13</td>
+<td>Thirteen-month intervals starting at midnight of January 1, 1960, such as November 1, 1957, December 1, 1958, January 1, 1960, February 1, 1961, and March 1, 1962</td>
+</tr>
+<tr>
+<td>HOUR8.7</td>
+<td>Eight-hour intervals starting at 6 a.m., 2 p.m., and 10 p.m. (might be used for work shifts)</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -465,8 +594,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -528,6 +666,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#变量Length属性的设定"><span class="nav-number">1.</span> <span class="nav-text">变量Length属性的设定</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SAS-时间函数"><span class="nav-number">2.</span> <span class="nav-text">SAS 时间函数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
